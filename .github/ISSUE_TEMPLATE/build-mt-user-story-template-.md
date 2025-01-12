@@ -7,7 +7,7 @@ assignees: ''
 
 ---
 
-Using **project**;
+Using **build.mt**;
 
 As a **visitor/user/admin** I can **ability** in order to **result**
 
@@ -15,12 +15,6 @@ As a **visitor/user/admin** I can **ability** in order to **result**
 
 **CB1**
 
-- 
-
 **CB2**
 
--
-
 **CB3**
-
--
