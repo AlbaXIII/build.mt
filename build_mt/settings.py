@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-ls0-qhh6uung!^(kzsq-+ghn$4!m1f4%19s%wm9l8*&njst4k)'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ["8000-albaxiii-buildmt-4r2au04hxk3.ws.codeinstitute-ide.net"]
+ALLOWED_HOSTS = ['8000-albaxiii-buildmt-4r2au04hxk3.ws.codeinstitute-ide.net', '.herokuapp.com',]
 
 
 # Application definition
@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'bgbuild',
 ]
 
 MIDDLEWARE = [

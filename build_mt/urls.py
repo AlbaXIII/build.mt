@@ -16,7 +16,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from bgbuild import views as bgbuild_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('bgbuildtest/', bgbuild_views.bgbuildtest, name='bgbuildtest'),
 ]
