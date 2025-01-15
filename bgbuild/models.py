@@ -33,7 +33,7 @@ BARBARIAN_SUBCLASS = [
 
 BARD_SUBCLASS = [
     ('college of lore', 'College of Lore'),
-    ('college of valour' 'College of Valour'),
+    ('college of valour', 'College of Valour'),
     ('college of swords', 'College of Swords')
 ]
 
@@ -84,7 +84,7 @@ ROGUE_SUBCLASS = [
     ('assassin', 'Assassin')
 ]
 
-SORCERER = [
+SORCERER_SUBCLASS = [
     ('wild magic', 'Wild Magic'),
     ('draconic bloodline', 'Draconic Bloodline'),
     ('storm sorcery', 'Storm Sorcery')
@@ -105,13 +105,6 @@ WIZARD_SCHOOL = [
     ('divination', 'Divination'),
     ('illusion', 'Illusion'),
     ('transmutation', 'Transmutation')
-]
-
-DIFFICULTY = [
-    ('easy', 'Easy'),
-    ('medium', 'Medium'),
-    ('hard', 'Hard'),
-    ('expert', 'Expert')
 ]
 
 MULTICLASS = [
@@ -135,65 +128,60 @@ class Bgbuild(models.Model):
         max_length=50, choices=BUILD_ROLES, default='Melee')
     bgbase_class = models.CharField(
         max_length=10, choices=BASE_CLASS, default='N/A')
-    if bgbase_class == ('barbarian'):
-        bgsubclass = models.CharField(
-            max_length=50, choices=BARBARIAN_SUBCLASS
-        )
-    elif bgbase_class == ('bard'):
-        bgsubclass = models.CharField(
-            max_length=50, choices=BARD_SUBCLASS
-        )
-    elif bgbase_class == ('cleric'):
-        bgsubclass = models.CharField(
-            max_length=50, choices=CLERIC_DOMAIN
-        )
-    elif bgbase_class == ('druid'):
-        bgsubclass = models.CharField(
-            max_length=50, choices=DRUID_SUBCLASS
-        )
-    elif bgbase_class == ('fighter'):
-        bgsubclass = models.CharField(
-            max_length=50, choices=FIGHTER_SUBCLASS
-        )
-    elif bgbase_class == ('monk'):
-        bgsubclass = models.CharField(
-            max_length=50, choices=MONK_SUBCLASS
-        )
-    elif bgbase_class == ('paladin'):
-        bgsubclass = models.CharField(
-            max_length=50, choices=PALADIN_OATH
-        )
-    elif bgbase_class == ('ranger'):
-        bgsubclass = models.CharField(
-            max_length=50, choices=RANGER_SUBCLASS
-        )
-    elif bgbase_class == ('rogue'):
-        bgsubclass = models.CharField(
-            max_length=50, choices=ROGUE_SUBCLASS
-        )
-    elif bgbase_class == ('sorcerer'):
-        bgsubclass = models.CharField(
-            max_length=50, choices=SORCERER_SUBCLASS
-        )
-    elif bgbase_class == ('warlock'):
-        bgsubclass = models.CharField(
-            max_length=50, choices=WARLOCK_SUBCLASS
-        )
-    elif bgbase_class == ('wizard'):
-        bgsubclass = models.CharField(
-            max_length=50, choices=WIZARD_SCHOOL
-        )
+    
+    barbarian_subclass = models.CharField(
+        max_length=50, choices=BARBARIAN_SUBCLASS, default='Beserker'
+    )
+    bard_subclass = models.CharField(
+        max_length=50, choices=BARD_SUBCLASS, default='College of Lore'
+    )
+    cleric_domain = models.CharField(
+        max_length=50, choices=CLERIC_DOMAIN, default='Life'
+    )
+    druid_subclass = models.CharField(
+        max_length=50, choices=DRUID_SUBCLASS, default='Circle of the Land'
+    )
+    druid_subclass = models.CharField(
+        max_length=50, choices=DRUID_SUBCLASS, default='Circle of the Land'
+    )
+    fighter_subclass = models.CharField(
+        max_length=50, choices=FIGHTER_SUBCLASS, default='Champion'
+    )
+    monk_subclass = models.CharField(
+        max_length=50, choices=MONK_SUBCLASS, default='Way of the Four Elements'
+    )
+    paladin_oath = models.CharField(
+        max_length=50, choices=PALADIN_OATH, default='Oath of the Ancients'
+    )
+    ranger_subclass = models.CharField(
+        max_length=50, choices=RANGER_SUBCLASS, default='Hunter'
+    )
+    rogue_subclass = models.CharField(
+        max_length=50, choices=ROGUE_SUBCLASS, default='Thief'
+    )
+    sorcerer_subclass = models.CharField(
+        max_length=50, choices=SORCERER_SUBCLASS, default='Wild Magic'
+    )
+    warlock_subclass = models.CharField(
+        max_length=50, choices=WARLOCK_SUBCLASS, default='The Fiend'
+    )
+    wizard_school = models.CharField(
+        max_length=50, choices=WIZARD_SCHOOL, default='Abjuration'
+    )
+    
     multiclass = models.CharField(
-        max_length=3, choices=MULTICLASS, default='No')
-    if multiclass == ('Yes'):
-        multiclass_one = models.CharField(
-        max_length=10, choices=BASE_CLASS, default="N/A")
-    level = models.IntegerField(
+        max_length=3, choices=MULTICLASS, default='No')    
+    multiclass_one = models.CharField(
+        max_length=10, choices=BASE_CLASS, default='N/A')    
+    multiclass_two = models.CharField(
+        max_length=10, choices=BASE_CLASS, default='N/A')
+    classone_level = models.IntegerField(
         default=1, validators=[
             MaxValueValidator(12),
             MinValueValidator(1)
         ]
     )
+    
     excerpt = models.CharField(max_length=100, null=False, blank=False)
     content = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
