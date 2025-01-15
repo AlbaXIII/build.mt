@@ -191,5 +191,5 @@ class Bgbuild(models.Model):
         ordering = ["-created_on"]
 
     def __str__(self):
-        return f"{self.build_title} | Posted by {self.user}"
+        return f"{self.bgbuild_title} | Posted by {self.user}"
     
