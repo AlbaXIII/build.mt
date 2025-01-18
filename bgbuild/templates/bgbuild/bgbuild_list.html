@@ -1,19 +1,96 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'base.html' %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Views Part 1</title>
-</head>
+{% load static %}
 
-<body>
-    <h1>Build list</h1>
-    {% for bgbuild in object_list %}
-    <h2>{{bgbuild.bgbuild_title}}</h2>
-    <h3>{{bgbuild.content}}</h3>
-    {% endfor %}
-</body>
+{% block content %}
 
-</html>
+<!-- search bar section for quick access to users -->
+<section class="search-area">
+    <div class="container-fluid">
+        <div class="search-bar">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Search builds..." aria-label="Search" aria-describedby="search-addon">
+                <button class="btn btn-outline-secondary" type="button" id="search-addon">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- build list -->
+<section>
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <!-- Blog Entries Column -->
+            <div class="col-sm-9 mt-3 right">
+                <div class="row">
+                    {% for build in object_list %}
+                    <div class="col-md-3">
+                        <div class="card border-dark mb-3 build-card">
+                            <div class="card-header build-header" id="card-icon">
+                                <a href="#" class="build-link">
+                                    <h2 class="card-title">{{build.bgbuild_title}}</h2>
+                                </a>
+                            </div>
+                            <div class="card-body">
+                                <div class="image-container mx-auto">
+                                    {% if "placeholder" in post.featured_image.url %}
+                                    <img class="card-img-left" src="#"
+                                        alt="placeholder image">
+                                    {% else %}
+                                    <img class="card-img-top" src="#" alt="#">
+                                    {% endif %}
+                                </div>                                
+                                <a href="" class="build-likes">
+                                    <i class="fa-solid fa-heart"> ##</i>
+                                </a>
+                            </div>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item"><b>Role </b>| {{ build.bgbuild_role }}</li>
+                                    <li class="list-group-item"><b>Base class </b>| {{ build.bgbase_class }}</li>
+                                    <li class="list-group-item"><b>Base Level </b>| {{ build.classone_level }}</li>
+                                    <li class="list-group-item">{{ build.excerpt }}</li>
+                                    <li class="list-group-item build-details">created by <a href="#" class="user-link">{{ build.user }}</a></li>
+                                </ul>
+                            <a href="#" class="btn btn-primary explore-btn"
+                                aria-label="Opens detailed build post">Explore Build
+                            </a>
+                        </div>
+                    </div>
+                    {% if forloop.counter|divisibleby:4 %}
+                </div>
+                <div class="row">
+                    {% endif %}
+                    {% endfor %}
+
+                </div>
+            </div>
+        </div>
+        {% if is_paginated %}
+        <nav aria-label="Page navigation">
+            <ul class="pagination justify-content-center">
+                {% if page_obj.has_next %}
+                <li><a href="?page={{ page_obj.next_page_number }}" class="page-link"> NEXT &raquo;</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+        {% endif %}
+    </div>
+</section>
+
+<!-- Add build button -->
+<section>
+    <div class="container add-build">
+        <div>
+            <a href="#">
+                <i class="fa-solid fa-circle-plus fa-2xl"></i>
+            </a>
+        </div>
+    </div>
+</section>
+
+
+<!-- index.html content ends here -->
+
+{% endblock %}
