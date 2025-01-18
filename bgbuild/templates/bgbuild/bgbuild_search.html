@@ -4,28 +4,26 @@
 
 {% block content %}
 
-<!-- search bar section for quick access to users -->
-<section class="search-area">
-    <div class="container-fluid">
-        <div class="search-bar">
-            <form class="input-group" action="{% url 'searchbuild' %}" method="POST" role="form">
-                {% csrf_token %}
-                <input type="text" name="searchbuilds" class="form-control" placeholder="Search builds..." aria-label="Search" aria-describedby="search-addon">
-                <button class="btn btn-outline-secondary" type="submit" id="search-addon" action="{% url 'searchbuild' %}">
-                    <i class="fas fa-search"></i>
-                </button>
-            </form>
+<!-- search results returned -->
+<section>
+    <div class="container">
+        <div class="row search-results">
+            <div class="col-md-8 mx-auto">
+                <h1>Search: {{ build_search }}</h1>
+                <p>{{ total }} Build(s) found!</p>
+            </div>
         </div>
     </div>
 </section>
 
-<!-- build list -->
+
+<!-- searched build list returned -->
 <section>
     <div class="container-fluid">
         <div class="row justify-content-center">
             <div class="col-sm-9 mt-3 right">
                 <div class="row">
-                    {% for build in object_list %}
+                    {% for build in builds %}
                     <div class="col-md-3">
                         <div class="card border-dark mb-3 build-card">
                             <div class="card-header build-header" id="card-icon">
@@ -66,26 +64,17 @@
                 </div>
             </div>
         </div>
-        {% if is_paginated %}
-        <nav aria-label="Page navigation">
-            <ul class="pagination justify-content-center">
-                {% if page_obj.has_next %}
-                <li><a href="?page={{ page_obj.next_page_number }}" class="page-link"> NEXT &raquo;</a></li>
-                {% endif %}
-            </ul>
-        </nav>
-        {% endif %}
     </div>
 </section>
 
-<!-- Add build button -->
+<!-- return to build page -->
 <section>
-    <div class="container add-build">
-        <div>
-            <a href="#">
-                <i class="fa-solid fa-circle-plus fa-2xl"></i>
+    <div class="container btn-return-container text-center">
+        <button class="btn btn-secondary btn-lg btn-return">
+            <a href="{% url 'bgbuilds' %}">
+                Return to all builds
             </a>
-        </div>
+        </button>
     </div>
 </section>
 
