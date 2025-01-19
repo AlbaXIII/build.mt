@@ -183,3 +183,16 @@ body {
     padding-right:0px;
     margin-top:10px;
 }
+
+/* allauth account styles */
+
+.login-page {
+    font-family: Libre Baskerville, sans-serif;
+    color: #fff;
+    margin-top: 50px;
+}
+
+#account-btns {
+    background: #FFD151;
+    color: #423E37;
+}
