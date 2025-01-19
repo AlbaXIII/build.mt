@@ -29,11 +29,37 @@
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item"><b>Role </b>| {{ build.bgbuild_role }}</li>
                         <li class="list-group-item"><b>Base class </b>| {{ build.bgbase_class }}</li>
-                        <li class="list-group-item"><b>Subclass </b>| </li>
+                        {% if build.bgbase_class == "barbarian" %}
+                            <li class="list-group-item"><b>Subclass </b>| {{ build.barbarian_subclass }}</li>
+                        {% elif build.bgbase_class == "bard" %}
+                            <li class="list-group-item"><b>Subclass </b>| {{ build.bard_subclass }}</li>
+                        {% elif build.bgbase_class == "cleric" %}
+                            <li class="list-group-item"><b>Subclass </b>| {{ build.cleric_domain }}</li>
+                        {% elif build.bgbase_class == "druid" %}
+                            <li class="list-group-item"><b>Subclass </b>| {{ build.druid_subclass }}</li>
+                        {% elif build.bgbase_class == "fighter" %}
+                            <li class="list-group-item"><b>Subclass </b>| {{ build.fighter_subclass }}</li>
+                        {% elif build.bgbase_class == "monk" %}
+                            <li class="list-group-item"><b>Subclass </b>| {{ build.monk_subclass }}</li>
+                        {% elif build.bgbase_class == "paladin" %}
+                            <li class="list-group-item"><b>Subclass </b>| {{ build.paladin_oath }}</li>
+                        {% elif build.bgbase_class == "ranger" %}
+                            <li class="list-group-item"><b>Subclass </b>| {{ build.ranger_subclass }}</li>
+                        {% elif build.bgbase_class == "rogue" %}
+                            <li class="list-group-item"><b>Subclass </b>| {{ build.rogue_subclass }}</li>
+                        {% elif build.bgbase_class == "sorcerer" %}
+                            <li class="list-group-item"><b>Subclass </b>| {{ build.sorcerer_subclass }}</li>
+                        {% elif build.bgbase_class == "warlock" %}
+                            <li class="list-group-item"><b>Subclass </b>| {{ build.warlock_subclass }}</li>
+                        {% elif build.bgbase_class == "wizard" %}
+                            <li class="list-group-item"><b>Subclass </b>| {{ build.wizard_school }}</li>
+                        {% endif %}
                         <li class="list-group-item"><b>Base Level </b>| {{ build.classone_level }}</li>
                         <li class="list-group-item"><b>Multiclass? </b>|  {{ build.multiclass }}</li>
-                        <li class="list-group-item"><b>Multiclass One </b>|  {{ build.multiclass_one }}</li>
-                        <li class="list-group-item"><b>Multiclass One Level </b>| </li>
+                        {% if build.multiclass == "yes" %}
+                            <li class="list-group-item"><b>Multiclass One </b>|  {{ build.multiclass_one }}</li>
+                            <li class="list-group-item"><b>Multiclass One Level </b>| </li>
+                        {% endif %}
                         <li class="list-group-item build-details">created by <a href="#" class="user-link">{{ build.user }}</a></li>
                     </ul>
                 </div>
@@ -58,4 +84,8 @@
     </div>
 </section>
 
+{% endblock %}
+
+{% block extras %}
+<script src="{% static 'js/script.js' %}"></script>
 {% endblock %}
