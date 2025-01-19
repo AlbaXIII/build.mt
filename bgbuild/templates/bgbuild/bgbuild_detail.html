@@ -54,12 +54,11 @@
                         {% elif build.bgbase_class == "wizard" %}
                             <li class="list-group-item"><b>Subclass </b>| {{ build.wizard_school }}</li>
                         {% endif %}
-                        <li class="list-group-item"><b>Base Level </b>| {{ build.classone_level }}</li>
                         <li class="list-group-item"><b>Multiclass? </b>|  {{ build.multiclass }}</li>
                         {% if build.multiclass == "yes" %}
                             <li class="list-group-item"><b>Multiclass One </b>|  {{ build.multiclass_one }}</li>
-                            <li class="list-group-item"><b>Multiclass One Level </b>| </li>
                         {% endif %}
+                        <li class="list-group-item"><b>Level Split </b>| {{ build.classone_level }}</li>
                         <li class="list-group-item build-details">created by <a href="#" class="user-link">{{ build.user }}</a></li>
                     </ul>
                 </div>

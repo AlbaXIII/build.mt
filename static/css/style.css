@@ -169,6 +169,7 @@ body {
 .btn-return {
     background: #FFD151;
     color: #423E37;
+    margin-bottom: 10px;
 }
 
 .add-build a:hover {
