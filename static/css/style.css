@@ -192,6 +192,18 @@ body {
     margin-top: 50px;
 }
 
+.signup-page {
+    font-family: Libre Baskerville, sans-serif;
+    color: #fff;
+    margin-top: 50px;
+    list-style-type: none;
+    text-align: left;
+}
+
+.signup-page ul {
+    list-style-type: none;
+}
+
 #account-btns {
     background: #FFD151;
     color: #423E37;
