@@ -1,8 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.views import generic
 from django.views.generic import CreateView, ListView, DeleteView, UpdateView
 from django.db.models import Q
 from .models import Bgbuild
+
 
 # Create your views here.
 class BgbuildList(generic.ListView):
@@ -18,3 +19,13 @@ def searchBuild(request):
     else:
         return render(request, 'bgbuild/bgbuild_search.html', {})
 
+def buildDetail(request, slug):
+    queryset = Bgbuild.objects.filter(status=1)
+    build = get_object_or_404(queryset, slug=slug)
+    return render(
+        request,
+        "bgbuild/bgbuild_detail.html",
+        {
+            "build": build,
+        },
+    )

@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+<!-- detailed build view with javascript for class -->
+<section>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="card border-dark mb-3 build-card card-detail">
+                <div class="card-header build-header" id="card-icon">
+                    <h2 class="card-title">{{build.bgbuild_title}}</h2>
+                </div>
+                <div class="card-body">
+                    <div class="image-container mx-auto">
+                        {% if "placeholder" in post.featured_image.url %}
+                        <img class="card-img-left" src="#"
+                            alt="placeholder image">
+                        {% else %}
+                        <img class="card-img-top" src="#" alt="#">
+                        {% endif %}
+                    </div>                                
+                    <a href="" class="build-likes">
+                        <i class="fa-solid fa-heart"> ##</i>
+                    </a>
+                </div>
+                <div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><b>Role </b>| {{ build.bgbuild_role }}</li>
+                        <li class="list-group-item"><b>Base class </b>| {{ build.bgbase_class }}</li>
+                        <li class="list-group-item"><b>Subclass </b>| </li>
+                        <li class="list-group-item"><b>Base Level </b>| {{ build.classone_level }}</li>
+                        <li class="list-group-item"><b>Multiclass? </b>|  {{ build.multiclass }}</li>
+                        <li class="list-group-item"><b>Multiclass One </b>|  {{ build.multiclass_one }}</li>
+                        <li class="list-group-item"><b>Multiclass One Level </b>| </li>
+                        <li class="list-group-item build-details">created by <a href="#" class="user-link">{{ build.user }}</a></li>
+                    </ul>
+                </div>
+                <div class="card-body">
+                    <p>
+                        {{ build.content }}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- return to main build page -->
+<section>
+    <div class="container btn-return-container text-center">
+        <button class="btn btn-secondary btn-lg btn-return">
+            <a href="{% url 'bgbuilds' %}">
+                Return to all builds
+            </a>
+        </button>
+    </div>
+</section>
+
+{% endblock %}

@@ -100,6 +100,10 @@ body {
     background-color: #423E37;
 }
 
+.card {
+    font-family: Libre Baskerville, sans-serif;
+}
+
 .card-title {
     font-size: 1.2rem;
     margin: 0px;
@@ -171,4 +175,10 @@ body {
     color: #423E37;
     filter: invert(100%);
     font-size: 18px;
+}
+
+.card-detail {
+    padding-left:0px;
+    padding-right:0px;
+    margin-top:10px;
 }
