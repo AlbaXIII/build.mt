@@ -2,6 +2,8 @@
 
 {% load static %}
 
+{% load crispy_forms_tags %}
+
 {% block content %}
 
 <!-- detailed build view with javascript for class -->
@@ -85,8 +87,23 @@
             </div>
         </div>
 
-
-
+        <div class="row justify-content-center">
+            <div class="card-body">
+                {% if user.is_authenticated %}
+                <h3>Leave a comment:</h3>
+                <p>Posting as: {{ user.username }}</p>
+                <form id="commentForm" method="post"
+                    style="margin-top: 1.2em;">
+                    {{ comment_form | crispy }}
+                    {% csrf_token %}
+                    <button id="submitButton" type="submit"
+                    class="btn btn-signup btn-lg comment-btn">Submit</button>
+                </form>
+                {% else %}
+                <p>Please register or login to leave a comment.</p>
+                {% endif %}
+            </div>
+        </div>
         <div class="row justify-content-center">
             <div class="card border-light mb-4 mt-3 comment-section">
                 <h3 class="comment-header">Comments:</h3>

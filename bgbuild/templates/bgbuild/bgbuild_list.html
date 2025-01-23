@@ -2,6 +2,8 @@
 
 {% load static %}
 
+{% load crispy_forms_tags %}
+
 {% block content %}
 
 <!-- search bar section for quick access to users -->
@@ -27,7 +29,7 @@
                 <div class="row">
                     {% for build in object_list %}
                     <div class="col-md-3">
-                        <div class="card border-dark mb-3 build-card">
+                        <div class="card border-light mb-3 build-card">
                             <div class="card-header build-header" id="card-icon">
                                 <a href="#" class="build-link">
                                     <h2 class="card-title">{{build.bgbuild_title}}</h2>
@@ -45,6 +47,9 @@
                                 <a href="" class="build-likes">
                                     <i class="fa-solid fa-heart"> ##</i>
                                 </a>
+                                <i class="fa-solid fa-comment fa build-comments">
+                                    {{ comment_count }}
+                                </i>
                             </div>
                                 <ul class="list-group list-group-flush">
                                     <li class="list-group-item"><b>Role </b>| {{ build.bgbuild_role }}</li>

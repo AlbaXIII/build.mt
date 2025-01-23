@@ -49,6 +49,15 @@ body {
     background-color: #423E37;
 }
 
+/* base.html message alerts */
+
+.alert {
+    color: #423E37;
+    font-family: Libre Baskerville, sans-serif;
+    margin-top: 10px;
+    background-color: #FFD151;
+}
+
 /* base.html footer style */
 
 .footer {
@@ -227,4 +236,9 @@ body {
 
 .comment-break {
     background-color: #fff;
+}
+
+.comment-btn {
+    background: #FFD151;
+    color: #423E37;
 }

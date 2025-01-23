@@ -1,8 +1,10 @@
 from django.shortcuts import render, get_object_or_404
 from django.views import generic
+from django.contrib import messages
 from django.views.generic import CreateView, ListView, DeleteView, UpdateView
 from django.db.models import Q
 from .models import Bgbuild
+from .forms import BgcommentForm
 
 
 # Create your views here.
@@ -25,6 +27,20 @@ def buildDetail(request, slug):
     comments = build.comments.all().order_by("-created_on")
     comment_count = build.comments.count()
 
+    if request.method == "POST":
+        comment_form = BgcommentForm(data=request.POST)
+        if comment_form.is_valid():
+            comment = comment_form.save(commit=False)
+            comment.user = request.user
+            comment.build = build
+            comment.save()
+            messages.add_message(
+                request, messages.SUCCESS,
+                'Comment submitted!'
+            )
+
+    comment_form = BgcommentForm()
+
     return render(
         request,
         "bgbuild/bgbuild_detail.html",
@@ -32,5 +48,6 @@ def buildDetail(request, slug):
             "build": build,
             "comments": comments,
             "comment_count": comment_count,
+            "comment_form": comment_form,
         },
     )
