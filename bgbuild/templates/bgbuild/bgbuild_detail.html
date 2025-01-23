@@ -8,7 +8,7 @@
 <section>
     <div class="container">
         <div class="row justify-content-center">
-            <div class="card border-dark mb-3 build-card card-detail">
+            <div class="card border-light mb-3 build-card card-detail">
                 <div class="card-header build-header" id="card-icon">
                     <h2 class="card-title">{{build.bgbuild_title}}</h2>
                 </div>
@@ -21,9 +21,6 @@
                         <img class="card-img-top" src="#" alt="#">
                         {% endif %}
                     </div>                                
-                    <a href="" class="build-likes">
-                        <i class="fa-solid fa-heart"> ##</i>
-                    </a>
                 </div>
                 <div>
                     <ul class="list-group list-group-flush">
@@ -66,6 +63,49 @@
                     <p>
                         {{ build.content }}
                     </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- comment display, form -->
+<section>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12">
+                <strong class="text-secondary">
+                    <i class="fa-solid fa-comment fa-xl build-comments"></i>
+                    {{ comment_count }}
+                                  
+                    <a href="" class="build-likes">
+                        <i class="fa-solid fa-heart fa-xl"> ##</i>
+                    </a>
+                </strong>
+            </div>
+        </div>
+
+
+
+        <div class="row justify-content-center">
+            <div class="card border-light mb-4 mt-3 comment-section">
+                <h3 class="comment-header">Comments:</h3>
+                <br class="comment-break">
+                <div class="card-body">
+                    {% for comment in comments %}
+                    <div class="p-2">
+                        <div id="comment{{ comment.id }}">
+                            {{ comment.body | linebreaks }}
+                        </div>
+                        <br>
+                        <p class="font-weight-bold">
+                            {{ comment.user }}
+                            <span class="font-weight-normal">
+                              {{ comment.created_on }}
+                            </span>
+                        </p>
+                    </div>
+                    {% endfor %}
                 </div>
             </div>
         </div>

@@ -22,10 +22,15 @@ def searchBuild(request):
 def buildDetail(request, slug):
     queryset = Bgbuild.objects.filter(status=1)
     build = get_object_or_404(queryset, slug=slug)
+    comments = build.comments.all().order_by("-created_on")
+    comment_count = build.comments.count()
+
     return render(
         request,
         "bgbuild/bgbuild_detail.html",
         {
             "build": build,
+            "comments": comments,
+            "comment_count": comment_count,
         },
     )

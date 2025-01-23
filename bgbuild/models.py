@@ -118,7 +118,7 @@ STATUS = ((0, "Draft"), (1, "Published"))
 
 class Bgbuild(models.Model):
     """
-    A model to create Baldur's Gate 3 build posts.
+    A model to create Baldur's Gate 3 build posts related to build_owner
     """
     user = models.ForeignKey(
         User, related_name='build_owner', on_delete=models.CASCADE)
@@ -193,3 +193,19 @@ class Bgbuild(models.Model):
     def __str__(self):
         return f"{self.bgbuild_title} | Posted by {self.user}"
     
+
+class Bgcomment(models.Model):
+    """
+    User can create comment in relation to :model:`auth.User`
+    and :model:`bgbuild.Bgbuild`.
+    """
+    build = models.ForeignKey(Bgbuild, on_delete=models.CASCADE, related_name="comments")
+    user = models.ForeignKey(User, related_name='commenter', on_delete=models.CASCADE)
+    body = models.TextField()
+    created_on = models.DateTimeField(auto_now_add=True)
+    
+    class Meta:
+        ordering = ["created_on"]
+
+    def __str__(self):
+        return f"Comment | {self.body} | by {self.user}"

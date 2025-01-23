@@ -113,7 +113,7 @@ body {
 .build-likes {
     display: block;
     float: inherit;
-    color: #fff;
+    color: #cf0e0e;
 }
 
 .card-body {
@@ -207,4 +207,24 @@ body {
 #account-btns {
     background: #FFD151;
     color: #423E37;
+}
+
+.build-comments {
+    color: #fff;
+    margin-bottom: 20px;
+    background-color: #423E37;
+}
+
+.comment-section {
+    width: 100%;
+    color: #fff;
+    background-color: #423E37;
+}
+
+.comment-header {
+    padding-top: 10px;
+}
+
+.comment-break {
+    background-color: #fff;
 }
