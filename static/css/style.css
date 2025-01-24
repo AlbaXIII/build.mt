@@ -187,6 +187,12 @@ body {
     font-size: 18px;
 }
 
+.image-container {
+    position: relative;
+    width: 100%;
+    height: auto;
+}
+
 .card-detail {
     padding-left:0px;
     padding-right:0px;

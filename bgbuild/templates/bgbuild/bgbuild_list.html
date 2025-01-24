@@ -37,11 +37,11 @@
                             </div>
                             <div class="card-body">
                                 <div class="image-container mx-auto">
-                                    {% if "placeholder" in post.featured_image.url %}
-                                    <img class="card-img-left" src="#"
+                                    {% if "placeholder" in build.bgbuild_image.url %}
+                                    <img class="card-img" src="{% static 'images/bg3/default.png' %}"
                                         alt="placeholder image">
                                     {% else %}
-                                    <img class="card-img-top" src="#" alt="#">
+                                    <img class="card-img" src="{{ build.bgbuild_image.url }}" alt="user build image">
                                     {% endif %}
                                 </div>                                
                                 <a href="" class="build-likes">

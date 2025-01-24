@@ -16,11 +16,11 @@
                 </div>
                 <div class="card-body">
                     <div class="image-container mx-auto">
-                        {% if "placeholder" in post.featured_image.url %}
-                        <img class="card-img-left" src="#"
+                        {% if "placeholder" in build.bgbuild_image.url %}
+                        <img class="card-img scale" src="{% static 'images/bg3/default.png' %}"
                             alt="placeholder image">
                         {% else %}
-                        <img class="card-img-top" src="#" alt="#">
+                        <img class="card-img-top" src="{{ build.bgbuild_image.url }}" alt="user build image">
                         {% endif %}
                     </div>                                
                 </div>
@@ -121,6 +121,7 @@
                               {{ comment.created_on }}
                             </span>
                         </p>
+                        <!-- edit/delete buttons go here -->
                         <br>
                         {% if user.is_authenticated %}
                             <h4>Leave a reply</h4>

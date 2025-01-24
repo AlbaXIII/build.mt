@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from cloudinary.models import CloudinaryField
 from django.core.validators import MaxValueValidator, MinValueValidator
 import uuid
 
@@ -124,12 +125,12 @@ class Bgbuild(models.Model):
     user = models.ForeignKey(
         User, related_name='build_owner', on_delete=models.CASCADE)
     bgbuild_title = models.CharField(max_length=250, null=False, blank=False)
+    bgbuild_image = CloudinaryField('image', default='placeholder')
     slug = models.SlugField(max_length=250, unique=True)
     bgbuild_role = models.CharField(
         max_length=50, choices=BUILD_ROLES, default='Melee')
     bgbase_class = models.CharField(
         max_length=10, choices=BASE_CLASS, default='N/A')
-    
     barbarian_subclass = models.CharField(
         max_length=50, choices=BARBARIAN_SUBCLASS, default='Beserker'
     )

@@ -1,11 +1,11 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic
 from django.contrib import messages
+from django.http import HttpResponseRedirect
 from django.views.generic import CreateView, ListView, DeleteView, UpdateView
 from django.db.models import Q
 from .models import Bgbuild, Bgcomment
 from .forms import BgcommentForm, BgreplyForm
-
 
 # Create your views here.
 class BgbuildList(generic.ListView):
@@ -37,7 +37,7 @@ def buildDetail(request, slug):
             comment.save()
             messages.add_message(
                 request, messages.SUCCESS,
-                'Comment posted!'
+                'Comment posted'
             )
         elif 'reply' in request.POST:
             comment_id = request.POST['comment_id']
@@ -48,7 +48,7 @@ def buildDetail(request, slug):
             reply.save()
             messages.add_message(
                 request, messages.SUCCESS,
-                'Reply posted!'
+                'Reply posted'
             )
             
     comment_form = BgcommentForm()
@@ -65,3 +65,28 @@ def buildDetail(request, slug):
             "reply_form": reply_form,
         },
     )
+
+def bgcommentEdit(request, slug, comment_id):
+    """
+    view to enable users to edit self posted comments
+    """
+    
+    if request.method == "POST":
+
+        queryset = Bgbuild.objects.filter(status=1)
+        build = get_object_or_404(queryset, slug=slug)
+        comment = get_object_or_404(Bgcomment, pk="comment_id")
+        comment_form = BgcommentForm(data=request.POST, instance=comment)
+
+        if comment_form.is_valid() and comment.user == request.user:
+            comment = comment_form.save(commit=False)
+            comment.build = build
+            comment.save()
+            messages.add_message(
+                request, messages.SUCCESS,
+                'Comment Updated'
+            )
+        else:
+            messages.add_message(request, messages.ERROR, 'Error Updating Comment')
+    
+    return HttpResponseRedirect(reverse('bgbuild_detail', args=[slug]))
