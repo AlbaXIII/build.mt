@@ -161,6 +161,14 @@ body {
     margin-bottom: 20px;
 }
 
+.add-build h4 {
+    display:inline-block;
+    text-align: center;
+    width: 100%;
+    color: #FFD151;
+    font-family: Libre Baskerville, sans-serif;
+}
+
 .search-results {
     font-family: Libre Baskerville, sans-serif;
     color: #fff;

@@ -5,7 +5,7 @@ from django.http import HttpResponseRedirect
 from django.views.generic import CreateView, ListView, DeleteView, UpdateView
 from django.db.models import Q
 from .models import Bgbuild, Bgcomment
-from .forms import BgcommentForm, BgreplyForm
+from .forms import BgcommentForm, BgreplyForm, BgbuildForm
 
 # Create your views here.
 class BgbuildList(generic.ListView):
@@ -90,3 +90,20 @@ def bgcommentEdit(request, slug, comment_id):
             messages.add_message(request, messages.ERROR, 'Error Updating Comment')
     
     return HttpResponseRedirect(reverse('bgbuild_detail', args=[slug]))
+
+class BgAddBuild(generic.CreateView):
+
+    template_name = 'bgbuild/bgbuild_add.html'
+    model = Bgbuild
+    form_class = BgbuildForm
+    success_url = "/bgbuild/"
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        messages.add_message(
+            self.request,
+            messages.SUCCESS,
+            f'{self.request.user} your build post was successfully submitted'
+        )
+        response = super().form_valid(form)
+        return response

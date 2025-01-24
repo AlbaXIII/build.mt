@@ -143,9 +143,6 @@ class Bgbuild(models.Model):
     druid_subclass = models.CharField(
         max_length=50, choices=DRUID_SUBCLASS, default='Circle of the Land'
     )
-    druid_subclass = models.CharField(
-        max_length=50, choices=DRUID_SUBCLASS, default='Circle of the Land'
-    )
     fighter_subclass = models.CharField(
         max_length=50, choices=FIGHTER_SUBCLASS, default='Champion'
     )
