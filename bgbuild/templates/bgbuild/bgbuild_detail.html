@@ -78,7 +78,7 @@
             <div class="col-12">
                 <strong class="text-secondary">
                     <i class="fa-solid fa-comment fa-xl build-comments"></i>
-                    {{ comment_count }}
+                    {{ comment.comment_count }}
                                   
                     <a href="" class="build-likes">
                         <i class="fa-solid fa-heart fa-xl"> ##</i>
@@ -96,8 +96,8 @@
                     style="margin-top: 1.2em;">
                     {{ comment_form | crispy }}
                     {% csrf_token %}
-                    <button id="submitButton" type="submit"
-                    class="btn btn-signup btn-lg comment-btn">Submit</button>
+                    <input id="submitButton" type="submit"
+                    class="btn btn-signup btn-lg comment-btn" name="comment">
                 </form>
                 {% else %}
                 <p>Please register or login to leave a comment.</p>
@@ -110,19 +110,42 @@
                 <br class="comment-break">
                 <div class="card-body">
                     {% for comment in comments %}
-                    <div class="p-2">
+                    <div class="p-2 comment-body">
                         <div id="comment{{ comment.id }}">
                             {{ comment.body | linebreaks }}
                         </div>
                         <br>
-                        <p class="font-weight-bold">
+                        <p class="font-weight-bold comment-user">
                             {{ comment.user }}
                             <span class="font-weight-normal">
                               {{ comment.created_on }}
                             </span>
                         </p>
+                        <br>
+                        {% if user.is_authenticated %}
+                            <h4>Leave a reply</h4>
+                            <p>replying as {{ user.username }}</p>
+                            <form id="replyForm" method="post"
+                                style="margin-top: 1.2em;">
+                                {{ reply_form | crispy }}
+                                {% csrf_token %}
+                                <input id="submitButton" type="submit"
+                                class="btn btn-signup btn-lg comment-btn" name="reply">
+                                <input type="hidden" value="{{ comment.id }}" name="comment_id">
+                            </form>
+                        {% endif %}
+                        {% for reply in comment.replies.all %}
+                        <div class="row">
+                            <div class="col-4">
+                                <div>
+                                    {{ reply.body }}
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
                     </div>
                     {% endfor %}
+                    <hr>
                 </div>
             </div>
         </div>

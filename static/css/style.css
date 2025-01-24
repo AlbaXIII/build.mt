@@ -230,6 +230,10 @@ body {
     background-color: #423E37;
 }
 
+.comment-body {
+    color: #fff;
+}
+
 .comment-header {
     padding-top: 10px;
 }

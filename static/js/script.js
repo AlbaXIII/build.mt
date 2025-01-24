@@ -6,5 +6,3 @@ if (multiclassActive.innertext = ("No")){
     multiclassOne.style.visibility = 'hidden';
     multiclassLevel.style.visibility = 'hidden';
 }
-
-

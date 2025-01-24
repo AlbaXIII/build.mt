@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.core.validators import MaxValueValidator, MinValueValidator
+import uuid
 
 # Dropdown fields
 BUILD_ROLES = [
@@ -196,16 +197,34 @@ class Bgbuild(models.Model):
 
 class Bgcomment(models.Model):
     """
-    User can create comment in relation to :model:`auth.User`
-    and :model:`bgbuild.Bgbuild`.
+    User can create comment.
     """
     build = models.ForeignKey(Bgbuild, on_delete=models.CASCADE, related_name="comments")
     user = models.ForeignKey(User, related_name='commenter', on_delete=models.CASCADE)
     body = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
+    id = models.CharField(max_length=100, default=uuid.uuid4, unique=True, primary_key=True, editable=False)
     
     class Meta:
         ordering = ["created_on"]
 
     def __str__(self):
         return f"Comment | {self.body} | by {self.user}"
+
+class Bgreply(models.Model):
+    """
+    User can reply to comments.
+    """
+    comment = models.ForeignKey(Bgcomment, on_delete=models.CASCADE, related_name="replies")
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    body = models.TextField()
+    created_on = models.DateTimeField(auto_now_add=True)
+    id = models.CharField(max_length=100, default=uuid.uuid4, unique=True, primary_key=True, editable=False)
+
+    class Meta:
+        ordering = ["created_on"]
+    
+    def __str__(self):
+        return f"{self.user} : {self.body}"
+   
+    

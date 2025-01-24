@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django_summernote.admin import SummernoteModelAdmin
-from .models import Bgbuild, Bgcomment
+from .models import Bgbuild, Bgcomment, Bgreply
 
 @admin.register(Bgbuild)
 
@@ -13,3 +13,4 @@ class BgbuildAdmin(SummernoteModelAdmin):
 
 # Register your models here.
 admin.site.register(Bgcomment)
+admin.site.register(Bgreply)
