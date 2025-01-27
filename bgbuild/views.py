@@ -66,31 +66,6 @@ def buildDetail(request, slug):
         },
     )
 
-def bgcommentEdit(request, slug, comment_id):
-    """
-    view to enable users to edit self posted comments
-    """
-    
-    if request.method == "POST":
-
-        queryset = Bgbuild.objects.filter(status=1)
-        build = get_object_or_404(queryset, slug=slug)
-        comment = get_object_or_404(Bgcomment, pk="comment_id")
-        comment_form = BgcommentForm(data=request.POST, instance=comment)
-
-        if comment_form.is_valid() and comment.user == request.user:
-            comment = comment_form.save(commit=False)
-            comment.build = build
-            comment.save()
-            messages.add_message(
-                request, messages.SUCCESS,
-                'Comment Updated'
-            )
-        else:
-            messages.add_message(request, messages.ERROR, 'Error Updating Comment')
-    
-    return HttpResponseRedirect(reverse('bgbuild_detail', args=[slug]))
-
 class BgAddBuild(generic.CreateView):
 
     template_name = 'bgbuild/bgbuild_add.html'
@@ -107,3 +82,31 @@ class BgAddBuild(generic.CreateView):
         )
         response = super().form_valid(form)
         return response
+
+class BgEditBuild(generic.UpdateView):
+    template_name = 'bgbuild/bgbuild_edit.html'
+    model = Bgbuild
+    form_class = BgbuildForm
+    success_url = '/bgbuild/'
+
+    def test_func(self):
+        return self.request.user == self.get_object().user
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        response = super().form_valid(form)
+        messages.add_message(
+            self.request, messages.SUCCESS,
+            f'{self.request.user} your build was successfully edited')
+        return response
+
+class BgDeleteBuild(generic.DeleteView):
+    model = Bgbuild
+    success_url = "/bgbuild/"
+    success_message = 'Build successfully deleted'
+
+    def test_func(self):
+        """
+        Ensure that the logged-in user is the owner of the build.
+        """
+        return self.request.user == self.get_object().user

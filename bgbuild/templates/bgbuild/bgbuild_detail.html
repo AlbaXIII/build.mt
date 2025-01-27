@@ -61,6 +61,14 @@
                         <li class="list-group-item build-details">created by <a href="#" class="user-link">{{ build.user }}</a></li>
                     </ul>
                 </div>
+                <div class="p-3">
+                    <hr>
+                    <!--If user created post, edit and delete buttons-->
+                    {% if request.user == build.user %}
+                        <a href="{% url 'bgeditbuild' build.id %}" class="btn btn btn-signup btn-outline-dark mb-3">Edit</a>
+                        <a href="{% url 'bgdeletebuild' build.id %}" class="btn btn btn-signup btn-outline-dark mb-3">Delete</a>
+                    {% endif %}
+                </div>
                 <div class="card-body">
                     <p>
                         {{ build.content }}
