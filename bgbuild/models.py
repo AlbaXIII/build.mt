@@ -184,6 +184,7 @@ class Bgbuild(models.Model):
     excerpt = models.CharField(max_length=100, null=False, blank=False)
     content = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
+    
     status = models.IntegerField(choices=STATUS, default=0)
     
     class Meta:

@@ -103,7 +103,7 @@ class BgAddBuild(generic.CreateView):
         messages.add_message(
             self.request,
             messages.SUCCESS,
-            f'{self.request.user} your build post was successfully submitted'
+            f'{self.request.user} - build post was successfully submitted'
         )
         response = super().form_valid(form)
         return response

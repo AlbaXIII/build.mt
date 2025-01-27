@@ -89,9 +89,15 @@
     <div class="container add-build">
         <div>
             <h4>Upload a build</h4>
-            <a href="{% url 'bgbuildadd' %}">
+            {% if user.is_authenticated %}
+                <a href="{% url 'bgbuildadd' %}">
+                    <i class="fa-solid fa-circle-plus fa-2xl"></i>
+                </a>
+            {% else %}
+            <a href="{% url 'account_login' %}">
                 <i class="fa-solid fa-circle-plus fa-2xl"></i>
             </a>
+            {% endif %}
         </div>
     </div>
 </section>
