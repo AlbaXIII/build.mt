@@ -71,6 +71,15 @@ body {
 
 /* index home page styles */
 
+.main-image {
+    display: flex;
+    justify-content: center;
+}
+
+.main-image img {
+    padding-top: 100px;
+}
+
 .main-title {
     left: 0;
     line-height: 200px;
