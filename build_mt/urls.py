@@ -21,5 +21,6 @@ urlpatterns = [
     path("accounts/", include("allauth.urls")),
     path('admin/', admin.site.urls),
     path("bgbuild/", include("bgbuild.urls"), name="bgbuild-urls"),
+    path('', include('core.urls')),
     path('summernote/', include('django_summernote.urls')),
 ]

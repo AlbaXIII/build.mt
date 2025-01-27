@@ -106,7 +106,4 @@ class BgDeleteBuild(generic.DeleteView):
     success_message = 'Build successfully deleted'
 
     def test_func(self):
-        """
-        Ensure that the logged-in user is the owner of the build.
-        """
         return self.request.user == self.get_object().user

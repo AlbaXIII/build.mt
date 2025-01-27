@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'django_summernote',
     'cloudinary',
     'bgbuild',
+    'core',
 ]
 
 SITE_ID = 1
