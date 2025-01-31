@@ -118,6 +118,7 @@ STATUS = ((0, "Draft"), (1, "Published"))
 
 # Create your models here.
 
+
 class Bgbuild(models.Model):
     """
     A model to create Baldur's Gate 3 build posts related to build_owner
@@ -167,11 +168,11 @@ class Bgbuild(models.Model):
     wizard_school = models.CharField(
         max_length=50, choices=WIZARD_SCHOOL, default='Abjuration'
     )
-    
+
     multiclass = models.CharField(
-        max_length=3, choices=MULTICLASS, default='No')    
+        max_length=3, choices=MULTICLASS, default='No')
     multiclass_one = models.CharField(
-        max_length=10, choices=BASE_CLASS, default='N/A')    
+        max_length=10, choices=BASE_CLASS, default='N/A')
     multiclass_two = models.CharField(
         max_length=10, choices=BASE_CLASS, default='N/A')
     classone_level = models.IntegerField(
@@ -180,19 +181,24 @@ class Bgbuild(models.Model):
             MinValueValidator(1)
         ]
     )
-    
+
+    favourites = models.ManyToManyField(User, related_name='bgbuild_favourite')
+
+    def number_of_favourites(self):
+        return self.favourites.count()
+
     excerpt = models.CharField(max_length=100, null=False, blank=False)
     content = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
-    
+
     status = models.IntegerField(choices=STATUS, default=0)
-    
+
     class Meta:
         ordering = ["-created_on"]
 
     def __str__(self):
         return f"{self.bgbuild_title} | Posted by {self.user}"
-    
+
 
 class Bgcomment(models.Model):
     """
@@ -203,12 +209,13 @@ class Bgcomment(models.Model):
     body = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
     id = models.CharField(max_length=100, default=uuid.uuid4, unique=True, primary_key=True, editable=False)
-    
+
     class Meta:
         ordering = ["created_on"]
 
     def __str__(self):
         return f"Comment | {self.body} | by {self.user}"
+
 
 class Bgreply(models.Model):
     """
@@ -222,8 +229,6 @@ class Bgreply(models.Model):
 
     class Meta:
         ordering = ["created_on"]
-    
+
     def __str__(self):
         return f"{self.user} : {self.body}"
-   
-    

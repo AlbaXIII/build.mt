@@ -1,6 +1,6 @@
 from . import views
 from django.urls import path
-from .views import BgbuildList, searchBuild, buildDetail, BgAddBuild, BgEditBuild, BgDeleteBuild
+from .views import BgbuildList, searchBuild, buildDetail, BgAddBuild, BgEditBuild, BgDeleteBuild, BgBuildFavourite
 
 urlpatterns = [
     path('add/', BgAddBuild.as_view(), name="bgbuildadd"),
@@ -9,4 +9,5 @@ urlpatterns = [
     path('<slug:slug>/', views.buildDetail, name='bgbuilddetail'),
     path('delete/<slug:pk>/', BgDeleteBuild.as_view(), name='bgdeletebuild'),
     path("edit/<slug:pk>/", BgEditBuild.as_view(), name="bgeditbuild"),
-] 
+    path('favourite/<slug:build_slug>/', BgBuildFavourite.as_view(), name="bgfavouritebuild"),
+]

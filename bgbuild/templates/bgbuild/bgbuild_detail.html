@@ -87,10 +87,17 @@
                 <strong class="text-secondary">
                     <i class="fa-solid fa-comment fa-xl build-comments"></i>
                     {{ comment.comment_count }}
-                                  
-                    <a href="" class="build-likes">
-                        <i class="fa-solid fa-heart fa-xl"> ##</i>
-                    </a>
+                {% if user.is_authenticated %}
+                <form action="{% url 'bgfavouritebuild' build.slug %}" method="POST">
+                    {% csrf_token %}
+                    <input type="submit" name="bgbuild_slug" class="btn" name="favourite">
+                        {{ build.number_of_favourites }}
+                    </input>
+                    <input type="hidden" value="{{ build.slug }}" name="build_slug">
+                </form>
+                {% else %}
+                <p> Favourites {{ build.number_of_favourites }}</p>
+                {% endif %}
                 </strong>
             </div>
         </div>

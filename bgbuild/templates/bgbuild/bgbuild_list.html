@@ -44,9 +44,9 @@
                                     <img class="card-img" src="{{ build.bgbuild_image.url }}" alt="user build image">
                                     {% endif %}
                                 </div>                                
-                                <a href="" class="build-likes">
-                                    <i class="fa-solid fa-heart"> ##</i>
-                                </a>
+                                    <a href="" class="build-likes">
+                                        <i class="fa-solid fa-heart"> {{ build.number_of_favourites }}</i>
+                                    </a>
                                 <i class="fa-solid fa-comment fa build-comments">
                                     {{ comment.comment_count }}
                                 </i>

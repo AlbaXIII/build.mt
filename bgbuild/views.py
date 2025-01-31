@@ -66,6 +66,20 @@ def buildDetail(request, slug):
         },
     )
 
+
+class BgBuildFavourite(generic.View):
+
+    def post(self, request, build_slug, *args, **kwargs):
+        build = get_object_or_404(Bgbuild, slug=build_slug)
+
+        if build.favourites.filter(id=request.user.id).exists():
+            build.favourites.remove(request.user)
+        else:
+            build.favourites.add(request.user)
+
+        return HttpResponseRedirect(reverse('bgbuilddetail', args=[build_slug]))
+
+
 class BgAddBuild(generic.CreateView):
 
     template_name = 'bgbuild/bgbuild_add.html'
