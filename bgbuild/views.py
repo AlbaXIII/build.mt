@@ -8,25 +8,29 @@ from .models import Bgbuild, Bgcomment
 from .forms import BgcommentForm, BgreplyForm, BgbuildForm
 
 # Create your views here.
+
+
 class BgbuildList(generic.ListView):
     queryset = Bgbuild.objects.all().order_by("-created_on")
     template_name = "bgbuild/bgbuild_list.html"
+
 
 def searchBuild(request):
     if request.method == "POST":
         build_search = request.POST.get('searchbuilds')
         builds = Bgbuild.objects.filter(bgbase_class__contains=build_search) | Bgbuild.objects.filter(bgbuild_role__contains=build_search)
         total = builds.count()
-        return render(request, 'bgbuild/bgbuild_search.html', {'build_search': build_search, 'builds':builds, 'total': total,})
+        return render(request, 'bgbuild/bgbuild_search.html', {'build_search': build_search, 'builds': builds, 'total': total, })
     else:
         return render(request, 'bgbuild/bgbuild_search.html', {})
+
 
 def buildDetail(request, slug):
     queryset = Bgbuild.objects.filter(status=1)
     build = get_object_or_404(queryset, slug=slug)
     comments = build.comments.all().order_by("-created_on")
     comment_count = build.comments.count()
-    
+
     if request.method == 'POST':
         comment_form = BgcommentForm(data=request.POST)
         reply_form = BgreplyForm(data=request.POST)
@@ -50,7 +54,7 @@ def buildDetail(request, slug):
                 request, messages.SUCCESS,
                 'Reply posted'
             )
-            
+
     comment_form = BgcommentForm()
     reply_form = BgreplyForm()
 
@@ -97,6 +101,7 @@ class BgAddBuild(generic.CreateView):
         response = super().form_valid(form)
         return response
 
+
 class BgEditBuild(generic.UpdateView):
     template_name = 'bgbuild/bgbuild_edit.html'
     model = Bgbuild
@@ -113,6 +118,7 @@ class BgEditBuild(generic.UpdateView):
             self.request, messages.SUCCESS,
             f'{self.request.user} your build was successfully edited')
         return response
+
 
 class BgDeleteBuild(generic.DeleteView):
     model = Bgbuild
