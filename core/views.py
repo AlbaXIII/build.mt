@@ -26,7 +26,7 @@ class UserBuilds(ListView):
         """
         return Bgbuild.objects.filter(
             user=self.request.user).order_by('-created_on')
-   
+
 
 class UserFavourites(ListView):
 
@@ -38,5 +38,3 @@ class UserFavourites(ListView):
         user = self.request.user
         queryset = user.bgbuild_favourite.all()
         return queryset
-
-

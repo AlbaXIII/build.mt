@@ -2,7 +2,8 @@ from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic
 from django.contrib import messages
 from django.http import HttpResponseRedirect
-from django.views.generic import CreateView, ListView, DeleteView, UpdateView
+from django.shortcuts import redirect
+from django.views.generic import CreateView, ListView, DeleteView, UpdateView, DetailView
 from django.db.models import Q
 from .models import Bgbuild, Bgcomment
 from .forms import BgcommentForm, BgreplyForm, BgbuildForm
