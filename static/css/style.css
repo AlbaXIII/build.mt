@@ -272,6 +272,10 @@ body {
     margin-top:10px;
 }
 
+.edit-delete-container {
+    background-color: #423E37;
+}
+
 /* account page styles */
 
 #account-headers {
@@ -309,16 +313,28 @@ body {
 .build-comments {
     color: #fff;
     background-color: #423E37;
+
+}
+
+.favourite-section {
+    padding-top: 10px;
+    font-size: 16px;
+}
+
+.comment-form {
+    width: 75%;
+    font-family: Libre Baskerville, sans-serif;
 }
 
 .comment-section {
-    width: 100%;
+    width: 75%;
     color: #fff;
     background-color: #423E37;
 }
 
 .comment-body {
     color: #fff;
+    font-size: 1.2rem;
 }
 
 .comment-header {
@@ -332,4 +348,8 @@ body {
 .comment-btn {
     background: #FFD151;
     color: #423E37;
+}
+
+.reply-text {
+    width:75%;
 }
