@@ -189,6 +189,10 @@ body {
     color: #fff;
 }
 
+.italic {
+    font-style: italic;
+}
+
 .build-link {
     text-decoration: none;
     color: #333;

@@ -47,7 +47,11 @@
                 <div class="row">
                     {% for build in object_list %}
                     <div class="col-md-3">
-                        <div class="card border-light mb-3 build-card">
+                        {% if build.status == 0%}
+                        <div class="card border-light mb-3 build-card italic">
+                        {% else %}
+                        <div class="card border-light mb-3 build-card ">
+                        {% endif %}
                             <div class="card-header build-header" id="card-icon">
                                 <h2 class="card-title">{{build.bgbuild_title}}</h2>
                                 {% if build.bgbase_class == "barbarian" %}
@@ -102,9 +106,15 @@
                                     <li class="list-group-item"><b>Multiclass </b>| {{ build.multiclass }}</li>
                                     <li class="list-group-item build-details">created by <a href="#" class="user-link">{{ build.user }}</a></li>
                                 </ul>
+                            {% if build.status == 0 %}
+                                <a href="#" class="btn btn-secondary explore-btn-confirmation"
+                                aria-label="Opens post {{ build.build_title }}">Awaiting Admin Review
+                            </a>
+                            {% else %}
                                 <a href="{% url 'bgbuilddetail' build.slug %}" class="btn btn-secondary explore-btn"
                                 aria-label="Opens post {{ build.build_title }}">Explore Build
                             </a>
+                            {% endif %}
                         </div>
                     </div>
                     {% if forloop.counter|divisibleby:4 %}
