@@ -1,7 +1,6 @@
 /* base.html body style and background */
 
 body {
-    background-color: #423E37;
     background-image: url('/static/images/main-background.webp');
 }
 
@@ -140,18 +139,31 @@ body {
     padding-top: 12px;
 }
 
+.add-build i:hover {
+    color: #423E37;
+}
+
 .image-container {
     height: 150px;
     width: 150px;
     display: block;
 }
 
+.card {
+    font-family: Libre Baskerville, sans-serif;
+    position: relative;
+}
+
 .build-header {
     background-color: #423E37;
 }
 
-.card {
-    font-family: Libre Baskerville, sans-serif;
+.class-img-top {
+    position: absolute;
+    height: 70px;
+    width: 70px;
+    top: -25px;
+    right: -5px;
 }
 
 .card-title {
@@ -192,6 +204,10 @@ body {
 
 .explore-btn {
     background: #FFD151;
+    color: #423E37;
+}
+
+.explore-btn a:hover {
     color: #423E37;
 }
 
