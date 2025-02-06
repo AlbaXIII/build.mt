@@ -4,7 +4,7 @@ from django.contrib import messages
 from django.http import HttpResponseRedirect
 from django.shortcuts import redirect
 from django.views.generic import CreateView, ListView, DeleteView, UpdateView, DetailView
-from django.db.models import Q
+from django.db.models import Count, Q
 from .models import Bgbuild, Bgcomment
 from .forms import BgcommentForm, BgreplyForm, BgbuildForm
 

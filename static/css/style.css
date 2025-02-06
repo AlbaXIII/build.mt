@@ -136,9 +136,8 @@ body {
     background-color: #FFD151;
 }
 
-.add-btn {
-    display: block;
-    margin: 0;
+.add-build {
+    padding-top: 12px;
 }
 
 .image-container {
@@ -164,6 +163,10 @@ body {
 .build-likes {
     display: block;
     float: inherit;
+    padding-top: 5px;
+}
+
+.favourited {
     color: #cf0e0e;
 }
 
@@ -285,7 +288,6 @@ body {
 
 .build-comments {
     color: #fff;
-    margin-bottom: 20px;
     background-color: #423E37;
 }
 

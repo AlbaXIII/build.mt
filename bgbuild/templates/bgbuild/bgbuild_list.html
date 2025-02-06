@@ -21,6 +21,24 @@
     </div>
 </section>
 
+<!-- Add build button -->
+<section>
+    <div class="container add-build">
+        <div>
+            <h4>Upload a build</h4>
+            {% if user.is_authenticated %}
+                <a href="{% url 'bgbuildadd' %}">
+                    <i class="fa-solid fa-circle-plus fa-2xl"></i>
+                </a>
+            {% else %}
+            <a href="{% url 'account_login' %}">
+                <i class="fa-solid fa-circle-plus fa-2xl"></i>
+            </a>
+            {% endif %}
+        </div>
+    </div>
+</section>
+
 <!-- build list -->
 <section>
     <div class="container-fluid">
@@ -43,20 +61,22 @@
                                     {% else %}
                                     <img class="card-img" src="{{ build.bgbuild_image.url }}" alt="user build image">
                                     {% endif %}
-                                </div>                                
-                                    <a href="" class="build-likes">
-                                        <i class="fa-solid fa-heart"> {{ build.number_of_favourites }}</i>
-                                    </a>
+                                </div>
+                                {% if build in request.user.bgbuild_favourite.all %}                                   
+                                <i class="fa-solid fa-heart favourited"> {{ build.number_of_favourites }}</i>
+                                {% else %}
+                                <i class="fa-solid fa-heart"> {{ build.number_of_favourites }}</i>
+                                {% endif %}
+                                <br>
                                 <i class="fa-solid fa-comment fa build-comments">
-                                    {{ comment.comment_count }}
+                                    {{ build.comments.count }}
                                 </i>
                             </div>
                                 <ul class="list-group list-group-flush">
+                                    <li class="list-group-item build-excerpt">'{{ build.excerpt }}'</li>
                                     <li class="list-group-item"><b>Role </b>| {{ build.bgbuild_role }}</li>
                                     <li class="list-group-item"><b>Base class </b>| {{ build.bgbase_class }}</li>
                                     <li class="list-group-item"><b>Multiclass </b>| {{ build.multiclass }}</li>
-                                    <li class="list-group-item"><b>Level Split </b>| {{ build.classone_level }}</li>
-                                    <li class="list-group-item build-excerpt">'{{ build.excerpt }}'</li>
                                     <li class="list-group-item build-details">created by <a href="#" class="user-link">{{ build.user }}</a></li>
                                 </ul>
                                 <a href="{% url 'bgbuilddetail' build.slug %}" class="btn btn-primary explore-btn"
@@ -83,25 +103,6 @@
         {% endif %}
     </div>
 </section>
-
-<!-- Add build button -->
-<section>
-    <div class="container add-build">
-        <div>
-            <h4>Upload a build</h4>
-            {% if user.is_authenticated %}
-                <a href="{% url 'bgbuildadd' %}">
-                    <i class="fa-solid fa-circle-plus fa-2xl"></i>
-                </a>
-            {% else %}
-            <a href="{% url 'account_login' %}">
-                <i class="fa-solid fa-circle-plus fa-2xl"></i>
-            </a>
-            {% endif %}
-        </div>
-    </div>
-</section>
-
 
 <!-- bgbuild_list.html content ends here -->
 
