@@ -1,7 +1,8 @@
-/* base.html generic style */
+/* base.html body style and background */
 
 body {
     background-color: #423E37;
+    background-image: url('/static/images/main-background.webp');
 }
 
 /* base.html navbar style */
@@ -71,15 +72,6 @@ body {
 
 /* index home page styles */
 
-.main-image {
-    display: flex;
-    justify-content: center;
-}
-
-.main-image img {
-    padding-top: 90px;
-}
-
 .main-title {
     left: 0;
     line-height: 200px;
@@ -108,7 +100,7 @@ body {
 
 .hero-btn {
     position: absolute;
-    top: 50%;
+    top: 60%;
     left: 50%;
     transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
@@ -117,7 +109,6 @@ body {
     color: #fff;
     cursor: pointer;
     border-radius: 5px;
-    text-decoration: none;
     }
 
 /* build list styles */
