@@ -114,6 +114,51 @@ MULTICLASS = [
     ('yes', 'Yes'),
 ]
 
+LEVEL_SPLIT = [
+    ('12', '12'),
+    ('11/1', '11/1'),
+    ('10/2', '10/2'),
+    ('9/3', '9/3'),
+    ('8/4', '8/4'),
+    ('7/5', '7/5'),
+    ('6/6', '6/6'),
+    ('5/7', '5/7'),
+    ('4/8', '4/8'),
+    ('3/9', '3/9'),
+    ('2/10', '2/10'),
+    ('1/11', '1/11'),
+]
+
+KEY_ABILITIES = [
+    ('strength', 'Strength'),
+    ('dexterity', 'Dexterity'),
+    ('constitution', 'Constitution'),
+    ('intelligence', 'Intelligence'),
+    ('wisdom', 'Wisdom'),
+    ('charisma', 'Charisma'),
+]
+
+KEY_SKILLS = [
+    ('arcana', 'Arcana'),
+    ('history', 'History'),
+    ('religion', 'Religion'),
+    ('investigation', 'Investigation'),
+    ('athletics', 'Athletics'),
+    ('nature', 'Nature'),
+    ('acrobatics', 'Acrobatics'),
+    ('sleight of hand', 'Sleight Of Hand'),
+    ('stealth', 'Stealth'),
+    ('animal handling', 'Animal Handling'),
+    ('insight', 'Insight'),
+    ('medicine', 'Medicine'),
+    ('deception', 'Deception'),
+    ('perception', 'Perception'),
+    ('persuasion', 'Persuasion'),
+    ('survival', 'Survival'),
+    ('intimidation', 'Intimidation'),
+    ('performance', 'Performance'),
+]
+
 STATUS = ((0, "Draft"), (1, "Published"))
 
 # Create your models here.
@@ -125,9 +170,9 @@ class Bgbuild(models.Model):
     """
     user = models.ForeignKey(
         User, related_name='build_owner', on_delete=models.CASCADE)
-    bgbuild_title = models.CharField(max_length=250, null=False, blank=False)
+    bgbuild_title = models.CharField(max_length=28, null=False, blank=False)
     bgbuild_image = CloudinaryField('image', default='placeholder')
-    slug = models.SlugField(max_length=250, unique=True)
+    slug = models.SlugField(max_length=28, unique=True)
     bgbuild_role = models.CharField(
         max_length=50, choices=BUILD_ROLES, default='Melee')
     bgbase_class = models.CharField(
@@ -148,7 +193,8 @@ class Bgbuild(models.Model):
         max_length=50, choices=FIGHTER_SUBCLASS, default='Champion'
     )
     monk_subclass = models.CharField(
-        max_length=50, choices=MONK_SUBCLASS, default='Way of the Four Elements'
+        max_length=50, choices=MONK_SUBCLASS,
+        default='Way of the Four Elements'
     )
     paladin_oath = models.CharField(
         max_length=50, choices=PALADIN_OATH, default='Oath of the Ancients'
@@ -175,9 +221,22 @@ class Bgbuild(models.Model):
         max_length=10, choices=BASE_CLASS, default='N/A')
     multiclass_two = models.CharField(
         max_length=10, choices=BASE_CLASS, default='N/A')
-    classone_level = models.IntegerField(
+    level_split = models.CharField(
+        max_length=5, choices=LEVEL_SPLIT, default='12')
+
+    main_key_ability = models.CharField(
+        max_length=15, choices=KEY_ABILITIES, default='Strength')
+    secondary_key_ability = models.CharField(
+        max_length=15, choices=KEY_ABILITIES, default='Dexterity')
+
+    suggested_skill = models.CharField(
+        max_length=15, choices=KEY_SKILLS, default='Arcana')
+    suggested_skill = models.CharField(
+        max_length=15, choices=KEY_SKILLS, default='Athletics')
+
+    difficulty = models.IntegerField(
         default=1, validators=[
-            MaxValueValidator(12),
+            MaxValueValidator(5),
             MinValueValidator(1)
         ]
     )

@@ -12,53 +12,73 @@
         <div class="row justify-content-center">
             <div class="card border-light mb-3 build-card card-detail">
                 <div class="card-header build-header" id="card-icon">
-                    <h2 class="card-title">{{build.bgbuild_title}}</h2>
-                </div>
-                <div class="card-body">
-                    <div class="image-container mx-auto">
-                        {% if "placeholder" in build.bgbuild_image.url %}
-                        <img class="card-img scale" src="{% static 'images/bg3/default.png' %}"
-                            alt="placeholder image">
-                        {% else %}
-                        <img class="card-img-top" src="{{ build.bgbuild_image.url }}" alt="user build image">
-                        {% endif %}
-                    </div>                                
-                </div>
-                <div>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item"><b>Role </b>| {{ build.bgbuild_role }}</li>
-                        <li class="list-group-item"><b>Base class </b>| {{ build.bgbase_class }}</li>
-                        {% if build.bgbase_class == "barbarian" %}
-                            <li class="list-group-item"><b>Subclass </b>| {{ build.barbarian_subclass }}</li>
+                    <h2 class="detail-title">{{build.bgbuild_title}}</h2>
+                    {% if build.bgbase_class == "barbarian" %}
+                        <img src="{% static '/images/bg3/barbarian/bg3-class-icon-barbarian.webp' %}" class="class-img-top">
                         {% elif build.bgbase_class == "bard" %}
-                            <li class="list-group-item"><b>Subclass </b>| {{ build.bard_subclass }}</li>
+                        <img src="{% static '/images/bg3/bard/bg3-class-icon-bard.webp' %}" class="class-img-top">
                         {% elif build.bgbase_class == "cleric" %}
-                            <li class="list-group-item"><b>Subclass </b>| {{ build.cleric_domain }}</li>
+                        <img src="{% static '/images/bg3/cleric/bg3-class-icon-cleric.webp' %}" class="class-img-top">
                         {% elif build.bgbase_class == "druid" %}
-                            <li class="list-group-item"><b>Subclass </b>| {{ build.druid_subclass }}</li>
+                        <img src="{% static '/images/bg3/druid/bg3-class-icon-druid.webp' %}" class="class-img-top">
                         {% elif build.bgbase_class == "fighter" %}
-                            <li class="list-group-item"><b>Subclass </b>| {{ build.fighter_subclass }}</li>
+                        <img src="{% static '/images/bg3/fighter/bg3-class-icon-fighter.webp' %}" class="class-img-top">
                         {% elif build.bgbase_class == "monk" %}
-                            <li class="list-group-item"><b>Subclass </b>| {{ build.monk_subclass }}</li>
+                        <img src="{% static '/images/bg3/monk/bg3-class-icon-monk.webp' %}" class="class-img-top">
                         {% elif build.bgbase_class == "paladin" %}
-                            <li class="list-group-item"><b>Subclass </b>| {{ build.paladin_oath }}</li>
+                        <img src="{% static '/images/bg3/paladin/bg3-class-icon-paladin.webp' %}" class="class-img-top">
                         {% elif build.bgbase_class == "ranger" %}
-                            <li class="list-group-item"><b>Subclass </b>| {{ build.ranger_subclass }}</li>
+                        <img src="{% static '/images/bg3/ranger/bg3-class-icon-ranger.webp' %}" class="class-img-top">
                         {% elif build.bgbase_class == "rogue" %}
-                            <li class="list-group-item"><b>Subclass </b>| {{ build.rogue_subclass }}</li>
+                        <img src="{% static '/images/bg3/rogue/bg3-class-icon-rogue.webp' %}" class="class-img-top">
                         {% elif build.bgbase_class == "sorcerer" %}
-                            <li class="list-group-item"><b>Subclass </b>| {{ build.sorcerer_subclass }}</li>
+                        <img src="{% static '/images/bg3/sorcerer/bg3-class-icon-sorcerer.webp' %}" class="class-img-top">
                         {% elif build.bgbase_class == "warlock" %}
-                            <li class="list-group-item"><b>Subclass </b>| {{ build.warlock_subclass }}</li>
+                        <img src="{% static '/images/bg3/warlock/bg3-class-icon-warlock.webp' %}" class="class-img-top">
                         {% elif build.bgbase_class == "wizard" %}
-                            <li class="list-group-item"><b>Subclass </b>| {{ build.wizard_school }}</li>
+                        <img src="{% static '/images/bg3/wizard/bg3-class-icon-wizard.webp' %}" class="class-img-top">
                         {% endif %}
-                        <li class="list-group-item"><b>Multiclass? </b>|  {{ build.multiclass }}</li>
+                </div>
+                <div class="detail-list">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item d-flex justify-content-between align-items-center"><b id="yellow">Role </b><span> {{ build.bgbuild_role }} </span></li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center"><b id="yellow">Base class </b><span> {{ build.bgbase_class }} </span></li>
+                        {% if build.bgbase_class == "barbarian" %}
+                            <li class="list-group-item d-flex justify-content-between align-items-center"><b id="yellow">Subclass </b><span> {{ build.barbarian_subclass }} </span></li>
+                        {% elif build.bgbase_class == "bard" %}
+                            <li class="list-group-item d-flex justify-content-between align-items-center"><b id="yellow">Subclass </b><span> {{ build.bard_subclass }} </span></li>
+                        {% elif build.bgbase_class == "cleric" %}
+                            <li class="list-group-item d-flex justify-content-between align-items-center"><b id="yellow">Subclass </b><span> {{ build.cleric_domain }} </span></li>
+                        {% elif build.bgbase_class == "druid" %}
+                            <li class="list-group-item d-flex justify-content-between align-items-center"><b id="yellow">Subclass </b><span> {{ build.druid_subclass }} </span></li>
+                        {% elif build.bgbase_class == "fighter" %}
+                            <li class="list-group-item d-flex justify-content-between align-items-center"><b id="yellow">Subclass </b><span> {{ build.fighter_subclass }} </span></li>
+                        {% elif build.bgbase_class == "monk" %}
+                            <li class="list-group-item d-flex justify-content-between align-items-center"><b id="yellow">Subclass </b><span> {{ build.monk_subclass }} </span></li>
+                        {% elif build.bgbase_class == "paladin" %}
+                            <li class="list-group-item d-flex justify-content-between align-items-center"><b id="yellow">Subclass </b><span> {{ build.paladin_oath }} </span></li>
+                        {% elif build.bgbase_class == "ranger" %}
+                            <li class="list-group-item d-flex justify-content-between align-items-center"><b id="yellow">Subclass </b><span> {{ build.ranger_subclass }} </span></li>
+                        {% elif build.bgbase_class == "rogue" %}
+                            <li class="list-group-item d-flex justify-content-between align-items-center"><b id="yellow">Subclass </b><span> {{ build.rogue_subclass }} </span></li>
+                        {% elif build.bgbase_class == "sorcerer" %}
+                            <li class="list-group-item d-flex justify-content-between align-items-center"><b id="yellow">Subclass </b><span> {{ build.sorcerer_subclass }} </span></li>
+                        {% elif build.bgbase_class == "warlock" %}
+                            <li class="list-group-item d-flex justify-content-between align-items-center"><b id="yellow">Subclass </b><span> {{ build.warlock_subclass }} </span></li>
+                        {% elif build.bgbase_class == "wizard" %}
+                            <li class="list-group-item d-flex justify-content-between align-items-center"><b id="yellow">Subclass </b><span> {{ build.wizard_school }} </span></li>
+                        {% endif %}
+                        <li class="list-group-item d-flex justify-content-between align-items-center"><b id="yellow">Multiclass? </b><span>  {{ build.multiclass }} </span></li>
                         {% if build.multiclass == "yes" %}
-                            <li class="list-group-item"><b>Multiclass One </b>|  {{ build.multiclass_one }}</li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center"><b id="yellow">Multiclass One </b><span>  {{ build.multiclass_one }} </span></li>
                         {% endif %}
-                        <li class="list-group-item"><b>Level Split </b>| {{ build.classone_level }}</li>
-                        <li class="list-group-item build-details">created by <a href="#" class="user-link">{{ build.user }}</a></li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center"><b id="yellow">Level Split </b><span> {{ build.level_split }} </span></li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center"><b id="yellow">Key Ability </b><span> {{ build.main_key_ability }} </span></li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center"><b id="yellow">Secondary Key Ability </b></p><span> {{ build.secondary_key_ability }} </span></li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center"><b id="yellow">Suggested Skill </b></p><span> {{ build.suggested_skill }} </span></li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center"><b id="yellow">Suggested Skill </b></p><span> {{ build.suggested_skill }} </span></li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center"><b id="yellow">Build Difficulty </b></p><span> {{ build.difficulty }} </span></li>
+                        <li class="list-group-item">created by {{ build.user }}</li>
                     </ul>
                 </div>
                 <div class="p-3 edit-delete-container">
@@ -83,7 +103,7 @@
 <section>
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-12">
+            <div class="col-12 favourite-section">
                 <strong class="text-secondary">
                     <i class="fa-solid fa-comment fa-xl build-comments"> {{ build.comments.count }}</i>
                 {% if user.is_authenticated %}

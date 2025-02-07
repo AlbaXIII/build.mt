@@ -21,10 +21,11 @@ class BgbuildForm(forms.ModelForm):
         fields = ['bgbuild_title', 'slug', 'bgbuild_image',
                   'bgbuild_role', 'bgbase_class', 'barbarian_subclass',
                   'bard_subclass', 'cleric_domain', 'druid_subclass',
-                  'fighter_subclass','monk_subclass','paladin_oath',
-                  'ranger_subclass','rogue_subclass','sorcerer_subclass',
-                  'warlock_subclass','wizard_school','multiclass','multiclass_one',
-                  'multiclass_two','classone_level', 'excerpt','content']
+                  'fighter_subclass', 'monk_subclass', 'paladin_oath',
+                  'ranger_subclass', 'rogue_subclass', 'sorcerer_subclass',
+                  'warlock_subclass', 'wizard_school', 'multiclass', 'multiclass_one',
+                  'multiclass_two', 'level_split', 'main_key_ability', 'secondary_key_ability',
+                  'suggested_skill', 'suggested_skill', 'difficulty', 'excerpt', 'content']
         labels = {
             'bgbuild_title': "Build Title",
             'slug': "Slug (Title lowercase, and spaces replaced with '-')",
@@ -39,7 +40,7 @@ class BgbuildForm(forms.ModelForm):
             'monk_subclass': "Monk subclass",
             'paladin_oath': "Paladin oath",
             'ranger_subclass': "Ranger subclass",
-            'rogue_subclass': "rogue subclass",
+            'rogue_subclass': "Rogue subclass",
             'sorcerer_subclass': "Sorcerer subclass",
             'warlock_subclass': "Warlock subclass",
             'wizard_school': "Wizard school",
