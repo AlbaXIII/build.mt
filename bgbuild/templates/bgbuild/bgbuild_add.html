@@ -8,7 +8,7 @@
 
 <!-- return to main build page -->
 <section>
-    <hr>
+    <br>
     <div class="container btn-return-container text-center">
         <button class="btn btn-secondary btn-lg btn-return">
             <a href="{% url 'bgbuilds' %}">
@@ -18,7 +18,7 @@
     </div>
 </section>
 <!-- form to submit a new build -->
-<section>
+<section id="submit-form">
     <div class="container">
         <form method="POST" enctype="multipart/form-data" class="p-5 form">
             <h2 class="text-center title">Add Build</h2>
@@ -26,7 +26,7 @@
             {{ form.media }}
             {{ form|crispy }}
             <div class="text-center">
-                <button type="submit" class="btn btn btn-signup btn-outline-dark">Add Build!</button>
+                <button type="submit" class="btn btn-secondary btn-lg btn-return">Add Build!</button>
             </div>
         </form>
     </div>

@@ -18,7 +18,7 @@
     </div>
 </section>
 <!-- form to edit an existing build -->
-<section>
+<section id="submit-form">
     <div class="container">
         <form method="POST" enctype="multipart/form-data" class="p-5 form">
             <h2 class="text-center title">Edit Build</h2>
@@ -26,7 +26,7 @@
             {{ form.media }}
             {{ form|crispy }}
             <div class="text-center">
-                <button type="submit" class="btn btn btn-signup btn-outline-dark">Add Build!</button>
+                <button type="submit" class="btn btn-secondary btn-lg btn-return">Edit Build!</button>
             </div>
         </form>
     </div>

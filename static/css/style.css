@@ -353,3 +353,9 @@ body {
 .reply-text {
     width:75%;
 }
+
+#submit-form {
+    font-family: Libre Baskerville, sans-serif;
+    font-size: 1.4rem;
+    color: #fff;
+}
