@@ -45,8 +45,8 @@ class BgbuildForm(forms.ModelForm):
             'warlock_subclass': "Warlock subclass",
             'wizard_school': "Wizard school",
             'multiclass': "Multiclass?",
-            "multiclass_one": "Class",
+            "multiclass_one": "Additional class",
             "multiclass_two": "Class",
-            "excerpt": "Short Description",
+            "excerpt": "Build Headline",
             "content": "Write something about the build"
         }

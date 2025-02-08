@@ -241,7 +241,7 @@ class Bgbuild(models.Model):
         ]
     )
 
-    favourites = models.ManyToManyField(User, related_name='bgbuild_favourite')
+    favourites = models.ManyToManyField(User, related_name='bgbuild_favourite', blank=True)
 
     def number_of_favourites(self):
         return self.favourites.count()

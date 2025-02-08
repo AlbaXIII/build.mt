@@ -252,6 +252,11 @@ body {
     background: #FFD151;
     color: #423E37;
     margin-bottom: 10px;
+    font-family: Libre Baskerville, sans-serif;
+}
+
+.btn-return a:hover {
+    color: #fff;
 }
 
 .add-build a:hover {
@@ -380,4 +385,8 @@ body {
     font-family: Libre Baskerville, sans-serif;
     font-size: 1.4rem;
     color: #fff;
+}
+
+.asteriskField {
+    display: none;
 }
