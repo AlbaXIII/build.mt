@@ -1,5 +1,4 @@
 /* base.html body style and background */
-
 body {
     background-image: url('/static/images/main-background.webp');
 }
@@ -42,10 +41,6 @@ body {
 }
 
 .dark-bg {
-    background-color: #423E37;
-}
-
-.main-bg {
     background-color: #423E37;
 }
 
@@ -316,13 +311,11 @@ body {
 .login-page {
     font-family: Libre Baskerville, sans-serif;
     color: #fff;
-    margin-top: 50px;
 }
 
 .signup-page {
     font-family: Libre Baskerville, sans-serif;
     color: #fff;
-    margin-top: 50px;
     list-style-type: none;
     text-align: left;
 }
@@ -334,6 +327,15 @@ body {
 #account-btns {
     background: #FFD151;
     color: #423E37;
+}
+
+#account-float {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 100vh;
+
 }
 
 .build-comments {
