@@ -1,0 +1,394 @@
+/* base.html body style and background */
+body {
+    background-image: url('/static/images/main-background.webp');
+}
+
+/* base.html navbar style */
+
+.main-logo {
+    padding-right: 25px;
+    color: #fff;
+    font-size: 1rem;
+}
+
+.sword-icon {
+    padding: 0px;
+}
+
+.build-text {
+    text-decoration: none;
+    font-family: Domine;
+    color: #FFD151;
+    font-weight: bold;
+    font-size: 1.4rem;
+}
+
+.navbar {
+    font-family: Libre Baskerville, sans-serif;
+}
+
+.nav-item {
+    font-family: Libre Baskerville, sans-serif;
+    font-size: 1rem;
+}
+
+.thin {
+    font-weight: 300;
+}
+
+.light-bg {
+    background-color: #fff;
+}
+
+.dark-bg {
+    background-color: #423E37;
+}
+
+/* base.html message alerts */
+
+.alert {
+    color: #423E37;
+    font-family: Libre Baskerville, sans-serif;
+    margin-top: 10px;
+    background-color: #FFD151;
+}
+
+/* base.html footer style */
+
+.footer {
+    font-family: Libre Baskerville;
+    text-decoration: none;
+}
+
+.github-logo {
+    color: #fff;
+}
+
+/* index home page styles */
+
+.main-title {
+    left: 0;
+    line-height: 200px;
+    margin-top: -120px;
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    width: 100%;
+    color: #fff;
+}
+
+.main-title strong {
+    font-family: Libre Baskerville, sans-serif;
+    font-size: 2.8rem;
+    color: #FFD151;
+}
+
+.main-subtitles {
+    font-family: Libre Baskerville, sans-serif;
+    padding-bottom: 20px;
+}
+
+.hero-img {
+    font-family: Libre Baskerville, sans-serif;
+}
+
+.hero-btn {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    font-size: 20px;
+    padding: 12px 24px;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 5px;
+    }
+
+/* build list styles */
+
+.search-bar {
+    max-width: 500px;
+    margin: auto auto;
+    padding-top: 15px;
+}
+
+.search-bar .input-group {
+    border-radius: 30px;
+    overflow: hidden;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.search-bar .form-control {
+    border: none;
+    padding-left: 20px;
+}
+
+.search-bar .btn {
+    border: none;
+    padding: 10px 20px;
+    background-color: #FFD151;
+}
+
+.add-build {
+    padding-top: 12px;
+}
+
+.add-build i:hover {
+    color: #423E37;
+}
+
+.image-container {
+    height: 150px;
+    width: 150px;
+    display: block;
+}
+
+.card {
+    font-family: Libre Baskerville, sans-serif;
+    position: relative;
+}
+
+.build-header {
+    background-color: #423E37;
+}
+
+.class-img-top {
+    position: absolute;
+    height: 70px;
+    width: 70px;
+    top: -25px;
+    right: -5px;
+}
+
+.card-title {
+    font-size: 1.2rem;
+    margin: 0px;
+    color: #fff;
+}
+
+.build-likes {
+    display: block;
+    float: inherit;
+    padding-top: 5px;
+}
+
+.favourited {
+    color: #cf0e0e;
+}
+
+.card-body {
+    padding: 10px;
+    background-color: #423E37;
+    border: none;
+    color: #fff;
+}
+
+.italic {
+    font-style: italic;
+}
+
+.build-link {
+    text-decoration: none;
+    color: #333;
+    font-family: Libre Baskerville, sans-serif;
+}
+
+.list-group-item {
+    background-color: #423E37;
+    border: none;
+    color: #fff;
+    align-items: center;
+}
+
+.explore-btn {
+    background: #FFD151;
+    color: #423E37;
+}
+
+.explore-btn a:hover {
+    color: #423E37;
+}
+
+.add-build i {
+    display:inline-block;
+    text-align: center;
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    color: #FFD151;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.add-build h4 {
+    display:inline-block;
+    text-align: center;
+    width: 100%;
+    color: #FFD151;
+    font-family: Libre Baskerville, sans-serif;
+}
+
+.search-results {
+    font-family: Libre Baskerville, sans-serif;
+    color: #fff;
+    font-size: 1.2rem;
+    padding-top: 10px;
+    text-align: center;
+}
+
+.btn-return-container a {
+    text-align: center;
+    text-decoration: none;
+    color: #423E37;
+}
+
+.btn-return {
+    background: #FFD151;
+    color: #423E37;
+    margin-bottom: 10px;
+    font-family: Libre Baskerville, sans-serif;
+}
+
+.btn-return a:hover {
+    color: #fff;
+}
+
+.add-build a:hover {
+    color: #423E37;
+    filter: invert(100%);
+    font-size: 18px;
+}
+
+.image-container {
+    position: relative;
+    width: 100%;
+    height: auto;
+}
+
+.card-detail {
+    padding-left:0px;
+    padding-right:0px;
+    margin-top:10px;
+    width: 75%;
+}
+
+.detail-title {
+    font-size: 2rem;
+    color: #fff;
+    margin: 0px;
+}
+
+.detail-list {
+    align-items: left;
+    font-size: 1.2rem;
+}
+
+#yellow {
+    color:#FFD151;
+}
+
+#detail-info {
+    display: flex;
+    align-items: right;
+}
+
+.edit-delete-container {
+    background-color: #423E37;
+}
+
+/* account page styles */
+
+#account-headers {
+    font-family: Libre Baskerville, sans-serif;
+    color: #fff;
+    padding-top: 15px;
+    padding-left: 15px;
+}
+
+/* allauth account styles */
+
+.login-page {
+    font-family: Libre Baskerville, sans-serif;
+    color: #fff;
+}
+
+.signup-page {
+    font-family: Libre Baskerville, sans-serif;
+    color: #fff;
+    list-style-type: none;
+    text-align: left;
+}
+
+.signup-page ul {
+    list-style-type: none;
+}
+
+#account-btns {
+    background: #FFD151;
+    color: #423E37;
+}
+
+#account-float {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 100vh;
+
+}
+
+.build-comments {
+    color: #fff;
+    background-color: #423E37;
+
+}
+
+.favourite-section {
+    padding-top: 10px;
+    font-size: 16px;
+    width: 75%;
+}
+
+.comment-form {
+    width: 75%;
+    font-family: Libre Baskerville, sans-serif;
+}
+
+.comment-section {
+    width: 75%;
+    color: #fff;
+    background-color: #423E37;
+}
+
+.comment-body {
+    color: #fff;
+    font-size: 1.2rem;
+}
+
+.comment-header {
+    padding-top: 10px;
+}
+
+.comment-break {
+    background-color: #fff;
+}
+
+.comment-btn {
+    background: #FFD151;
+    color: #423E37;
+}
+
+.reply-text {
+    width:75%;
+}
+
+#submit-form {
+    font-family: Libre Baskerville, sans-serif;
+    font-size: 1.4rem;
+    color: #fff;
+}
+
+.asteriskField {
+    display: none;
+}
