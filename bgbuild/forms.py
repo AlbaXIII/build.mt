@@ -1,15 +1,18 @@
 from .models import Bgcomment, Bgreply, Bgbuild
 from django import forms
 
+
 class BgcommentForm(forms.ModelForm):
     class Meta:
         model = Bgcomment
         fields = ('body',)
 
+
 class BgreplyForm(forms.ModelForm):
     class Meta:
         model = Bgreply
         fields = ('body',)
+
 
 class BgbuildForm(forms.ModelForm):
     """
