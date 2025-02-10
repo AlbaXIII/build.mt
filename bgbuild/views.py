@@ -4,6 +4,10 @@ from django.contrib import messages
 from django.http import HttpResponseRedirect
 from django.shortcuts import redirect
 from django.views.generic import CreateView, ListView, DeleteView, UpdateView, DetailView
+from django.contrib.auth.mixins import (
+    LoginRequiredMixin, UserPassesTestMixin
+)
+from django.contrib.messages.views import SuccessMessageMixin
 from django.db.models import Count, Q
 from .models import Bgbuild, Bgcomment
 from .forms import BgcommentForm, BgreplyForm, BgbuildForm
@@ -73,7 +77,7 @@ def buildDetail(request, slug):
     )
 
 
-class BgBuildFavourite(generic.View):
+class BgBuildFavourite(LoginRequiredMixin, generic.View):
 
     def post(self, request, build_slug, *args, **kwargs):
         build = get_object_or_404(Bgbuild, slug=build_slug)
@@ -86,7 +90,7 @@ class BgBuildFavourite(generic.View):
         return HttpResponseRedirect(reverse('bgbuilddetail', args=[build_slug]))
 
 
-class BgAddBuild(generic.CreateView):
+class BgAddBuild(LoginRequiredMixin, generic.CreateView):
 
     template_name = 'bgbuild/bgbuild_add.html'
     model = Bgbuild
@@ -98,13 +102,13 @@ class BgAddBuild(generic.CreateView):
         messages.add_message(
             self.request,
             messages.SUCCESS,
-            f'{self.request.user} - build post was successfully submitted'
+            f'{self.request.user} - your build post was successfully submitted'
         )
         response = super().form_valid(form)
         return response
 
 
-class BgEditBuild(generic.UpdateView):
+class BgEditBuild(LoginRequiredMixin, UserPassesTestMixin, generic.UpdateView):
     template_name = 'bgbuild/bgbuild_edit.html'
     model = Bgbuild
     form_class = BgbuildForm
@@ -118,11 +122,12 @@ class BgEditBuild(generic.UpdateView):
         response = super().form_valid(form)
         messages.add_message(
             self.request, messages.SUCCESS,
-            f'{self.request.user} your build was successfully edited')
+            f'{self.request.user} - your build was successfully edited')
         return response
 
 
-class BgDeleteBuild(generic.DeleteView):
+class BgDeleteBuild(LoginRequiredMixin, UserPassesTestMixin,
+                    SuccessMessageMixin, generic.DeleteView):
     model = Bgbuild
     success_url = "/bgbuild/"
     success_message = 'Build successfully deleted'

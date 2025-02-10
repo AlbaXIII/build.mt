@@ -3,26 +3,25 @@
 {% load static %}
 
 {% block content %}
-
-<div class="container-fluid">
-    <div class="row">
-        <!-- Page Title -->
-        <div>
-            <h1 class="title">Confirm Delete Build</h1>
-        </div>
-        
-        
-    <div class="container">
-        <div>
-            <!--Text area to confirm post deleteion-->
-            <form method="post" class="text-center">
-                {% csrf_token %}
-                <p>Are you sure you want to delete your post {{object.bgbuild_title}}?</p>
-                <p>This action is not reversable!</p>
-                <input type="submit" value="Confirm" class="btn btn btn-signup btn-outline-dark">
-            </form>
-        </div>
-    </div>     
-</div>
+<section class="dark-bg" id="account-float">
+    <div class="container-fluid login-page text-center">
+        <div class="row">
+            <!-- Page Title -->
+            <div>
+                <h1 id="delete-font">Confirm Delete Build</h1>
+            </div>
+        <div class="container">
+            <div>
+                <!--Form action confirming build deletion-->
+                <form method="post" class="text-center">
+                    {% csrf_token %}
+                    <p>Are you sure you want to delete your build<strong> {{object.bgbuild_title}}?</strong></p>
+                    <p>This action is not reversable!</p>
+                    <input type="submit" value="Confirm" class="btn btn-secondary btn-lg btn-return">
+                </form>
+            </div>
+        </div>     
+    </div>
+</section>
 
 {% endblock %}

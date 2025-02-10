@@ -56,7 +56,7 @@ body {
 /* base.html footer style */
 
 .footer {
-    font-family: Libre Baskerville;
+    font-family: Libre Baskerville, sans-serif;
     text-decoration: none;
 }
 
@@ -284,6 +284,10 @@ body {
     font-size: 1.2rem;
 }
 
+#white {
+    color: #fff;
+}
+
 #yellow {
     color:#FFD151;
 }
@@ -335,7 +339,6 @@ body {
     align-items: center;
     text-align: center;
     min-height: 100vh;
-
 }
 
 .build-comments {

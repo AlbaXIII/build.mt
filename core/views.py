@@ -2,6 +2,9 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.views.generic import TemplateView, ListView
 from bgbuild.models import Bgbuild
+from django.contrib.auth.mixins import (
+    LoginRequiredMixin
+)
 
 # Create your views here.
 
@@ -13,7 +16,7 @@ class Home(TemplateView):
     template_name = 'core/index.html'
 
 
-class UserBuilds(ListView):
+class UserBuilds(LoginRequiredMixin, ListView):
 
     model = Bgbuild
     template_name = 'core/account.html'
@@ -28,7 +31,7 @@ class UserBuilds(ListView):
             user=self.request.user).order_by('-created_on')
 
 
-class UserFavourites(ListView):
+class UserFavourites(LoginRequiredMixin, ListView):
 
     model = Bgbuild
     template_name = 'core/favourites.html'
