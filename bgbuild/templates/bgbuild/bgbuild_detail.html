@@ -106,7 +106,7 @@
             <div class="col-12 favourite-section">
                 <strong class="text-secondary">
                     <i class="fa-solid fa-comment fa-xl build-comments"> {{ build.comments.count }}</i>
-                {% if user.is_authenticated %}
+                    {% if user.is_authenticated %}
                 <div class="favourite-section">
                     <form action="{% url 'bgfavouritebuild' build.slug %}" method="POST">
                         {% csrf_token %}
@@ -121,82 +121,87 @@
                         {% endif %}
                     </form>
                     {% else %}
-                    <p> Favourites {{ build.number_of_favourites }}</p>
+                    <div class="mt-1">
+                        <i class="fa-solid fa-heart fa-xl"> {{ build.number_of_favourites }}</i>
+                    </div>
                     {% endif %}
                     </strong>
                 </div>
             </div>
         </div>
-
-        <div class="row justify-content-center">
-            <div class="mt-3 comment-form">
-                <div class="card-body">
-                    {% if user.is_authenticated %}
-                    <h3>Leave a comment:</h3>
-                    <p>Posting as: {{ user.username }}</p>
-                    <form id="commentForm" method="post"
-                        style="margin-top: 1.2em;">
-                        {{ comment_form | crispy }}
-                        {% csrf_token %}
-                        <input id="submitButton" type="submit"
-                        class="btn btn-signup btn-lg comment-btn" name="comment">
-                    </form>
-                    {% else %}
-                    <p>Please register or login to leave a comment.</p>
-                    {% endif %}
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="card mt-2 px-0 border-light comment-form">
+                    <div class="card-body">
+                        {% if user.is_authenticated %}
+                        <h3>Leave a comment:</h3>
+                        <p>Posting as: {{ user.username }}</p>
+                        <form id="commentForm" method="post"
+                            style="margin-top: 1.2em;">
+                            {{ comment_form | crispy }}
+                            {% csrf_token %}
+                            <input id="submitButton" type="submit"
+                            class="btn btn-signup btn-lg comment-btn" name="comment">
+                        </form>
+                        {% else %}
+                        <h4>Please register or login to leave a comment.</h4>
+                        {% endif %}
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="row justify-content-center">
-            <div class="card border-light mb-4 mt-3 comment-section">
-                <h3 class="comment-header">Comments:</h3>
-                <div class="card-body">
-                    {% for comment in comments %}
-                    <div class="p-2 comment-body">
-                        <div id="comment{{ comment.id }}" class="comment-text">
-                            {{ comment.body | linebreaks }}
-                        </div>
-                        <br>
-                        <p class="font-weight-bold comment-user">
-                            {{ comment.user }}
-                            <span class="font-weight-normal">
-                              {{ comment.created_on }}
-                            </span>
-                        </p>
-                        <hr>
-                        <!-- edit/delete buttons go here -->
-                        <br>
-                        <h4><strong>Replies:</strong></h4>
-                        {% for reply in comment.replies.all %}
-                        <div class="row">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="card border-light mb-4 mt-3 comment-section">
+                    <h3 class="comment-header">Comments:</h3>
+                    <div class="card-body">
+                        {% for comment in comments %}
+                        <div class="p-2 comment-body">
+                            <div id="comment{{ comment.id }}" class="comment-text">
+                                {{ comment.body | linebreaks }}
+                            </div>
                             <br>
-                            <div class="col-4 reply-text">
-                                <div>
-                                    {{ reply.body }}
-                                </div>
+                            <p class="font-weight-bold comment-user">
+                                {{ comment.user }}
+                                <span class="font-weight-normal">
+                                {{ comment.created_on }}
+                                </span>
+                            </p>
+                            <hr>
+                            <!-- edit/delete buttons go here -->
+                            <br>
+                            <h4><strong>Replies:</strong></h4>
+                            {% for reply in comment.replies.all %}
+                            <div class="row">
                                 <br>
-                                <div>
-                                    Reply by {{ reply.user }} {{ reply.created_on }}
+                                <div class="col-4 reply-text">
+                                    <div>
+                                        {{ reply.body }}
+                                    </div>
+                                    <br>
+                                    <div>
+                                        Reply by {{ reply.user }} {{ reply.created_on }}
+                                    </div>
                                 </div>
                             </div>
+                            <hr>
+                            {% endfor %}
+                            {% if user.is_authenticated %}
+                                <h4>Leave a reply</h4>
+                                <p>replying as {{ user.username }}</p>
+                                <form id="replyForm" method="post"
+                                    style="margin-top: 1.2em;">
+                                    {{ reply_form | crispy }}
+                                    {% csrf_token %}
+                                    <input id="submitButton" type="submit"
+                                    class="btn btn-signup btn-lg comment-btn" name="reply">
+                                    <input type="hidden" value="{{ comment.id }}" name="comment_id">
+                                </form>
+                            {% endif %}
                         </div>
-                        <hr>
                         {% endfor %}
-                        {% if user.is_authenticated %}
-                            <h4>Leave a reply</h4>
-                            <p>replying as {{ user.username }}</p>
-                            <form id="replyForm" method="post"
-                                style="margin-top: 1.2em;">
-                                {{ reply_form | crispy }}
-                                {% csrf_token %}
-                                <input id="submitButton" type="submit"
-                                class="btn btn-signup btn-lg comment-btn" name="reply">
-                                <input type="hidden" value="{{ comment.id }}" name="comment_id">
-                            </form>
-                        {% endif %}
+                        <hr>
                     </div>
-                    {% endfor %}
-                    <hr>
                 </div>
             </div>
         </div>
