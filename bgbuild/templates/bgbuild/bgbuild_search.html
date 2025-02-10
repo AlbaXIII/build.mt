@@ -25,11 +25,38 @@
                 <div class="row">
                     {% for build in builds %}
                     <div class="col-md-3">
-                        <div class="card border-dark mb-3 build-card">
+                        {% if build.status == 0%}
+                        <div class="card border-light mb-3 build-card italic">
+                        {% else %}
+                        <div class="card border-light mb-3 build-card ">
+                        {% endif %}
                             <div class="card-header build-header" id="card-icon">
-                                <a href="#" class="build-link">
-                                    <h2 class="card-title">{{build.bgbuild_title}}</h2>
-                                </a>
+                                <h2 class="card-title">{{build.bgbuild_title}}</h2>
+                                {% if build.bgbase_class == "barbarian" %}
+                                    <img src="{% static '/images/bg3/barbarian/bg3-class-icon-barbarian.webp' %}" class="class-img-top" alt="class image">
+                                {% elif build.bgbase_class == "bard" %}
+                                    <img src="{% static '/images/bg3/bard/bg3-class-icon-bard.webp' %}" class="class-img-top" alt="class image">
+                                {% elif build.bgbase_class == "cleric" %}
+                                    <img src="{% static '/images/bg3/cleric/bg3-class-icon-cleric.webp' %}" class="class-img-top" alt="class image">
+                                {% elif build.bgbase_class == "druid" %}
+                                    <img src="{% static '/images/bg3/druid/bg3-class-icon-druid.webp' %}" class="class-img-top" alt="class image">
+                                {% elif build.bgbase_class == "fighter" %}
+                                    <img src="{% static '/images/bg3/fighter/bg3-class-icon-fighter.webp' %}" class="class-img-top" alt="class image">
+                                {% elif build.bgbase_class == "monk" %}
+                                    <img src="{% static '/images/bg3/monk/bg3-class-icon-monk.webp' %}" class="class-img-top" alt="class image">
+                                {% elif build.bgbase_class == "paladin" %}
+                                    <img src="{% static '/images/bg3/paladin/bg3-class-icon-paladin.webp' %}" class="class-img-top" alt="class image">
+                                {% elif build.bgbase_class == "ranger" %}
+                                    <img src="{% static '/images/bg3/ranger/bg3-class-icon-ranger.webp' %}" class="class-img-top" alt="class image">
+                                {% elif build.bgbase_class == "rogue" %}
+                                    <img src="{% static '/images/bg3/rogue/bg3-class-icon-rogue.webp' %}" class="class-img-top" alt="class image">
+                                {% elif build.bgbase_class == "sorcerer" %}
+                                    <img src="{% static '/images/bg3/sorcerer/bg3-class-icon-sorcerer.webp' %}" class="class-img-top" alt="class image">
+                                {% elif build.bgbase_class == "warlock" %}
+                                    <img src="{% static '/images/bg3/warlock/bg3-class-icon-warlock.webp' %}" class="class-img-top" alt="class image">
+                                {% elif build.bgbase_class == "wizard" %}
+                                    <img src="{% static '/images/bg3/wizard/bg3-class-icon-wizard.webp' %}" class="class-img-top" alt="class image">
+                                {% endif %}
                             </div>
                             <div class="card-body">
                                 <div class="image-container mx-auto">
@@ -39,21 +66,33 @@
                                     {% else %}
                                     <img class="card-img" src="{{ build.bgbuild_image.url }}" alt="user build image">
                                     {% endif %}
-                                </div>                                
-                                <a href="" class="build-likes">
-                                    <i class="fa-solid fa-heart"> ##</i>
-                                </a>
+                                </div>
+                                {% if build in request.user.bgbuild_favourite.all %}                                   
+                                <i class="fa-solid fa-heart favourited"> {{ build.number_of_favourites }}</i>
+                                {% else %}
+                                <i class="fa-solid fa-heart"> {{ build.number_of_favourites }}</i>
+                                {% endif %}
+                                <br>
+                                <i class="fa-solid fa-comment fa build-comments">
+                                    {{ build.comments.count }}
+                                </i>
                             </div>
                                 <ul class="list-group list-group-flush">
+                                    <li class="list-group-item build-excerpt">'{{ build.excerpt }}'</li>
                                     <li class="list-group-item"><b>Role </b>| {{ build.bgbuild_role }}</li>
                                     <li class="list-group-item"><b>Base class </b>| {{ build.bgbase_class }}</li>
-                                    <li class="list-group-item"><b>Base Level </b>| {{ build.level_split }}</li>
-                                    <li class="list-group-item">{{ build.excerpt }}</li>
+                                    <li class="list-group-item"><b>Multiclass </b>| {{ build.multiclass }}</li>
                                     <li class="list-group-item build-details">created by <a href="#" class="user-link">{{ build.user }}</a></li>
                                 </ul>
-                            <a href="{% url 'bgbuilddetail' build.slug %}" class="btn btn-primary explore-btn"
+                            {% if build.status == 0 %}
+                                <a href="#" class="btn btn-secondary explore-btn-confirmation"
+                                aria-label="Opens post {{ build.build_title }}">Awaiting Admin Review
+                            </a>
+                            {% else %}
+                                <a href="{% url 'bgbuilddetail' build.slug %}" class="btn btn-secondary explore-btn"
                                 aria-label="Opens post {{ build.build_title }}">Explore Build
                             </a>
+                            {% endif %}
                         </div>
                     </div>
                     {% if forloop.counter|divisibleby:4 %}
@@ -64,21 +103,33 @@
                 </div>
             </div>
         </div>
+        {% if is_paginated %}
+        <nav aria-label="Page navigation">
+            <ul class="pagination justify-content-center">
+                {% if page_obj.has_previous %}
+                <li><a href="?page={{ page_obj.previous_page_number }}" class="page-link btn-secondary btn-lg btn-return">&laquo; PREV </a></li>
+                {% endif %}
+                {% if page_obj.has_next %}
+                <li><a href="?page={{ page_obj.next_page_number }}" class="page-link btn-secondary btn-lg btn-return"> NEXT &raquo;</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+        {% endif %}
     </div>
 </section>
 
 <!-- return to main build page -->
 <section>
+    <hr>
     <div class="container btn-return-container text-center">
-        <a href="{% url 'bgbuilds' %}">
-            <button class="btn btn-secondary btn-lg btn-return">
+        <button class="btn btn-secondary btn-lg btn-return">
+            <a href="{% url 'bgbuilds' %}">
                 Return to all builds
-            </button>
-        </a>
+            </a>
+        </button>
     </div>
 </section>
 
-
-<!-- index.html content ends here -->
+<!-- search.html content ends here -->
 
 {% endblock %}
