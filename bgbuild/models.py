@@ -231,7 +231,7 @@ class Bgbuild(models.Model):
 
     suggested_skill = models.CharField(
         max_length=15, choices=KEY_SKILLS, default='Arcana')
-    suggested_skill = models.CharField(
+    suggested_skill_secondary = models.CharField(
         max_length=15, choices=KEY_SKILLS, default='Athletics')
 
     difficulty = models.IntegerField(
