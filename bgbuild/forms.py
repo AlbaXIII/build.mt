@@ -28,7 +28,7 @@ class BgbuildForm(forms.ModelForm):
                   'ranger_subclass', 'rogue_subclass', 'sorcerer_subclass',
                   'warlock_subclass', 'wizard_school', 'multiclass', 'multiclass_one',
                   'multiclass_two', 'level_split', 'main_key_ability', 'secondary_key_ability',
-                  'suggested_skill', 'suggested_skill', 'difficulty', 'excerpt', 'content']
+                  'suggested_skill', 'suggested_skill_secondary', 'difficulty', 'excerpt', 'content']
         labels = {
             'bgbuild_title': "Build Title",
             'slug': "Slug (Title lowercase, and spaces replaced with '-')",
