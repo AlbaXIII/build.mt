@@ -13,12 +13,41 @@ from .forms import BgcommentForm, BgreplyForm, BgbuildForm
 
 
 class BgBuildList(generic.ListView):
+    """
+    Returns all Builds in :model:`bgbuild.Build`
+    and displays 2 rows of 4.
+    **Context**
+
+    ``queryset``
+        all instances of :model:`bgbuild.Build`
+    ``paginate_by``
+        8 builds per page.
+
+    **Template**
+
+    :template:`bgbuild/bgbuild_list`
+    """
     queryset = Bgbuild.objects.all().order_by("-created_on")
     template_name = "bgbuild/bgbuild_list.html"
     paginate_by = 8
 
 
 def search_build(request):
+    """
+    Search for builds by role or class.
+
+    **Context**
+
+    ``Search``
+        request to :model:`bgbuild.Build`
+
+    ``Builds``
+        instance of :model:`bgbuild.Build`
+
+    **Template**
+
+    :template:`bgbuild/bgbuild_search`
+    """
     if request.method == "POST":
         build_search = request.POST.get('searchbuilds')
         builds = Bgbuild.objects.filter(
@@ -33,6 +62,26 @@ def search_build(request):
 
 
 def build_detail(request, slug):
+    """
+    Display an individual :model:`bgbuild.Build`
+
+    **Context**
+
+    ``build``
+        A single instance of :model:`bgbuild.Build`.
+    ``comments``
+        All comments related to the build.
+    ``comment_count``
+        A count of comments related to the build.
+    ``comment_form``
+        Instance of BgcommentForm
+    ``reply``
+        All replies related to the comment
+
+    **Template:**
+
+    :template`bgbuild/bgbuild_detail.html`
+    """
     queryset = Bgbuild.objects.filter(status=1)
     build = get_object_or_404(queryset, slug=slug)
     comments = build.comments.all().order_by("-created_on")
@@ -79,7 +128,16 @@ def build_detail(request, slug):
 
 
 class BgBuildFavourite(LoginRequiredMixin, generic.View):
+    """
+    Allow auth user to favourite Builds.
 
+    **Context**
+
+    ``post``
+        A single instance of Bgbuild.
+    ``favourites``
+        bgbuild.favourites manytomanyfield.
+    """
     def post(self, request, build_slug, *args, **kwargs):
         build = get_object_or_404(Bgbuild, slug=build_slug)
 
@@ -93,7 +151,18 @@ class BgBuildFavourite(LoginRequiredMixin, generic.View):
 
 
 class BgAddBuild(LoginRequiredMixin, generic.CreateView):
+    """
+    Create a new Build post.
 
+    **Context**
+
+    ``form``
+        an instance of :form:`bgbuild.BgBuildForm.
+
+    **Template**
+
+    :template:`bgbuild/bgbuild_add.html`
+    """
     template_name = 'bgbuild/bgbuild_add.html'
     model = Bgbuild
     form_class = BgbuildForm
@@ -111,6 +180,18 @@ class BgAddBuild(LoginRequiredMixin, generic.CreateView):
 
 
 class BgEditBuild(LoginRequiredMixin, UserPassesTestMixin, generic.UpdateView):
+    """
+    Edit an existing Build post.
+
+    **Context**
+
+    ``form``
+        an instance of :form:`bgbuild.BgBuildForm.
+
+    **Template**
+
+    :template:`bgbuild/bgbuild_edit.html`
+    """
     template_name = 'bgbuild/bgbuild_edit.html'
     model = Bgbuild
     form_class = BgbuildForm
@@ -130,6 +211,18 @@ class BgEditBuild(LoginRequiredMixin, UserPassesTestMixin, generic.UpdateView):
 
 class BgDeleteBuild(LoginRequiredMixin, UserPassesTestMixin,
                     SuccessMessageMixin, generic.DeleteView):
+    """
+    Delete an existing Build post.
+
+    **Context**
+
+    ``build``
+        an instance of :model:`bgbuild.Build.
+
+    **Template**
+
+    :template:`bgbuild/bgbuild_confirm_delete.html`
+    """
     model = Bgbuild
     success_url = "/bgbuild/"
     success_message = 'Build successfully deleted'

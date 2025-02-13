@@ -315,6 +315,13 @@ body {
 }
 
 /* allauth account styles */
+#account-float {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 100vh;
+}
 
 .login-page {
     font-family: Libre Baskerville, sans-serif;
@@ -324,7 +331,6 @@ body {
 .signup-page {
     font-family: Libre Baskerville, sans-serif;
     color: #fff;
-    list-style-type: none;
     text-align: left;
 }
 
@@ -332,16 +338,5 @@ body {
     list-style-type: none;
 }
 
-#account-btns {
-    background: #FFD151;
-    color: #423E37;
-}
 
-#account-float {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    min-height: 100vh;
-}
 

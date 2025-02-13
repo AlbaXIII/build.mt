@@ -10,12 +10,26 @@ from django.contrib.auth.mixins import (
 class Home(TemplateView):
     """
     Class based view to render home page.
+
+    **Template:**
+    :template:`core/index.html`
     """
     template_name = 'core/index.html'
 
 
 class UserBuilds(LoginRequiredMixin, ListView):
+    """
+    Display a list of Bgbuilds created by auth.User.
 
+    **Context**
+
+    ``mybuilds``
+        A list of :model:`bgbuild.Build` instances created by the user.
+
+    **Template:**
+
+    :template:`core/account.html`
+    """
     model = Bgbuild
     template_name = 'core/account.html'
     context_object_name = 'mybuilds'
@@ -30,7 +44,19 @@ class UserBuilds(LoginRequiredMixin, ListView):
 
 
 class UserFavourites(LoginRequiredMixin, ListView):
+    """
+    Display a list of favourited Bgbuilds created by auth.User relating
+    to instances of :model:`bgbuild.Build`
 
+    **Context**
+
+    ``builds``
+        A list of :model:`bgbuild.Build` instances created by the user.
+
+    **Template:**
+
+    :template:`core/favourites.html`
+    """
     model = Bgbuild
     template_name = 'core/favourites.html'
     context_object_name = 'myfavourites'
