@@ -3,12 +3,20 @@ from django import forms
 
 
 class BgcommentForm(forms.ModelForm):
+    """
+    Comment form rendered in build detail page
+
+    """
     class Meta:
         model = Bgcomment
         fields = ('body',)
 
 
 class BgreplyForm(forms.ModelForm):
+    """
+    Reply form rendered in build detail page
+
+    """
     class Meta:
         model = Bgreply
         fields = ('body',)
@@ -16,7 +24,7 @@ class BgreplyForm(forms.ModelForm):
 
 class BgbuildForm(forms.ModelForm):
     """
-    A form for creating and updating lego build posts.
+    Form for creation & update of Build posts.
 
     """
     class Meta:
@@ -26,9 +34,11 @@ class BgbuildForm(forms.ModelForm):
                   'bard_subclass', 'cleric_domain', 'druid_subclass',
                   'fighter_subclass', 'monk_subclass', 'paladin_oath',
                   'ranger_subclass', 'rogue_subclass', 'sorcerer_subclass',
-                  'warlock_subclass', 'wizard_school', 'multiclass', 'multiclass_one',
-                  'multiclass_two', 'level_split', 'main_key_ability', 'secondary_key_ability',
-                  'suggested_skill', 'suggested_skill_secondary', 'difficulty', 'excerpt', 'content']
+                  'warlock_subclass', 'wizard_school', 'multiclass',
+                  'multiclass_one', 'multiclass_two', 'level_split',
+                  'main_key_ability', 'secondary_key_ability',
+                  'suggested_skill', 'suggested_skill_secondary',
+                  'difficulty', 'excerpt', 'content']
         labels = {
             'bgbuild_title': "Build Title",
             'slug': "Slug (Title lowercase, and spaces replaced with '-')",
@@ -48,8 +58,13 @@ class BgbuildForm(forms.ModelForm):
             'warlock_subclass': "Warlock subclass",
             'wizard_school': "Wizard school",
             'multiclass': "Multiclass?",
-            "multiclass_one": "Additional class",
-            "multiclass_two": "Class",
-            "excerpt": "Build Headline",
-            "content": "Write something about the build"
-        }
+            'multiclass_one': "Additional class",
+            'level_split': "Level split",
+            'main_key_ability': "Main key ability",
+            'secondary_key_ability': "Secondary key ability",
+            'suggested_skill': "Suggested skill",
+            'suggested_skill_secondary': "Secondary suggested skill",
+            'difficulty': "Build difficulty",
+            'excerpt': "Build Headline",
+            'content': "Write something about the build",
+            }

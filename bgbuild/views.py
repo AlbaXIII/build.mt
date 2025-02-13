@@ -2,36 +2,37 @@ from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic
 from django.contrib import messages
 from django.http import HttpResponseRedirect
-from django.shortcuts import redirect
-from django.views.generic import CreateView, ListView, DeleteView, UpdateView, DetailView
 from django.contrib.auth.mixins import (
     LoginRequiredMixin, UserPassesTestMixin
 )
 from django.contrib.messages.views import SuccessMessageMixin
-from django.db.models import Count, Q
 from .models import Bgbuild, Bgcomment
 from .forms import BgcommentForm, BgreplyForm, BgbuildForm
 
 # Create your views here.
 
 
-class BgbuildList(generic.ListView):
+class BgBuildList(generic.ListView):
     queryset = Bgbuild.objects.all().order_by("-created_on")
     template_name = "bgbuild/bgbuild_list.html"
     paginate_by = 8
 
 
-def searchBuild(request):
+def search_build(request):
     if request.method == "POST":
         build_search = request.POST.get('searchbuilds')
-        builds = Bgbuild.objects.filter(bgbase_class__contains=build_search) | Bgbuild.objects.filter(bgbuild_role__contains=build_search)
+        builds = Bgbuild.objects.filter(
+            bgbase_class__contains=build_search) | Bgbuild.objects.filter(
+                bgbuild_role__contains=build_search)
         total = builds.count()
-        return render(request, 'bgbuild/bgbuild_search.html', {'build_search': build_search, 'builds': builds, 'total': total, })
+        return render(
+            request, 'bgbuild/bgbuild_search.html',
+            {'build_search': build_search, 'builds': builds, 'total': total, })
     else:
         return render(request, 'bgbuild/bgbuild_search.html', {})
 
 
-def buildDetail(request, slug):
+def build_detail(request, slug):
     queryset = Bgbuild.objects.filter(status=1)
     build = get_object_or_404(queryset, slug=slug)
     comments = build.comments.all().order_by("-created_on")
@@ -87,7 +88,8 @@ class BgBuildFavourite(LoginRequiredMixin, generic.View):
         else:
             build.favourites.add(request.user)
 
-        return HttpResponseRedirect(reverse('bgbuilddetail', args=[build_slug]))
+        return HttpResponseRedirect(
+            reverse('bgbuilddetail', args=[build_slug]))
 
 
 class BgAddBuild(LoginRequiredMixin, generic.CreateView):
