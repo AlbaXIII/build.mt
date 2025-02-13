@@ -7,21 +7,17 @@
 {% block content %}
 
 <!-- return to main build page -->
-<section>
-    <br>
-    <div class="container btn-return-container text-center">
-        <a href="{% url 'bgbuilds' %}">
-            <button class="btn btn-secondary btn-lg btn-return">
-                Return to all builds
-            </button>
-        </a>
+<br>
+<div class="container text-center">
+    <div>
+            <a href="{% url 'bgbuilds' %}" class="btn btn-secondary btn-lg btn-return">Return to all Builds</a>
     </div>
-</section>
+</div>
 <!-- form to submit a new build -->
 <section id="submit-form">
     <div class="container">
         <form method="POST" enctype="multipart/form-data" class="p-5 form">
-            <h2 class="text-center title">Add Build</h2>
+            <h2 class="text-center form-title">Add Build</h2>
             {% csrf_token %}
             {{ form.media }}
             {{ form|crispy }}

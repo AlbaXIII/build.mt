@@ -24,12 +24,7 @@ body {
 }
 
 .navbar {
-    font-family: Libre Baskerville, sans-serif;
-}
-
-.nav-item {
-    font-family: Libre Baskerville, sans-serif;
-    font-size: 1rem;
+    font-family:'Libre Baskerville', sans-serif;
 }
 
 .thin {
@@ -56,7 +51,7 @@ body {
 /* base.html footer style */
 
 .footer {
-    font-family: Libre Baskerville;
+    font-family: Libre Baskerville, sans-serif;
     text-decoration: none;
 }
 
@@ -88,25 +83,9 @@ body {
     padding-bottom: 20px;
 }
 
-.hero-img {
-    font-family: Libre Baskerville, sans-serif;
-}
-
-.hero-btn {
-    position: absolute;
-    top: 60%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    font-size: 20px;
-    padding: 12px 24px;
-    color: #fff;
-    cursor: pointer;
-    border-radius: 5px;
-    }
-
 /* build list styles */
 
+/* build list search bar */
 .search-bar {
     max-width: 500px;
     margin: auto auto;
@@ -130,13 +109,56 @@ body {
     background-color: #FFD151;
 }
 
+.search-results {
+    font-family: Libre Baskerville, sans-serif;
+    color: #fff;
+    font-size: 1.2rem;
+    padding-top: 10px;
+    text-align: center;
+}
+
+/* build list add build button */
 .add-build {
     padding-top: 12px;
 }
 
-.add-build i:hover {
-    color: #423E37;
+.add-build i {
+    display:inline-block;
+    text-align: center;
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    color: #FFD151;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
+
+.add-build a:hover {
+    color: #423E37;
+    filter: invert(100%);
+}
+
+.add-build h4 {
+    display:inline-block;
+    text-align: center;
+    width: 100%;
+    color: #FFD151;
+    font-family: Libre Baskerville, sans-serif;
+}
+
+/* add build form */
+
+#submit-form {
+    font-family: Libre Baskerville, sans-serif;
+    font-size: 1.4rem;
+    color: #fff;
+}
+
+.asteriskField {
+    display: none;
+}
+
+/* build list card details */
 
 .image-container {
     height: 150px;
@@ -151,6 +173,9 @@ body {
 
 .build-header {
     background-color: #423E37;
+    font-size: 1.2rem;
+    color: #fff;
+    padding-bottom: 0px;
 }
 
 .class-img-top {
@@ -164,41 +189,12 @@ body {
 .card-title {
     font-size: 1.2rem;
     margin: 0px;
-    color: #fff;
 }
 
-.build-likes {
-    display: block;
-    float: inherit;
-    padding-top: 5px;
-}
-
-.favourited {
-    color: #cf0e0e;
-}
-
-.card-body {
-    padding: 10px;
-    background-color: #423E37;
-    border: none;
-    color: #fff;
-}
-
-.italic {
-    font-style: italic;
-}
-
-.build-link {
-    text-decoration: none;
-    color: #333;
-    font-family: Libre Baskerville, sans-serif;
-}
-
-.list-group-item {
-    background-color: #423E37;
-    border: none;
-    color: #fff;
-    align-items: center;
+.image-container {
+    position: relative;
+    width: 100%;
+    height: auto;
 }
 
 .explore-btn {
@@ -210,37 +206,92 @@ body {
     color: #423E37;
 }
 
-.add-build i {
-    display:inline-block;
-    text-align: center;
-    width: 100%;
-    padding-top: 10px;
-    padding-bottom: 20px;
-    color: #FFD151;
-    margin-top: 20px;
-    margin-bottom: 20px;
+.italic {
+    font-style: italic;
 }
 
-.add-build h4 {
-    display:inline-block;
-    text-align: center;
-    width: 100%;
-    color: #FFD151;
-    font-family: Libre Baskerville, sans-serif;
+/* build detail styles */
+.detail-title {
+    font-size: 1.5rem;
 }
 
-.search-results {
-    font-family: Libre Baskerville, sans-serif;
+.favourited {
+    color: #cf0e0e;
+}
+
+.unfavourited {
+    color: #fff;
+}
+
+.card-detail {
+    padding-left:0px;
+    padding-right:0px;
+    margin-top:10px;
+    width: 75%;
+}
+
+.detail-list {
+    font-size: 1.2rem;
+}
+
+.edit-delete-container {
+    background-color: #423E37;
+}
+
+.card-body {
+    padding: 10px;
+    background-color: #423E37;
+    border: none;
     color: #fff;
     font-size: 1.2rem;
-    padding-top: 10px;
-    text-align: center;
+    
 }
 
-.btn-return-container a {
-    text-align: center;
-    text-decoration: none;
-    color: #423E37;
+.list-group-item {
+    background-color: #423E37;
+    border: none;
+    align-items: center;
+    color: #fff;
+}
+
+.yellow {
+    color:#FFD151;
+}
+
+/* comment & reply form */
+.build-comments {
+    color: #fff;
+    background-color: #423E37;
+}
+
+.favourite-section {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 16px;
+    width: 75%;
+}
+
+.comment-section {
+    color: #fff;
+    background-color: #423E37;
+    width: 75%;
+}
+
+.comment-header {
+    padding-top: 10px;
+}
+
+.comment-body {
+    color: #fff;
+    font-size: 1.2rem;
+}
+
+.comment-break {
+    background-color: #fff;
+}
+
+.reply-text {
+    width:75%;
 }
 
 .btn-return {
@@ -252,49 +303,6 @@ body {
 
 .btn-return a:hover {
     color: #fff;
-}
-
-.add-build a:hover {
-    color: #423E37;
-    filter: invert(100%);
-    font-size: 18px;
-}
-
-.image-container {
-    position: relative;
-    width: 100%;
-    height: auto;
-}
-
-.card-detail {
-    padding-left:0px;
-    padding-right:0px;
-    margin-top:10px;
-    width: 75%;
-}
-
-.detail-title {
-    font-size: 2rem;
-    color: #fff;
-    margin: 0px;
-}
-
-.detail-list {
-    align-items: left;
-    font-size: 1.2rem;
-}
-
-#yellow {
-    color:#FFD151;
-}
-
-#detail-info {
-    display: flex;
-    align-items: right;
-}
-
-.edit-delete-container {
-    background-color: #423E37;
 }
 
 /* account page styles */
@@ -335,60 +343,5 @@ body {
     align-items: center;
     text-align: center;
     min-height: 100vh;
-
 }
 
-.build-comments {
-    color: #fff;
-    background-color: #423E37;
-
-}
-
-.favourite-section {
-    padding-top: 10px;
-    font-size: 16px;
-    width: 75%;
-}
-
-.comment-form {
-    width: 75%;
-    font-family: Libre Baskerville, sans-serif;
-}
-
-.comment-section {
-    width: 75%;
-    color: #fff;
-    background-color: #423E37;
-}
-
-.comment-body {
-    color: #fff;
-    font-size: 1.2rem;
-}
-
-.comment-header {
-    padding-top: 10px;
-}
-
-.comment-break {
-    background-color: #fff;
-}
-
-.comment-btn {
-    background: #FFD151;
-    color: #423E37;
-}
-
-.reply-text {
-    width:75%;
-}
-
-#submit-form {
-    font-family: Libre Baskerville, sans-serif;
-    font-size: 1.4rem;
-    color: #fff;
-}
-
-.asteriskField {
-    display: none;
-}

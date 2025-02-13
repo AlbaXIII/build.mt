@@ -11,7 +11,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="card border-light mb-3 build-card card-detail">
-                <div class="card-header build-header" id="card-icon">
+                <div class="card-header build-header">
                     <h2 class="detail-title">{{build.bgbuild_title}}</h2>
                     {% if build.bgbase_class == "barbarian" %}
                         <img src="{% static '/images/bg3/barbarian/bg3-class-icon-barbarian.webp' %}" class="class-img-top" alt="class image">
@@ -41,43 +41,43 @@
                 </div>
                 <div class="detail-list">
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item d-flex justify-content-between align-items-center"><b id="yellow">Role </b><span> {{ build.bgbuild_role }} </span></li>
-                        <li class="list-group-item d-flex justify-content-between align-items-center"><b id="yellow">Base class </b><span> {{ build.bgbase_class }} </span></li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center"><b class="yellow">Role </b><span> {{ build.bgbuild_role }} </span></li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center"><b class="yellow">Base class </b><span> {{ build.bgbase_class }} </span></li>
                         {% if build.bgbase_class == "barbarian" %}
-                            <li class="list-group-item d-flex justify-content-between align-items-center"><b id="yellow">Subclass </b><span> {{ build.barbarian_subclass }} </span></li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center"><b class="yellow">Subclass </b><span> {{ build.barbarian_subclass }} </span></li>
                         {% elif build.bgbase_class == "bard" %}
-                            <li class="list-group-item d-flex justify-content-between align-items-center"><b id="yellow">Subclass </b><span> {{ build.bard_subclass }} </span></li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center"><b class="yellow">Subclass </b><span> {{ build.bard_subclass }} </span></li>
                         {% elif build.bgbase_class == "cleric" %}
-                            <li class="list-group-item d-flex justify-content-between align-items-center"><b id="yellow">Subclass </b><span> {{ build.cleric_domain }} </span></li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center"><b class="yellow">Subclass </b><span> {{ build.cleric_domain }} </span></li>
                         {% elif build.bgbase_class == "druid" %}
-                            <li class="list-group-item d-flex justify-content-between align-items-center"><b id="yellow">Subclass </b><span> {{ build.druid_subclass }} </span></li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center"><b class="yellow">Subclass </b><span> {{ build.druid_subclass }} </span></li>
                         {% elif build.bgbase_class == "fighter" %}
-                            <li class="list-group-item d-flex justify-content-between align-items-center"><b id="yellow">Subclass </b><span> {{ build.fighter_subclass }} </span></li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center"><b class="yellow">Subclass </b><span> {{ build.fighter_subclass }} </span></li>
                         {% elif build.bgbase_class == "monk" %}
-                            <li class="list-group-item d-flex justify-content-between align-items-center"><b id="yellow">Subclass </b><span> {{ build.monk_subclass }} </span></li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center"><b class="yellow">Subclass </b><span> {{ build.monk_subclass }} </span></li>
                         {% elif build.bgbase_class == "paladin" %}
-                            <li class="list-group-item d-flex justify-content-between align-items-center"><b id="yellow">Subclass </b><span> {{ build.paladin_oath }} </span></li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center"><b class="yellow">Subclass </b><span> {{ build.paladin_oath }} </span></li>
                         {% elif build.bgbase_class == "ranger" %}
-                            <li class="list-group-item d-flex justify-content-between align-items-center"><b id="yellow">Subclass </b><span> {{ build.ranger_subclass }} </span></li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center"><b class="yellow">Subclass </b><span> {{ build.ranger_subclass }} </span></li>
                         {% elif build.bgbase_class == "rogue" %}
-                            <li class="list-group-item d-flex justify-content-between align-items-center"><b id="yellow">Subclass </b><span> {{ build.rogue_subclass }} </span></li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center"><b class="yellow">Subclass </b><span> {{ build.rogue_subclass }} </span></li>
                         {% elif build.bgbase_class == "sorcerer" %}
-                            <li class="list-group-item d-flex justify-content-between align-items-center"><b id="yellow">Subclass </b><span> {{ build.sorcerer_subclass }} </span></li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center"><b class="yellow">Subclass </b><span> {{ build.sorcerer_subclass }} </span></li>
                         {% elif build.bgbase_class == "warlock" %}
-                            <li class="list-group-item d-flex justify-content-between align-items-center"><b id="yellow">Subclass </b><span> {{ build.warlock_subclass }} </span></li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center"><b class="yellow">Subclass </b><span> {{ build.warlock_subclass }} </span></li>
                         {% elif build.bgbase_class == "wizard" %}
-                            <li class="list-group-item d-flex justify-content-between align-items-center"><b id="yellow">Subclass </b><span> {{ build.wizard_school }} </span></li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center"><b class="yellow">Subclass </b><span> {{ build.wizard_school }} </span></li>
                         {% endif %}
-                        <li class="list-group-item d-flex justify-content-between align-items-center"><b id="yellow">Multiclass? </b><span>  {{ build.multiclass }} </span></li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center"><b class="yellow">Multiclass? </b><span>  {{ build.multiclass }} </span></li>
                         {% if build.multiclass == "yes" %}
-                            <li class="list-group-item d-flex justify-content-between align-items-center"><b id="yellow">Multiclass One </b><span>  {{ build.multiclass_one }} </span></li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center"><b class="yellow">Multiclass One </b><span>  {{ build.multiclass_one }} </span></li>
                         {% endif %}
-                        <li class="list-group-item d-flex justify-content-between align-items-center"><b id="yellow">Level Split </b><span> {{ build.level_split }} </span></li>
-                        <li class="list-group-item d-flex justify-content-between align-items-center"><b id="yellow">Key Ability </b><span> {{ build.main_key_ability }} </span></li>
-                        <li class="list-group-item d-flex justify-content-between align-items-center"><b id="yellow">Secondary Key Ability </b></p><span> {{ build.secondary_key_ability }} </span></li>
-                        <li class="list-group-item d-flex justify-content-between align-items-center"><b id="yellow">Suggested Skill </b></p><span> {{ build.suggested_skill }} </span></li>
-                        <li class="list-group-item d-flex justify-content-between align-items-center"><b id="yellow">Secondary Suggested Skill </b></p><span> {{ build.suggested_skill_secondary }} </span></li>
-                        <li class="list-group-item d-flex justify-content-between align-items-center"><b id="yellow">Build Difficulty </b></p><span> {{ build.difficulty }} </span></li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center"><b class="yellow">Level Split </b><span> {{ build.level_split }} </span></li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center"><b class="yellow">Key Ability </b><span> {{ build.main_key_ability }} </span></li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center"><b class="yellow">Secondary Key Ability </b><span> {{ build.secondary_key_ability }} </span></li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center"><b class="yellow">Suggested Skill </b><span> {{ build.suggested_skill }} </span></li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center"><b class="yellow">Secondary Suggested Skill </b><span> {{ build.suggested_skill_secondary }} </span></li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center"><b class="yellow">Build Difficulty </b><span> {{ build.difficulty }} </span></li>
                         <li class="list-group-item">created by {{ build.user }}</li>
                     </ul>
                 </div>
@@ -104,18 +104,19 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-12 favourite-section">
-                <strong class="text-secondary">
+                <div>
                     <i class="fa-solid fa-comment fa-xl build-comments"> {{ build.comments.count }}</i>
                     {% if user.is_authenticated %}
-                <div class="favourite-section">
+                </div>
+                <div class="favourite-section text-secondary">
                     <form action="{% url 'bgfavouritebuild' build.slug %}" method="POST">
                         {% csrf_token %}
                         {% if build in request.user.bgbuild_favourite.all %}
-                        <input type="submit" name="bgbuild_slug" class="btn btn-lg comment-btn" name="favourite" value="Favourited!"></input>
+                        <input type="submit" name="bgbuild_slug" class="btn btn-secondary btn-danger" value="Favourited!">
                         <input type="hidden" value="{{ build.slug }}" name="build_slug">
                             <i class="fa-solid fa-heart fa-xl favourited"> {{ build.number_of_favourites }}</i>
                         {% else %}
-                        <input type="submit" name="bgbuild_slug" class="btn btn-lg comment-btn" name="favourite" value="Favourite"></input>
+                        <input type="submit" name="bgbuild_slug" class="btn btn-secondary btn-return" value="Favourite">
                         <input type="hidden" value="{{ build.slug }}" name="build_slug">
                             <i class="fa-solid fa-heart fa-xl"> {{ build.number_of_favourites }}</i>
                         {% endif %}
@@ -125,13 +126,12 @@
                         <i class="fa-solid fa-heart fa-xl"> {{ build.number_of_favourites }}</i>
                     </div>
                     {% endif %}
-                    </strong>
                 </div>
             </div>
         </div>
         <div class="container">
             <div class="row justify-content-center">
-                <div class="card mt-2 px-0 border-light comment-form">
+                <div class="card mt-2 px-0 border-light comment-section">
                     <div class="card-body">
                         {% if user.is_authenticated %}
                         <h3>Leave a comment:</h3>
@@ -141,7 +141,7 @@
                             {{ comment_form | crispy }}
                             {% csrf_token %}
                             <input id="submitButton" type="submit"
-                            class="btn btn-signup btn-lg comment-btn" name="comment">
+                            class="btn btn-signup btn-lg btn-return" name="comment">
                         </form>
                         {% else %}
                         <h4>Please register or login to leave a comment.</h4>
@@ -153,7 +153,7 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="card border-light mb-4 mt-3 comment-section">
-                    <h3 class="comment-header">Comments:</h3>
+                    <h3 class="comment-header"><strong class="yellow">Comments:</strong></h3>
                     <div class="card-body">
                         {% for comment in comments %}
                         <div class="p-2 comment-body">
@@ -170,7 +170,7 @@
                             <hr>
                             <!-- edit/delete buttons go here -->
                             <br>
-                            <h4><strong>Replies:</strong></h4>
+                            <h4><strong class="yellow">Replies:</strong></h4>
                             {% for reply in comment.replies.all %}
                             <div class="row">
                                 <br>
@@ -194,7 +194,7 @@
                                     {{ reply_form | crispy }}
                                     {% csrf_token %}
                                     <input id="submitButton" type="submit"
-                                    class="btn btn-signup btn-lg comment-btn" name="reply">
+                                    class="btn btn-signup btn-lg btn-return" name="reply">
                                     <input type="hidden" value="{{ comment.id }}" name="comment_id">
                                 </form>
                             {% endif %}
@@ -206,16 +206,9 @@
             </div>
         </div>
     </div>
-</section>
-
-<!-- return to main build page -->
-<section>
-    <div class="container btn-return-container text-center">
-        <button class="btn btn-secondary btn-lg btn-return">
-            <a href="{% url 'bgbuilds' %}">
-                Return to all builds
-            </a>
-        </button>
+    <!-- return to main build page -->
+    <div class="text-center">
+            <a href="{% url 'bgbuilds' %}" class="btn btn-secondary btn-lg btn-return">Return to all Builds</a>
     </div>
 </section>
 

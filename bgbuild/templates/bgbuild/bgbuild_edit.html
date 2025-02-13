@@ -9,13 +9,10 @@
 <!-- return to main build page -->
 <section>
     <hr>
-    <div class="container btn-return-container text-center">
-        <button class="btn btn-secondary btn-lg btn-return">
-            <a href="{% url 'bgbuilds' %}">
-                Return to all builds
-            </a>
-        </button>
-    </div>
+    <!-- return to main build page -->
+        <div class="text-center">
+            <a href="{% url 'bgbuilds' %}" class="btn btn-secondary btn-lg btn-return">Return to all Builds</a>
+        </div>
 </section>
 <!-- form to edit an existing build -->
 <section id="submit-form">
@@ -31,5 +28,9 @@
         </form>
     </div>
 </section>
+
+{% block extras %}
+<script src="{% static 'js/addform.js' %}"></script>
+{% endblock %}
 
 {% endblock %}

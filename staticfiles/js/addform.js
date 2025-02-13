@@ -11,7 +11,7 @@ title.onkeyup = () => {
 
 function slugify(input) {
     if (!input) return '';
-    var slug = input.toLowerCase().trim();
+    let slug = input.toLowerCase().trim();
     slug = slug.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
     slug = slug.replace(/[đĐ]/g, 'd');
     slug = slug.replace(/[^a-z0-9\s-]/g, '');
@@ -21,10 +21,10 @@ function slugify(input) {
 }
 
 // fetch initial fields
-var bgbase_class = document.getElementById("id_bgbase_class")
-var multiclass = document.getElementById("id_multiclass")
-var multiclass_one = document.getElementById("div_id_multiclass_one")
-var multiclass_two = document.getElementById("div_id_multiclass_two")
+const bgbase_class = document.getElementById("id_bgbase_class")
+const multiclass = document.getElementById("id_multiclass")
+const multiclass_one = document.getElementById("div_id_multiclass_one")
+const multiclass_two = document.getElementById("div_id_multiclass_two")
 
 // fetch subclass fields
 const barbarian_subclass = document.getElementById("div_id_barbarian_subclass");
@@ -59,64 +59,64 @@ wizard_school.style.display = ("none");
 
 // event listener for dynamic class selection
 bgbase_class.addEventListener("click", function() {
-    var options = bgbase_class.querySelectorAll("option");
+    let options = bgbase_class.querySelectorAll("option");
     // console.log(bgbase_class.value)
-    if (bgbase_class.value == 'barbarian'){
+    if (bgbase_class.value === 'barbarian'){
         barbarian_subclass.style.display = ("block")
     } else {
         barbarian_subclass.style.display = ("none")
     }
-    if (bgbase_class.value == 'bard'){
+    if (bgbase_class.value === 'bard'){
         bard_subclass.style.display = ("block")
     } else {
         bard_subclass.style.display = ("none")
     }
-    if (bgbase_class.value == 'cleric'){
+    if (bgbase_class.value === 'cleric'){
         cleric_domain.style.display = ("block")
     } else {
         cleric_domain.style.display = ("none")
     }
-    if (bgbase_class.value == 'druid'){
+    if (bgbase_class.value === 'druid'){
         druid_subclass.style.display = ("block")
     } else {
         druid_subclass.style.display = ("none")
     }
-    if (bgbase_class.value == 'fighter'){
+    if (bgbase_class.value === 'fighter'){
         fighter_subclass.style.display = ("block")
     } else {
         fighter_subclass.style.display = ("none")
     }
-    if (bgbase_class.value == 'monk'){
+    if (bgbase_class.value === 'monk'){
         monk_subclass.style.display = ("block")
     } else {
         monk_subclass.style.display = ("none")
     }
-    if (bgbase_class.value == 'paladin'){
+    if (bgbase_class.value === 'paladin'){
         paladin_oath.style.display = ("block")
     } else {
         paladin_oath.style.display = ("none")
     }
-    if (bgbase_class.value == 'ranger'){
+    if (bgbase_class.value === 'ranger'){
         ranger_subclass.style.display = ("block")
     } else {
         ranger_subclass.style.display = ("none")
     }
-    if (bgbase_class.value == 'rogue'){
+    if (bgbase_class.value === 'rogue'){
         rogue_subclass.style.display = ("block")
     } else {
         rogue_subclass.style.display = ("none")
     }
-    if (bgbase_class.value == 'sorcerer'){
+    if (bgbase_class.value === 'sorcerer'){
         sorcerer_subclass.style.display = ("block")
     } else {
         sorcerer_subclass.style.display = ("none")
     }
-    if (bgbase_class.value == 'warlock'){
+    if (bgbase_class.value === 'warlock'){
         warlock_subclass.style.display = ("block")
     } else {
         warlock_subclass.style.display = ("none")
     }
-    if (bgbase_class.value == 'wizard'){
+    if (bgbase_class.value === 'wizard'){
         wizard_school.style.display = ("block")
     } else {
         wizard_school.style.display = ("none")
@@ -124,7 +124,7 @@ bgbase_class.addEventListener("click", function() {
 });
 
 multiclass.addEventListener("click", function(){
-    if (multiclass.value == 'yes'){
+    if (multiclass.value === 'yes'){
         multiclass_one.style.display = ("block")
     } else {
         multiclass_one.style.display = ("none")

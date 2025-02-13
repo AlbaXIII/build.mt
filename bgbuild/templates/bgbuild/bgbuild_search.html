@@ -30,7 +30,7 @@
                         {% else %}
                         <div class="card border-light mb-3 build-card ">
                         {% endif %}
-                            <div class="card-header build-header" id="card-icon">
+                            <div class="card-header build-header">
                                 <h2 class="card-title">{{build.bgbuild_title}}</h2>
                                 {% if build.bgbase_class == "barbarian" %}
                                     <img src="{% static '/images/bg3/barbarian/bg3-class-icon-barbarian.webp' %}" class="class-img-top" alt="class image">
@@ -120,13 +120,9 @@
 
 <!-- return to main build page -->
 <section>
-    <hr>
-    <div class="container btn-return-container text-center">
-        <button class="btn btn-secondary btn-lg btn-return">
-            <a href="{% url 'bgbuilds' %}">
-                Return to all builds
-            </a>
-        </button>
+    <br>
+    <div class="text-center">
+        <a href="{% url 'bgbuilds' %}" class="btn btn-secondary btn-lg btn-return">Return to all Builds</a>
     </div>
 </section>
 
