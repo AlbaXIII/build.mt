@@ -6,8 +6,8 @@ const slug_div = document.getElementById("div_id_slug");
 slug_div.style.display = ("none");
 
 title.onkeyup = () => {
-    slug.value = slugify(title.value)
-}
+    slug.value = slugify(title.value);
+};
 
 function slugify(input) {
     if (!input) return '';
@@ -21,10 +21,10 @@ function slugify(input) {
 }
 
 // fetch initial fields
-const bgbase_class = document.getElementById("id_bgbase_class")
-const multiclass = document.getElementById("id_multiclass")
-const multiclass_one = document.getElementById("div_id_multiclass_one")
-const multiclass_two = document.getElementById("div_id_multiclass_two")
+const bgbase_class = document.getElementById("id_bgbase_class");
+const multiclass = document.getElementById("id_multiclass");
+const multiclass_one = document.getElementById("div_id_multiclass_one");
+const multiclass_two = document.getElementById("div_id_multiclass_two");
 
 // fetch subclass fields
 const barbarian_subclass = document.getElementById("div_id_barbarian_subclass");
@@ -59,74 +59,72 @@ wizard_school.style.display = ("none");
 
 // event listener for dynamic class selection
 bgbase_class.addEventListener("click", function() {
-    let options = bgbase_class.querySelectorAll("option");
-    // console.log(bgbase_class.value)
     if (bgbase_class.value === 'barbarian'){
-        barbarian_subclass.style.display = ("block")
+        barbarian_subclass.style.display = ("block");
     } else {
-        barbarian_subclass.style.display = ("none")
+        barbarian_subclass.style.display = ("none");
     }
     if (bgbase_class.value === 'bard'){
-        bard_subclass.style.display = ("block")
+        bard_subclass.style.display = ("block");
     } else {
-        bard_subclass.style.display = ("none")
+        bard_subclass.style.display = ("none");
     }
     if (bgbase_class.value === 'cleric'){
-        cleric_domain.style.display = ("block")
+        cleric_domain.style.display = ("block");
     } else {
-        cleric_domain.style.display = ("none")
+        cleric_domain.style.display = ("none");
     }
     if (bgbase_class.value === 'druid'){
-        druid_subclass.style.display = ("block")
+        druid_subclass.style.display = ("block");
     } else {
-        druid_subclass.style.display = ("none")
+        druid_subclass.style.display = ("none");
     }
     if (bgbase_class.value === 'fighter'){
-        fighter_subclass.style.display = ("block")
+        fighter_subclass.style.display = ("block");
     } else {
-        fighter_subclass.style.display = ("none")
+        fighter_subclass.style.display = ("none");
     }
     if (bgbase_class.value === 'monk'){
-        monk_subclass.style.display = ("block")
+        monk_subclass.style.display = ("block");
     } else {
-        monk_subclass.style.display = ("none")
+        monk_subclass.style.display = ("none");
     }
     if (bgbase_class.value === 'paladin'){
-        paladin_oath.style.display = ("block")
+        paladin_oath.style.display = ("block");
     } else {
-        paladin_oath.style.display = ("none")
+        paladin_oath.style.display = ("none");
     }
     if (bgbase_class.value === 'ranger'){
-        ranger_subclass.style.display = ("block")
+        ranger_subclass.style.display = ("block");
     } else {
-        ranger_subclass.style.display = ("none")
+        ranger_subclass.style.display = ("none");
     }
     if (bgbase_class.value === 'rogue'){
-        rogue_subclass.style.display = ("block")
+        rogue_subclass.style.display = ("block");
     } else {
-        rogue_subclass.style.display = ("none")
+        rogue_subclass.style.display = ("none");
     }
     if (bgbase_class.value === 'sorcerer'){
-        sorcerer_subclass.style.display = ("block")
+        sorcerer_subclass.style.display = ("block");
     } else {
-        sorcerer_subclass.style.display = ("none")
+        sorcerer_subclass.style.display = ("none");
     }
     if (bgbase_class.value === 'warlock'){
-        warlock_subclass.style.display = ("block")
+        warlock_subclass.style.display = ("block");
     } else {
-        warlock_subclass.style.display = ("none")
+        warlock_subclass.style.display = ("none");
     }
     if (bgbase_class.value === 'wizard'){
-        wizard_school.style.display = ("block")
+        wizard_school.style.display = ("block");
     } else {
-        wizard_school.style.display = ("none")
+        wizard_school.style.display = ("none");
     }
 });
 
 multiclass.addEventListener("click", function(){
     if (multiclass.value === 'yes'){
-        multiclass_one.style.display = ("block")
+        multiclass_one.style.display = ("block");
     } else {
-        multiclass_one.style.display = ("none")
+        multiclass_one.style.display = ("none");
     }
-})
+});

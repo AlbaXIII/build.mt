@@ -6,23 +6,20 @@
 
 {% block content %}
 
-<!-- search bar section for quick access to users -->
-<section class="search-area">
+<!-- search bar  -->
+<section>
     <div class="container-fluid">
         <div class="search-bar">
-            <form class="input-group" action="{% url 'searchbuild' %}" method="POST" role="form">
+            <form class="input-group" action="{% url 'searchbuild' %}" method="POST">
                 {% csrf_token %}
                 <input type="text" name="searchbuilds" class="form-control" placeholder="Search builds..." aria-label="Search" aria-describedby="search-addon">
-                <button class="btn btn-outline-secondary" type="submit" id="search-addon" action="{% url 'searchbuild' %}">
+                <button class="btn btn-outline-secondary" type="submit" id="search-addon">
                     <i class="fas fa-search"></i>
                 </button>
             </form>
         </div>
     </div>
-</section>
-
 <!-- Add build button -->
-<section>
     <div class="container add-build">
         <div>
             <h4>Upload a build</h4>

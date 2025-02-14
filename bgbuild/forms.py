@@ -4,7 +4,7 @@ from django import forms
 
 class BgcommentForm(forms.ModelForm):
     """
-    Comment form rendered in build detail page
+    Comment form rendered in build detail page.
 
     """
     class Meta:
@@ -14,7 +14,7 @@ class BgcommentForm(forms.ModelForm):
 
 class BgreplyForm(forms.ModelForm):
     """
-    Reply form rendered in build detail page
+    Reply form rendered in build detail page.
 
     """
     class Meta:

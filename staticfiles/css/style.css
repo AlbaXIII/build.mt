@@ -133,9 +133,8 @@ body {
     margin-bottom: 20px;
 }
 
-.add-build a:hover {
+.add-build i:hover {
     color: #423E37;
-    filter: invert(100%);
 }
 
 .add-build h4 {

@@ -322,6 +322,11 @@ Furthermore, for the difficulty rating, the max number validator is in place to 
 
 ## BUGS
 
+### Known Bugs
+
+### Unfixed Bugs
+
+
 
 
 ## FUTURE FEATURES 
