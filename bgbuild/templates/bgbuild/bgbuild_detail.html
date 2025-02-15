@@ -171,37 +171,8 @@
                             </p>
                             <hr>
                             <br>
-                            <h4><strong class="yellow">Replies:</strong></h4>
-                            {% for reply in comment.replies.all %}
-                            <div class="row">
-                                <br>
-                                <div class="col-4 reply-text">
-                                    <div>
-                                        {{ reply.reply_body }}
-                                    </div>
-                                    <br>
-                                    <div>
-                                        Reply by {{ reply.user }} {{ reply.created_on }}
-                                    </div>
-                                </div>
-                            </div>
-                            <hr>
-                            {% endfor %}
-                            {% if user.is_authenticated %}
-                                <h4>Leave a reply</h4>
-                                <p>replying as {{ user.username }}</p>
-                                <form class="replyForm" method="post"
-                                    style="margin-top: 1.2em;">
-                                    {{ reply_form | crispy }}
-                                    {% csrf_token %}
-                                    <input type="submit"
-                                    class="btn btn-signup btn-lg btn-return" name="reply">
-                                    <input type="hidden" value="{{ comment.id }}" name="comment_id">
-                                </form>
-                            {% endif %}
                         </div>
                         {% endfor %}
-                        <hr>
                     </div>
                 </div>
             </div>
