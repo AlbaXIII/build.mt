@@ -654,6 +654,14 @@ Settings.py throws up 4 x line length errors - these lines are pre-packaged from
 
 ### Lighthouse
 
+**DESKTOP**
+
+![Build.mt lighthouse desktop test](assets\readme_misc\lighthouse-desktop.PNG)
+
+**MOBILE**
+
+![Build.mt lighthouse mobile test](assets\readme_misc\lighthouse-mobile.PNG)
+
 ### Manual Testing
 
 **USER STORIES**
