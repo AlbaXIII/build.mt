@@ -290,7 +290,7 @@ class Bgreply(models.Model):
     comment = models.ForeignKey(
         Bgcomment, on_delete=models.CASCADE, related_name="replies")
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    body = models.TextField()
+    reply_body = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
     id = models.CharField(
         max_length=100, default=uuid.uuid4,
@@ -300,4 +300,4 @@ class Bgreply(models.Model):
         ordering = ["created_on"]
 
     def __str__(self):
-        return f"{self.user} : {self.body}"
+        return f"{self.user} : {self.reply_body}"

@@ -19,7 +19,7 @@ class BgreplyForm(forms.ModelForm):
     """
     class Meta:
         model = Bgreply
-        fields = ('body',)
+        fields = ('reply_body',)
 
 
 class BgbuildForm(forms.ModelForm):

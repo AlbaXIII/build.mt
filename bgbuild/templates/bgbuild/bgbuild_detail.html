@@ -142,7 +142,7 @@
                             style="margin-top: 1.2em;">
                             {{ comment_form | crispy }}
                             {% csrf_token %}
-                            <input id="submitButton" type="submit"
+                            <input type="submit"
                             class="btn btn-signup btn-lg btn-return" name="comment">
                         </form>
                         {% else %}
@@ -177,7 +177,7 @@
                                 <br>
                                 <div class="col-4 reply-text">
                                     <div>
-                                        {{ reply.body }}
+                                        {{ reply.reply_body }}
                                     </div>
                                     <br>
                                     <div>
@@ -190,11 +190,11 @@
                             {% if user.is_authenticated %}
                                 <h4>Leave a reply</h4>
                                 <p>replying as {{ user.username }}</p>
-                                <form id="replyForm" method="post"
+                                <form class="replyForm" method="post"
                                     style="margin-top: 1.2em;">
                                     {{ reply_form | crispy }}
                                     {% csrf_token %}
-                                    <input id="submitButton" type="submit"
+                                    <input type="submit"
                                     class="btn btn-signup btn-lg btn-return" name="reply">
                                     <input type="hidden" value="{{ comment.id }}" name="comment_id">
                                 </form>

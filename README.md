@@ -14,7 +14,7 @@ build.mt was designed initially with Larian’s 2023 release ‘Baldur’s Gate 
 
 This is my fourth Code Institute project and was developed using HTML, CSS, JavaScript, Python, Django, and PostgreSQL. 
 
-View the website and join the community [here](https://build-mt-7c3508717c5e.herokuapp.com/).
+View the live website [here](https://build-mt-7c3508717c5e.herokuapp.com/).
 
 IMAGE
 
@@ -199,7 +199,7 @@ The main build list is the main meat of the website. All submitted builds are di
 
 IMAGE
 
-Each build card has a header, an image related to the build, and a few lines of information outlining the key points to the build. 
+Each build card has a header, an image related to the build, and a few lines of information outlining the key points to the build - namely build name, role, base class, and a humerous exerpt summarising the build.
 Also present in each build is a reactive class image - this variable template is linked to the main class of the database entry, so it will change depending on the base class used. 
 
 IMAGE
@@ -244,6 +244,8 @@ IMAGE
 
 The build detail page once accessed has the result of each add build form displayed in an accessible format, with the information being presented in a visually appealing and straightforward manner.
 
+The fields are, build name, role, base class, subclass, level split, key ability, secondary key ability, suggested skill, secondary suggested skill, difficulty and a text box for detailed descriptions.
+
 IMAGE
 
 ### Edit & Delete Build
@@ -269,10 +271,6 @@ IMAGE
 ### Comment & Reply
 
 Contained below the build detail is the comment form. Authenticated users are able to leave comments on each build post, with a Django message confirmation shown after each comment. Comments are displayed within another card, listed by user and submission time & date.
-
-IMAGE
-
-Furthermore, each comment contains an individual instance of a reply form, linked to the id of the parent comment. This allows users to give text-based reactions to other comments.
 
 IMAGE
 
@@ -320,24 +318,186 @@ Within the account forms and add build form there is input validation built in, 
 
 Furthermore, for the difficulty rating, the max number validator is in place to stop users submitting a value above 5.
 
-## BUGS
+## BUGS & ISSUES
 
-### Known Bugs
+### Known Bugs & Issues
 
-### Unfixed Bugs
+**Reply Form**
+As part of the build detail view, the initial plan was to include a secondary reply form rendered within the comment form to allow users to reply to single instances of comments and create mini-threads. I implemented the following BgReply model within bgbuild\models.py;
 
+    class Bgreply(models.Model):
+        """
+        User can reply to comments related to :model:`auth.User`
+        and :model:`bgbuild.Bgcomment
+        """
+        comment = models.ForeignKey(
+            Bgcomment, on_delete=models.CASCADE, related_name="replies")
+        user = models.ForeignKey(User, on_delete=models.CASCADE)
+        reply_body = models.TextField()
+        created_on = models.DateTimeField(auto_now_add=True)
+        id = models.CharField(
+            max_length=100, default=uuid.uuid4,
+            unique=True, primary_key=True, editable=False)
 
+        class Meta:
+            ordering = ["created_on"]
 
+        def __str__(self):
+            return f"{self.user} : {self.reply_body}"
+
+And the implemented the model into the form;
+
+    class BgreplyForm(forms.ModelForm):
+    """
+    Reply form rendered in build detail page.
+
+    """
+    class Meta:
+        model = Bgreply
+        fields = ('reply_body',)
+
+And built it into the build detail view;
+
+    def build_detail(request, slug):
+        """
+        Display an individual :model:`bgbuild.Build`
+
+        **Context**
+
+        ``build``
+            A single instance of :model:`bgbuild.Build`.
+        ``comments``
+            All comments related to the build.
+        ``comment_count``
+            A count of comments related to the build.
+        ``comment_form``
+            Instance of BgcommentForm
+        ``reply``
+            All replies related to the comment
+
+        **Template:**
+
+        :template`bgbuild/bgbuild_detail.html`
+        """
+        queryset = Bgbuild.objects.filter(status=1)
+        build = get_object_or_404(queryset, slug=slug)
+        comments = build.comments.all().order_by("-created_on")
+        comment_count = build.comments.count()
+
+        if request.method == 'POST':
+            comment_form = BgcommentForm(data=request.POST)
+            reply_form = BgreplyForm(data=request.POST)
+            if 'comment' in request.POST:
+                comment = comment_form.save(commit=False)
+                comment.user = request.user
+                comment.build = build
+                comment.save()
+                messages.add_message(
+                    request, messages.SUCCESS,
+                    'Comment posted'
+                )
+            elif 'reply' in request.POST:
+                comment_id = request.POST['comment_id']
+                comment = Bgcomment.objects.get(id=comment_id)
+                reply = reply_form.save(commit=False)
+                reply.user = request.user
+                reply.comment = comment
+                reply.save()
+                messages.add_message(
+                    request, messages.SUCCESS,
+                    'Reply posted'
+                )
+
+        comment_form = BgcommentForm()
+        reply_form = BgreplyForm()
+
+        return render(
+            request,
+            "bgbuild/bgbuild_detail.html",
+            {
+                "build": build,
+                "comments": comments,
+                "comment_count": comment_count,
+                "comment_form": comment_form,
+                "reply_form": reply_form,
+            },
+        )
+
+Implemented into the HTML Template below the comment section;
+
+    {% for reply in comment.replies.all %}
+                            <div class="row">
+                                <br>
+                                <div class="col-4 reply-text">
+                                    <div>
+                                        {{ reply.reply_body }}
+                                    </div>
+                                    <br>
+                                    <div>
+                                        Reply by {{ reply.user }} {{ reply.created_on }}
+                                    </div>
+                                </div>
+                            </div>
+                            <hr>
+                            {% endfor %}
+                            {% if user.is_authenticated %}
+                                <h4>Leave a reply</h4>
+                                <p>replying as {{ user.username }}</p>
+                                <form class="replyForm" method="post"
+                                    style="margin-top: 1.2em;">
+                                    {{ reply_form | crispy }}
+                                    {% csrf_token %}
+                                    <input type="submit"
+                                    class="btn btn-signup btn-lg btn-return" name="reply">
+                                    <input type="hidden" value="{{ comment.id }}" name="comment_id">
+                                </form>
+                            {% endif %}
+
+The original planning for this feature was to send a second hidden value containing the comment id to the view, which would then differentiate between the two POST requests coming from the same page and reassign the value accordingly. That way, one comment could have attatched to it a number of single instance replies - a small step toward full comment thread systems as desired for future versions.
+
+When applied, this method worked and provided the desired functionality, as seen below;
+
+IMAGE
+
+IMAGE
+
+However, when validated through the W3 HTML checker during final checks, the method I have used to reuse the same form without a prefix or formset led to the reuse of several HTML Div ids provided by the crispy form input. This led to the failure of any commented page when put through the W3 validator due to the multiple duplication of the containing div id, and the id of the text body.
+
+IMAGE
+
+In my time troubleshooting this issue I looked into using Javascript to dynamically rename the text box and containing div with an iterating value, so every comment would contain a unique reply form body and containing div, but this didn't bind the way I had hoped it to. The next stage was to look into creating a formset which could group the forms up or, deploy a prefix to each form which could iterate up. Sadly due to time constraints I was not able to fully implement this system.
+
+With all this in mind I removed the reply form from the comment section from the final submitted project as to not fall foul of **LO1  1.7 - HTML code should be fully validated**. In future releases I will implement a seperate model for the reply functionality and ensure that, as part of a formset or with a iterating prefix, the elements will remain individual and seperate when deployed as part of the final product.
+
+**Search Bar**
+
+The search bar function returns results only when the input is fully in lowercase. I believe this is due to the filter used only accepting exact matches to the dropdown tuple used. This issue will be worked on for future releases.
+
+IMAGE
+
+IMAGE
+
+### Unfixed Bugs & Issues
+
+None unknown as of time of submission.
 
 ## FUTURE FEATURES 
 
 By design, build.mt is envisioned as a framework wherein extra games can be plugged in to the system through quite simple processes. With this in mind, I had originally hoped to include From Software's 2022 release 'Elden Ring' in intial deployment as an additional build catalogue - however time constraints affected this plan. However this is still an option for ongoing development.
 
-Further interaction with the comment section was also planned - allowing users to edit and delete their comments.
+As well as the fixing of the reply section - further interaction with the comment section was also planned, for example allowing users to edit and delete their comments.
 
 Allowing users to sort the build list page by class or build role is also planned to be implemented in the future.
 
+Adding models for equipment and weapons to add further fields to the main model to further customise the build.
+
 ## TESTING
+
+### Validators
+
+### Lighthouse
+
+### Manual Testing
 
 
 
@@ -409,6 +569,8 @@ To clone this repository;
 
 - Django
 - Python
+- Bootstrap5
+- FontAwesome
 - HTML 
 - CSS
 - CI PostgreSQL Database
@@ -454,14 +616,27 @@ Relevant installed modules below;
 
 ### Additional Software
 
-- Adobe Illustrator - logo design
-- [Cloudinary image converter](https://cloudinary.com/tools/png-to-webp) - condense images to .webp format
+- Adobe Illustrator - logo design.
+- [Cloudinary image converter](https://cloudinary.com/tools/png-to-webp) - condense images to .webp format.
 
 ## CREDIT & ACKNOWLEDGEMENTS
 
+**All Baldur's Gate III images are property of Larian Studios and used here under fair use**.
+
 ### Image Credits
 
+- All class images taken from [Baldur's Gate III Wiki](https://bg3.wiki/wiki/Classes)
+- Background image taken from [TheBoulder84's reddit post](https://www.reddit.com/r/BaldursGate3/comments/161st9h/heres_a_quick_4k_wallpaper_i_made_from_my_fav/)
+
 ### Code Inspiration
+
+Main site framework inspired by 'I Think Therefore I Blog' - CI Walkthrough project.
+
+As part of this project I collated a list of previous CI PP4s for inspiration, and will fully credit them here;
+
+- [BrickBros](https://github.com/philtipping31/PP4---BrickBros/tree/main) by philtipping31
+- [FeatherandQuill](https://github.com/apita1423/featherandquill_pp4) by apita1423
+- [the-pantry](https://github.com/MattBCoding/pp4-the-pantry) by MattBCoding
 
 ### Special Thanks
 
