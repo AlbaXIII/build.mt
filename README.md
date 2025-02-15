@@ -12,7 +12,7 @@ This is my fourth Code Institute project and was developed using HTML, CSS, Java
 
 View the live website [here](https://build-mt-7c3508717c5e.herokuapp.com/).
 
-![Built.mt main title](assets\readme_ux\main-title.png)
+![Built.mt main title](assets/readme_ux/main-title.png)
 
 ## TABLE OF CONTENTS
 
@@ -102,7 +102,7 @@ The ideal user of the site would be someone who is interested in starting to pla
 
 Before starting the coding on build.mt, I created a custom user story template and linked it to the project Kanban board, to allow me to create an iterative and fluid development and deployment schedule. The use of the board allowed me to isolate applications and functions of the code and work on them in iterative sections, whilst keeping track of the status of each particular function of the code.
 
-![Build.mt kanban board](assets\readme_misc\kanban-board-build_mt.PNG)
+![Build.mt kanban board](assets/readme_misc/kanban-board-build_mt.PNG)
 
 ### Milestones/EPICs
 
@@ -185,27 +185,27 @@ Furthermore, each user story is categorised into it’s relevant EPIC, to provid
 
 Wireframes for all HTML templates were created using [Balsamiq Wireframes](https://balsamiq.com/). These designs were used as the design basis of all html template pages.
 
-![Build.mt index wireframe](assets\readme_ux\index-wireframe.png)
+![Build.mt index wireframe](assets/readme_ux/index-wireframe.png)
 
-![Build.mt builds wireframe](assets\readme_ux\builds-wireframe.png)
+![Build.mt builds wireframe](assets/readme_ux/builds-wireframe.png)
 
 ### Color Scheme
 
 The color scheme was designed using [Coolers.co](https://coolors.co/). The primary colors used in this project are dark greys and gold, remeniscent both of the branding of Baldur's Gate itself as well as the color of treasure - a staple of any fantasy setting.
 
-![Build.mt color scheme](assets\readme_misc\color-scheme.PNG)
+![Build.mt color scheme](assets/readme_misc/color-scheme.PNG)
 
 ### Fonts
 
 The main font used in the project is 'Libre Baskerville' - based on American Type Founder's Baskerville from 1941 and chosen again for it's proximity to the font used in the BG3 branding but also because it gives a antiquitean feeling to the website whilst also looking clean and grandiose.
 
-![Libre Baskerville Font](assets\readme_misc\libre-baskerville.PNG)
+![Libre Baskerville Font](assets/readme_misc/libre-baskerville.PNG)
 
 ### ERD - DrawSQL
 
 The main Entity Relationship Diagram (ERD) for the project was designed using the web service [DrawSQL](https://drawsql.app/). This diagram was used as the basis for the main Bgbuild database model for both individual instances of single builds and the comment model in relation to each individual build. Although some tweaks were made to the fields in place for the main model, this diagram was the single point of reference across the planning stage for the project.
 
-![Build.mt ERD](assets\readme_ux\drawsql.png)
+![Build.mt ERD](assets/readme_ux/drawsql.png)
 
 ## FEATURES
 
@@ -213,79 +213,79 @@ The main Entity Relationship Diagram (ERD) for the project was designed using th
 
 The NavBar element is everpresent across all pages as part the of base html of the site and sets the visual tone of the website. On the left-hand side, the site name is shown with an implemented color scheme as well as a custom designed icon for some flair, and to provide an appealing indicator of the site's purpose - as well as providing a constant link back to the home page.
 
-![Build.mt NavBar](assets\readme_screenshots\navbar.PNG)
+![Build.mt NavBar](assets/readme_screenshots/navbar.PNG)
 
-![Build.mt Icon](assets\readme_screenshots\brand-icon.PNG)
+![Build.mt Icon](assets/readme_screenshots/brand-icon.PNG)
 
 The NavBar links on the right are organised in a reactive collapsable style, so as when the user is utilising the site on a smaller device the links fold into a hamburger menu, which will then dropdown the links when clicked.
 
-![Build.mt hamburger menu](assets\readme_screenshots\navbar-hamburger.PNG)
+![Build.mt hamburger menu](assets/readme_screenshots/navbar-hamburger.PNG)
 
-![Build.mt hamburger menu expanded](assets\readme_screenshots\navbar-hamburger-expanded.PNG)
+![Build.mt hamburger menu expanded](assets/readme_screenshots/navbar-hamburger-expanded.PNG)
 
 When logged out, the user will have the option to go straight to the Build list and view the builds, or they can click login or register to access the relevant account functionality. When logged in, the account username is shown in place of the register link, and becomes a nested dropdown that stores links to the users' submitted builds and favourites.
 
-![Build.mt NavBar links unauth](assets\readme_screenshots\navbar-links-unauth.PNG)
+![Build.mt NavBar links unauth](assets/readme_screenshots/navbar-links-unauth.PNG)
 
-![Build.mt NavBar links auth](assets\readme_screenshots\navbar-links-auth.PNG)
+![Build.mt NavBar links auth](assets/readme_screenshots/navbar-links-auth.PNG)
 
-![Build.mt NavBar links auth dropdown](assets\readme_screenshots\navbar-links-auth-dropdown.PNG)
+![Build.mt NavBar links auth dropdown](assets/readme_screenshots/navbar-links-auth-dropdown.PNG)
 
 ### Footer 
 
 Also part of the base html is the footer, which is styled inline with the NavBar for consistent branding. Inside the footer is a copyright notice, as well as an actionable link to the developer (my) Github page.
 
-![Build.mt footer](assets\readme_screenshots\footer.PNG)
+![Build.mt footer](assets/readme_screenshots/footer.PNG)
 
 ### Home Page
 
 The home page serves as the first access point to the website, being linked to an empty URL redirecting traffic to the index. Utilised as the background is a loading page of Baldur's Gate III - an image of fantasy wilds with a bustling city in the background. Across the middle is the site branding, with contrasting fonts and colors, and a link to the build list page. Both of these elements combine to show a prospective user the purpose of the site in a clear manner as well as establishing the visual style of the product from the first click.
 
-![Build.mt index home page](assets\readme_screenshots\index-home.PNG)
+![Build.mt index home page](assets/readme_screenshots/index-home.PNG)
 
 ### Build List
 
 The main build list is the main meat of the website. All submitted builds are displayed in bootstrap card format, listed by 4 to a row and paginated by 8, so most viewports will have an uncluttered view of the builds on display. Each build displays the number of comments and favourites attatched to it, as well as if the auth user has favourited. At the bottom of each build, there is a reactive button link to the build detail.
 
-![Build.mt build list](assets\readme_screenshots\build-list.PNG)
+![Build.mt build list](assets/readme_screenshots/build-list.PNG)
 
 
 Each build card has a header, an image related to the build, and a few lines of information outlining the key points to the build - namely build name, role, base class, and a humerous exerpt summarising the build.
 Also present in each build is a reactive class image - this variable template is linked to the main class of the database entry, so it will change depending on the base class used. 
 
-![Build.mt build list class image](assets\readme_screenshots\class-image.PNG)
+![Build.mt build list class image](assets/readme_screenshots/class-image.PNG)
 
 The user who uploaded the build is listed in the bottom of the build information.
 
 Inside the build list, the builds are listed from newest onwards. Any unnaproved builds are listed with italics and the explore button deactivated, showing clear and obvious build moderation.
 
-![Build.mt build list moderation example](assets\readme_screenshots\build-moderation.PNG)
+![Build.mt build list moderation example](assets/readme_screenshots/build-moderation.PNG)
 
 ### Search Bar
 
 At the top of the build list page there is a search bar - linked to show the result of a filter query to the database for class name and build role. Users can enter a class name, e.g 'cleric' and the site will return a page rendered with the result of the filtered query.
 
-![Build.mt build list searchbar](assets\readme_screenshots\searchbar.PNG)
+![Build.mt build list searchbar](assets/readme_screenshots/searchbar.PNG)
 
-![Build.mt build list searchbar results](assets\readme_screenshots\search-results.PNG)
+![Build.mt build list searchbar results](assets/readme_screenshots/search-results.PNG)
 
 ### Add Build
 
 Below the search bar on the build list page is a clear call to action to upload a build through a button marked with a 'plus' symbol. This will redirect unauthenticated users to register, and authenticated users to the add build form.
 
-![Build.mt build list upload build button](assets\readme_screenshots\upload-build.PNG)
+![Build.mt build list upload build button](assets/readme_screenshots/upload-build.PNG)
 
 Once accessed, the add build form is a straightforward display of the Bgaddbuild form. Each field is clearly marked with large font and spacing.
 
-![Build.mt add build form](assets\readme_screenshots\add-build-form.PNG)
+![Build.mt add build form](assets/readme_screenshots/add-build-form.PNG)
 
 Within the fields, there is a image field - this is linked to a Cloudinary database configured in the site settings.
 
 As the build form has a lot of potential variables - each class has at least 3 subclasses - the form is controlled by a javascript script which reveals relevant build information when certain eventlisteners are fulfilled, so if the user has chosen a Barbarian class, the Barbarian subclass field will be revealed, and then hidden when a new class is chosen.
 
-![Build.mt add build form before Javascript](assets\readme_screenshots\add-build-form-before.PNG)
+![Build.mt add build form before Javascript](assets/readme_screenshots/add-build-form-before.PNG)
 
-![Build.mt add build form after Javascript](assets\readme_screenshots\add-build-form-after.PNG)
+![Build.mt add build form after Javascript](assets/readme_screenshots/add-build-form-after.PNG)
 
 This process is also used on the multiclass field.
 
@@ -297,71 +297,71 @@ The build detail page once accessed has the result of each add build form displa
 
 The fields are, build name, role, base class, subclass, level split, key ability, secondary key ability, suggested skill, secondary suggested skill, difficulty and a text box for detailed descriptions.
 
-![Build.mt build detail](assets\readme_screenshots\build-detail.PNG)
+![Build.mt build detail](assets/readme_screenshots/build-detail.PNG)
 
 ### Edit & Delete Build
 
 Below the main build information but contained within the card body, there are two buttons which allow authenticated build post owners to either edit or delete their builds.
 
-![Build.mt build detail edit delete buttons](assets\readme_screenshots\edit-delete-buttons.PNG)
+![Build.mt build detail edit delete buttons](assets/readme_screenshots/edit-delete-buttons.PNG)
 
 Edit build will take users to the add build form, where they can adjust the fields of their build and resubmit to the database. Once reposted, a Django message will inform the user of their successful edit.
 
-![Build.mt build detail edit confirmation message](assets\readme_screenshots\edit-message.PNG)
+![Build.mt build detail edit confirmation message](assets/readme_screenshots/edit-message.PNG)
 
 Delete build will redirect authenticated users to a delete confirmation page - letting the users know that the action is permanent and irreversible.
 
-![Build.mt build detail delete confirmation](assets\readme_screenshots\delete-confirmation.PNG)
+![Build.mt build detail delete confirmation](assets/readme_screenshots/delete-confirmation.PNG)
 
 ### Favourite Function
 
 Below the card body with the build information, the number of comments and favourites is displayed. The favourite button is reactive depending on the authentication state of the user - if the user is unauthorised, the favourite button will be hidden and just the number of favourites will be shown, but if the user is logged in the button will be available. Furthermore, if the user has already favourited the build, the button will be red to show previous interaction with the build. Users can favourite and unfavourite at will.
 
-![Build.mt favourite before](assets\readme_screenshots\comment-favourite-before.PNG)
+![Build.mt favourite before](assets/readme_screenshots/comment-favourite-before.PNG)
 
-![Build.mt favourite after](assets\readme_screenshots\comment-favourite-after.PNG)
+![Build.mt favourite after](assets/readme_screenshots/comment-favourite-after.PNG)
 
 ### Comment Section
 
 Contained below the build detail is the comment form. Authenticated users are able to leave comments on each build post, with a Django message confirmation shown after each comment. Comments are displayed within another card, listed by user and submission time & date.
 
-![Build.mt comment section](assets\readme_screenshots\comment-section.PNG)
+![Build.mt comment section](assets/readme_screenshots/comment-section.PNG)
 
-![Build.mt comment post message](assets\readme_screenshots\comment-posted-message.PNG)
+![Build.mt comment post message](assets/readme_screenshots/comment-posted-message.PNG)
 
 ### My Builds
 
 Authenticated users, once logged in, can access a list of their submitted build by clicking on their account name and the 'my builds' link in the dropdown list. This page display is a filtered queryset showing only builds that have been created by the user, displayed in the same manner as the main build list.
 
-![Build.mt my builds section](assets\readme_screenshots\my-builds.PNG)
+![Build.mt my builds section](assets/readme_screenshots/my-builds.PNG)
 
 ### Favourite Builds
 
 Also within the authenticated user dropdown is the favourite builds tab. As above, this filters the main model to only display the builds with a relevant many-to-many field accessed by the authenticated user, and again shown in the same manner as the main build list.
 
-![Build.mt my favourites section](assets\readme_screenshots\my-favourites.PNG)
+![Build.mt my favourites section](assets/readme_screenshots/my-favourites.PNG)
 
 ### Account Interaction
 
 Using Django's Allauth system, users can register, login and logout at their convenience. These pages have solid backgrounds to provide a visual distinction to the main site and ensure the user is focused when inputting any sensitive information.
 
-![Build.mt register form](assets\readme_screenshots\register.PNG)
+![Build.mt register form](assets/readme_screenshots/register.PNG)
 
-![Build.mt login form](assets\readme_screenshots\signin.PNG)
+![Build.mt login form](assets/readme_screenshots/signin.PNG)
 
-![Build.mt login message](assets\readme_screenshots\signin-message.PNG)
+![Build.mt login message](assets/readme_screenshots/signin-message.PNG)
 
-![Build.mt logout](assets\readme_screenshots\signout.PNG)
+![Build.mt logout](assets/readme_screenshots/signout.PNG)
 
-![Build.mt logout message](assets\readme_screenshots\signout-message.PNG)
+![Build.mt logout message](assets/readme_screenshots/signout-message.PNG)
 
 ### Error Pages
 
 Continuing the visual theme of the account pages, the site has custom styling for 403, 404 and 500 error pages. When accessed, these pages will display the error and provide users a clear link back to the home page.
 
-![Build.mt 403 error](assets\readme_screenshots\403.PNG)
+![Build.mt 403 error](assets/readme_screenshots/403.PNG)
 
-![Build.mt 404 error](assets\readme_screenshots\404.PNG)
+![Build.mt 404 error](assets/readme_screenshots/404.PNG)
 
 ## SECURITY
 
@@ -520,11 +520,11 @@ The original planning for this feature was to send a second hidden value contain
 
 When applied, this method worked and provided the desired functionality, as seen below;
 
-![Build.mt reply section](assets\readme_screenshots\replies-example.PNG)
+![Build.mt reply section](assets/readme_screenshots/replies-example.PNG)
 
 However, when validated through the W3 HTML checker during final checks, the method I have used to reuse the same form without a prefix or formset led to the reuse of several HTML Div ids provided by the crispy form input. This led to the failure of any commented page when put through the W3 validator due to the multiple duplication of the containing div id, and the id of the text body.
 
-![Build.mt reply errors](assets\readme_screenshots\reply-errors.PNG)
+![Build.mt reply errors](assets/readme_screenshots/reply-errors.PNG)
 
 In my time troubleshooting this issue I looked into using Javascript to dynamically rename the text box and containing div with an iterating value, so every comment would contain a unique reply form body and containing div, but this didn't bind the way I had hoped it to. The next stage was to look into creating a formset which could group the forms up or, deploy a prefix to each form which could iterate up. Sadly due to time constraints I was not able to fully implement this system.
 
@@ -534,15 +534,15 @@ With all this in mind I removed the reply form from the comment section from the
 
 The search bar function returns results only when the input is fully in lowercase. I believe this is due to the filter used only accepting exact matches to the dropdown tuple used. This issue will be worked on for future releases.
 
-![Build.mt build list searchbar results](assets\readme_screenshots\search-results.PNG)
+![Build.mt build list searchbar results](assets/readme_screenshots/search-results.PNG)
 
-![Build.mt build list searchbar results](assets\readme_screenshots\search-results-upper.PNG)
+![Build.mt build list searchbar results](assets/readme_screenshots/search-results-upper.PNG)
 
 **Form Resubmission**
 
 Upon manual an auth user leaving a comment and manually reloading the page, the form resubmits and sends the comment a second time. This is unlikely to be encountered by an average user but will be fixed in future realeases by adjusting the comment view.
 
-![Build.mt comment form resubmission](assets\readme_screenshots\form-resubmission.PNG)
+![Build.mt comment form resubmission](assets/readme_screenshots/form-resubmission.PNG)
 
 ### Unfixed Bugs & Issues
 
@@ -568,44 +568,44 @@ All pages passed through [W3 HTML validator](https://validator.w3.org/) with no 
 
 INDEX
 
-![Build.mt index page HTML Validator](assets\readme_testing\html\index.PNG)
+![Build.mt index page HTML Validator](assets/readme_testing/html/index.PNG)
 
 
 BUILD LIST
 
-![Build.mt build list HTML Validator](assets\readme_testing\html\bgbuild-list.PNG)
+![Build.mt build list HTML Validator](assets/readme_testing/html/bgbuild-list.PNG)
 
 BUILD DETAIL
 
-![Build.mt build detail HTML Validator](assets\readme_testing\html\bgbuild-detail.PNG)
+![Build.mt build detail HTML Validator](assets/readme_testing/html/bgbuild-detail.PNG)
 
 ADD BUILD
 
-![Build.mt add build HTML Validator](assets\readme_testing\html\add_build.PNG)
+![Build.mt add build HTML Validator](assets/readme_testing/html/add_build.PNG)
 
 MY BUILDS
 
-![Build.mt my builds HTML Validator](assets\readme_testing\html\account.PNG)
+![Build.mt my builds HTML Validator](assets/readme_testing/html/account.PNG)
 
 FAVOURITES
 
-![Build.mt favourites HTML Validator](assets\readme_testing\html\favourites.PNG)
+![Build.mt favourites HTML Validator](assets/readme_testing/html/favourites.PNG)
 
 LOGIN
 
-![Build.mt login HTML Validator](assets\readme_testing\html\login.PNG)
+![Build.mt login HTML Validator](assets/readme_testing/html/login.PNG)
 
 LOGOUT
 
-![Build.mt logout HTML Validator](assets\readme_testing\html\logout.PNG)
+![Build.mt logout HTML Validator](assets/readme_testing/html/logout.PNG)
 
 REGISTER
 
-![Build.mt register HTML Validator](assets\readme_testing\html\register.PNG)
+![Build.mt register HTML Validator](assets/readme_testing/html/register.PNG)
 
 4 errors flagged by validator related to Django Crispy forms and are in areas of the HTML that are pre-built and unaccessible developer side. On further investigation into the errors revealed that some of the errors are showing up only in W3. Running the same page back in [minifier HTML validator](https://www.minifier.org/html-validator) brought no errors;
 
-![Build.mt register minifier HTML Validator](assets\readme_testing\html\register-minifier.PNG)
+![Build.mt register minifier HTML Validator](assets/readme_testing/html/register-minifier.PNG)
 
 For example error 2 has no basis in the code;
 
@@ -617,50 +617,50 @@ Page passed through no issues apart from the above.
 
 CSS passed through [Jigsaw W3 CSS](https://jigsaw.w3.org/css-validator/) validator with no issues.
 
-![Build.mt CSS Validated](assets\readme_testing\css\css-validated.PNG)
+![Build.mt CSS Validated](assets/readme_testing/css/css-validated.PNG)
 
 **JavaScript**
 
 All JavaScript passed through [jshint](https://jshint.com/) with no errors.
 
-![Build.mt JShint Validated](assets\readme_testing\js\jshint.PNG)
+![Build.mt JShint Validated](assets/readme_testing/js/jshint.PNG)
 
 
 **Python**
 
 All Python code passed through **[Flake8](https://flake8.pycqa.org/en/latest/)** & **[pycodestyle](https://pypi.org/project/pycodestyle/)** in VScode with no issues;
 
-![Build.mt pycodestyle validated](assets\readme_testing\python\pycodestyle.PNG)
+![Build.mt pycodestyle validated](assets/readme_testing/python/pycodestyle.PNG)
 
 All Python code also passed through CI PEP8 Compliance tester;
 
-![Build.mt CI PEP8 bgbuild models validated](assets\readme_testing\python\cipep8-models-bgbuild.PNG)
+![Build.mt CI PEP8 bgbuild models validated](assets/readme_testing/python/cipep8-models-bgbuild.PNG)
 
-![Build.mt CI PEP8 bgbuild views validated](assets/readme_testing/python/cipep8-views-bgbuild.PNG)
+![Build.mt CI PEP8 bgbuild views validated](assets/readme_testing/python/cipep8-views-bgbuild.PNG) 
 
-![Build.mt CI PEP8 bgbuild urls validated](assets\readme_testing\python\cipep8-urls-bgbuild.PNG)
+![Build.mt CI PEP8 bgbuild urls validated](assets/readme_testing/python/cipep8-urls-bgbuild.PNG)
 
-![Build.mt CI PEP8 bgbuild forms validated](assets\readme_testing\python\cipep8-forms.PNG)
+![Build.mt CI PEP8 bgbuild forms validated](assets/readme_testing/python/cipep8-forms.PNG)
 
-![Build.mt CI PEP8 core views validated](assets\readme_testing\python\cipep8-views-core.PNG)
+![Build.mt CI PEP8 core views validated](assets/readme_testing/python/cipep8-views-core.PNG)
 
-![Build.mt CI PEP8 core urls validated](assets\readme_testing\python\cipep8-urls-core.PNG)
+![Build.mt CI PEP8 core urls validated](assets/readme_testing/python/cipep8-urls-core.PNG)
 
-![Build.mt CI PEP8 urls validated](assets\readme_testing\python\cipep8-urls.PNG)
+![Build.mt CI PEP8 urls validated](assets/readme_testing/python/cipep8-urls.PNG)
 
 Settings.py throws up 4 x line length errors - these lines are pre-packaged from Django initialisation and unmodified by the developer.
 
-![Build.mt CI PEP8 settings validated](assets\readme_testing\python\cipep8-settings.PNG)
+![Build.mt CI PEP8 settings validated](assets/readme_testing/python/cipep8-settings.PNG)
 
 ### Lighthouse
 
 **DESKTOP**
 
-![Build.mt lighthouse desktop test](assets\readme_misc\lighthouse-desktop.PNG)
+![Build.mt lighthouse desktop test](assets/readme_misc/lighthouse-desktop.PNG)
 
 **MOBILE**
 
-![Build.mt lighthouse mobile test](assets\readme_misc\lighthouse-mobile.PNG)
+![Build.mt lighthouse mobile test](assets/readme_misc/lighthouse-mobile.PNG)
 
 ### Manual Testing
 
@@ -901,6 +901,8 @@ Relevant installed modules below;
 ### Code Inspiration
 
 Main site framework inspired by 'I Think Therefore I Blog' - CI Walkthrough project.
+
+The [Baldur's Gate III reddit page](https://www.reddit.com/r/BG3Builds/) for many many build inspirations.
 
 As part of this project I collated a list of previous CI PP4s for inspiration, and will fully credit them here;
 
