@@ -43,7 +43,7 @@ body {
 
 .alert {
     color: #423E37;
-    font-family: Libre Baskerville, sans-serif;
+    font-family: 'Libre Baskerville', sans-serif;
     margin-top: 10px;
     background-color: #FFD151;
 }
@@ -51,7 +51,7 @@ body {
 /* base.html footer style */
 
 .footer {
-    font-family: Libre Baskerville, sans-serif;
+    font-family: 'Libre Baskerville', sans-serif;
     text-decoration: none;
 }
 
@@ -73,13 +73,13 @@ body {
 }
 
 .main-title strong {
-    font-family: Libre Baskerville, sans-serif;
+    font-family: 'Libre Baskerville', sans-serif;
     font-size: 2.8rem;
     color: #FFD151;
 }
 
 .main-subtitles {
-    font-family: Libre Baskerville, sans-serif;
+    font-family: 'Libre Baskerville', sans-serif;
     padding-bottom: 20px;
 }
 
@@ -110,7 +110,7 @@ body {
 }
 
 .search-results {
-    font-family: Libre Baskerville, sans-serif;
+    font-family: 'Libre Baskerville', sans-serif;
     color: #fff;
     font-size: 1.2rem;
     padding-top: 10px;
@@ -142,13 +142,13 @@ body {
     text-align: center;
     width: 100%;
     color: #FFD151;
-    font-family: Libre Baskerville, sans-serif;
+    font-family: 'Libre Baskerville', sans-serif;
 }
 
 /* add build form */
 
 #submit-form {
-    font-family: Libre Baskerville, sans-serif;
+    font-family: 'Libre Baskerville', sans-serif;
     font-size: 1.4rem;
     color: #fff;
 }
@@ -166,7 +166,7 @@ body {
 }
 
 .card {
-    font-family: Libre Baskerville, sans-serif;
+    font-family: 'Libre Baskerville', sans-serif;
     position: relative;
 }
 
@@ -297,7 +297,7 @@ body {
     background: #FFD151;
     color: #423E37;
     margin-bottom: 10px;
-    font-family: Libre Baskerville, sans-serif;
+    font-family: 'Libre Baskerville', sans-serif;
 }
 
 .btn-return a:hover {
@@ -307,7 +307,7 @@ body {
 /* account page styles */
 
 #account-headers {
-    font-family: Libre Baskerville, sans-serif;
+    font-family: 'Libre Baskerville', sans-serif;
     color: #fff;
     padding-top: 15px;
     padding-left: 15px;
@@ -323,12 +323,12 @@ body {
 }
 
 .login-page {
-    font-family: Libre Baskerville, sans-serif;
+    font-family: 'Libre Baskerville', sans-serif;
     color: #fff;
 }
 
 .signup-page {
-    font-family: Libre Baskerville, sans-serif;
+    font-family: 'Libre Baskerville', sans-serif;
     color: #fff;
     text-align: left;
 }

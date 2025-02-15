@@ -1,22 +1,18 @@
-# BUILD.mt
-
-IMAGE
+# Build.mt
 
 ## INTRODUCTION
 
 build.mt is an online catalogue for the collection, sharing and review of character builds in role-playing games (RPGs). Many modern RPGs have an overabundance of character creation options, with many diverging paths, abilities, spells, gear – it’s enough to confuse many casual fans or first time players trying RPGs for the first time. built.mt is designed to take the stress out of choosing how to play a character. Prospective players can create an account, share their characters and how they play, strengths and weaknesses, and most of all – how fun they are to play! 
 
-As well as a catalogue of build ideas, build.mt has an easy to read explanation page for each featured RPG so potential players (and account holders) can learn the basics of the game without being overwhelmed by information.
-
 To summarise, build.mt is character inspiration made simple.
 
-build.mt was designed initially with Larian’s 2023 release ‘Baldur’s Gate III’ in mind - but future realeases would include many of today's most popular and feature-rich RPGs, with From Software’s 2022 release ‘Elden Ring’ being the first to be added in a future realease.
+build.mt was designed initially with Larian’s 2023 release ‘Baldur’s Gate III’ in mind - but future realeases would include many of today's most popular and feature-rich RPGs, with From Software’s 2022 release ‘Elden Ring’ being the first to be added..
 
 This is my fourth Code Institute project and was developed using HTML, CSS, JavaScript, Python, Django, and PostgreSQL. 
 
 View the live website [here](https://build-mt-7c3508717c5e.herokuapp.com/).
 
-IMAGE - amiresponsive
+![Built.mt main title](assets\readme_ux\main-title.png)
 
 ## TABLE OF CONTENTS
 
@@ -660,16 +656,112 @@ Settings.py throws up 4 x line length errors - these lines are pre-packaged from
 
 ### Manual Testing
 
-| Syntax      | Description | Pass/Fail  
-| ----------- | ----------- | -----------
-| Header      | Title       |   Pass
-| Paragraph   | Text        |   Pass
-| Header      | Title       |   Pass
-| Paragraph   | Text        |   Pass
-| Header      | Title       |   Pass
-| Paragraph   | Text        |   Pass
-| Header      | Title       |   Pass
-| Paragraph   | Text        |   Pass
+**USER STORIES**
+| User Story      | Acceptance Criteria | Expected Outcome  | Pass/Fail 
+| ----------- | ----------- | ----------- | -----------
+| [#3 Deploy Early](https://github.com/AlbaXIII/build.mt/issues/3) | Deploy early to Heroku | Site deployed | PASS
+| [#6 Create Build List](https://github.com/AlbaXIII/build.mt/issues/6) | Build list created with basic build overview & reactive class images | Build list displays rows with relevant information paginated into groups | PASS
+| [#8 Create Detailed Build View](https://github.com/AlbaXIII/build.mt/issues/8) | Individual builds in list can be opened from list view to detail view | Detail view displays all relevant information clearly | PASS
+| [#9 Search Builds by Keyword](https://github.com/AlbaXIII/build.mt/issues/9) | Builds in buildlist can be searched by keyword at tope of page | Search returns filtered list with number of entries | PASS (see [known Bugs & Issues](#known-bugs--issues))
+| [#11 Register User Accounts](https://github.com/AlbaXIII/build.mt/issues/11) | User can register for account | allauth function allowing registration | PASS
+| [#12 Submit Build](https://github.com/AlbaXIII/build.mt/issues/12) | Auth users can access add build form with success message and account validation | On login add-build form accessed through build list | PASS
+| [#13 Moderate Builds](https://github.com/AlbaXIII/build.mt/issues/13) | Install Summernote, show builds awaiting approval | Builds submitted with draft status, clear visual indicators | PASS
+| [#14 Leave Comment on Build](https://github.com/AlbaXIII/build.mt/issues/14) | Users can submit comment, published immediately | Crispy form build into build detail view, message indicates success | PASS
+| [#15 Add Build to Favourites](https://github.com/AlbaXIII/build.mt/issues/15) | Authenticated users can see favourite button, add to favourites when browsing build detail view | Model field implemented for favourite -> user relationship, favourites added to seperate account page | PASS
+| [#16 Edit or Delete Uploaded Builds](https://github.com/AlbaXIII/build.mt/issues/16) | Build submitters can see edit/delete functionality on build detail view | updated or deleted builds reflected in build list and in database admin view | PASS
+| [#18 View Account and Favourited Builds](https://github.com/AlbaXIII/build.mt/issues/18) | Site member can access pages through NavBar with submitted builds and favourited builds | Account pages available through NavBar with filtered object lists | PASS
+| [#19 Create Home Page](https://github.com/AlbaXIII/build.mt/issues/19) | Create index as home page landing area for new site users | Site base URL takes user through to index.html | PASS
+| [#24 Upload Pictures With Build Submissions](https://github.com/AlbaXIII/build.mt/issues/24) | Allow users to upload their own images using Cloudinary and have reactive class icons on build list view | Cloudinary image field implemented and operational on add build form, base_class changes build list/detail class icon | PASS
+
+
+**NAVBAR**
+| **Test**    | **Action** | **Expected Outcome**  | **Pass/Fail** | **Comments** |
+| ----------- | ----------- | ----------- | ----------- | ----------- |
+| NavBar displays brand icon/home link, register, login and build links for first time user | Logout as an authenticated user and visit site, check all nav items and links are correct | Nav list items display correctly and links function for first time users	 | PASS
+| NavBar display differentiates between logged in and logged out users | Log in with account credentials and view navbar items for visual confirmation of user status | Register/Login NavBar links become Account name and logout links | PASS
+| NavBar account name dropdown functions to display links to My Build and My Favourites pages for authenticated user | Log in as a user and test username dropdown links to my builds and favourites | Username NavBar link displays dropdown when logged in and links to account pages function correctly | PASS
+| NavBar brand icon functioning correctly as link to homepage for all users | Test link to homepage as logged in/ out user | Link functions correctly to homepage URL | PASS
+| NavBar displays on all pages regardless of user status | Visit all pages as logged in/out user and get visual confirmation NavBar consistent across all pages | NavBar showing correctly on all pages | PASS
+
+
+**FOOTER**
+| **Test**    | **Action** | **Expected Outcome**  | **Pass/Fail** | **Comments** |
+| ----------- | ----------- | ----------- | ----------- | ----------- |
+| Footer displays correctly on all pages for both first time users and members | Visit all pages as authenticated user and unauthenticated | Footer displays correctly on all pages | PASS
+| Github link functions correctly and opens developer profile page in new tab | Access link on all pages to test link to GitHub is operational and opens in new tab | Link opens new tab and lands on correct page on all pages | PASS
+
+
+**INDEX**
+| **Test**    | **Action** | **Expected Outcome**  | **Pass/Fail** | **Comments** |
+| ----------- | ----------- | ----------- | ----------- | ----------- |
+| Button to Build list functioning correctly for all users | Visit site as new user and member, test explore builds button | Button takes all users through to build list | PASS
+
+**BUILD LIST**
+| **Test**    | **Action** | **Expected Outcome**  | **Pass/Fail** | **Comments** |
+| ----------- | ----------- | ----------- | ----------- | ----------- |
+| Build list displays information accurately for all users in rows of 4, paginated by 8 | Visit site as a new user and member, access build list page | Build cards display correctly | PASS
+| Search bar returns filtered build list based on build role or class name for all users | Visit site in all user states, enter keyword into search bar | Site redirects to correct URL with filtered build list | PASS (see commment) | Results dependant on case, see [known Bugs & Issues](#known-bugs--issues)
+| Filtered search view provides method to return to main build list | Use search bar to access filtered search, then use button provided to return to build list | button functions correctly | PASS
+| Add build button/URL redirects unauthorised users to signin page | Visit as a first time user and attempt to access add build form through the button the button on the build list page and manually through the URL | Redirection & loginrequired mixin working correctly | PASS
+| Add build button/URL redirects authorised users to add build form | Visit as a site member and attempt to access add build form through the button the button on the build list page and manually through the URL | Link working correctly | PASS
+| On build submission, class icons reactive to base class of build | Visit as a site member and upload a build, monitor generated class icon - then edit uploaded build to different class to view change in class icon | Class icon matches uploaded base class after initial upload and edit | PASS
+| Build detail card in list view will take all users to detail page | Attempt to view build as all member states | Accessed build list page as first time visitor and member, all build cards linked through to correct build through slug link | PASS
+| Builds awaiting moderation will have clear visual notification of status and all links to detail page disabled | Attempt to access detail page of build awaiting moderation | Build link disabled by empty href, manual URL input prompts 500 error | PASS
+| Number of comments & favourites on each build card up-to-date and reactive to current build state | Log in as site member, favourite/unfavourite build & comment, return to build list | Number of comments and favourites reacts dyanmically | PASS
+| Favourited builds show visual indication to user | When logged in, favourite a build in build detail page and return to list | Favourite icon shows red for favourited builds, nothing if not favourited | PASS
+
+**ADD BUILD**
+| **Test**    | **Action** | **Expected Outcome**  | **Pass/Fail** | **Comments** |
+| ----------- | ----------- | ----------- | ----------- | ----------- |
+| Site members can upload builds usin add build form | Complete form fields as a logged in user and submit using add build form | Django message confirms successful build upload, build now visible in build list awaiting moderation from site administrators | PASS
+| Add build form reactive to base class and multiclass field choices | Accessing base class and multiclass field, select each class for relevant subclass field to display - repeat process with multiclass for additional class information | Form reacts to base class selection, multiclass selection | PASS
+| Cloudinary field can recieve user image uploads | Test image field upload with .png, .jpg and .webp files | Cloudinary field accepts all field types and displays accordingly | PASS 
+
+
+**BUILD DETAIL**
+| **Test**    | **Action** | **Expected Outcome**  | **Pass/Fail** | **Comments** |
+| ----------- | ----------- | ----------- | ----------- | ----------- |
+| Edit/Delete buttons hidden from unauthorised users | Access build detail page as first time visitor or not as the owner of the build | Buttons hidden from detail view | PASS
+| Comment functionality disabled for unauthorised users | Access build detail page as first time visitor | Comment form hidden from comment section, user comments still displayed | PASS
+| Edit functionality works for logged in user on own builds | Access an uploaded build by self and utilise edit button | Edit button links to form for build editing | PASS
+| Delete functionality works for logged in user on own builds | Access an uploaded build by self and utilise delete button | Edit button links to delete confirmation for final build deletion | PASS
+| Users cannot edit other user's builds | Attempt to access edit build function through URL on another users build | 403 Error | PASS
+| Users cannot delete other user's builds | Attempt to access delete build function through URL on another users build | 403 Error | PASS
+| Logged in users can favourite builds using favourite button | Access build detail as authorised user, use favourite button | Button changes to indicate successful many-to-many field relationship, favourite counter rises | PASS
+| Logged in users can leave a comment on any builds | Access build detail page as authorised user and leave a comment through comment form | Django message confirms successful comment upload, comment displayed in form sorted by creation date | PASS
+
+
+**MY BUILDS**
+| **Test**    | **Action** | **Expected Outcome**  | **Pass/Fail** | **Comments** |
+| ----------- | ----------- | ----------- | ----------- | ----------- |
+| Build submitted by user are added to my build page accessed through NavBar | Submit build as authorised user, access NavBar my builds link | All submitted builds are added to my builds page regardless of moderation status | PASS
+| Deleted builds by submitted user are removed from my build page | As an authorised user, create a build then utilise delete function then navigate back to my builds page | Builds removed once deleted | PASS
+
+**FAVOURITE BUILDS**
+| **Test**    | **Action** | **Expected Outcome**  | **Pass/Fail** | **Comments** |
+| ----------- | ----------- | ----------- | ----------- | ----------- |
+| Build favourited by user are added to my favourites page accessed through NavBar | Utilise favourite functionality on multiple builds, navigate to my favourites page through NavBar | All favourited builds are added to my favourites page | PASS
+| Unfavourited builds by  user are removed from my favourites page | As an authorised user, favourite a build and go to my favourites page. Return to build, unfavourite, then return to my favourites | Builds unfavourited are removed | PASS
+
+**ACCOUNT**
+| **Test**    | **Action** | **Expected Outcome**  | **Pass/Fail** | **Comments** |
+| ----------- | ----------- | ----------- | ----------- | ----------- |
+| First time visitor can register for account through registration form in NavBar | Access as first time user, use account register link to make account and log in | Account created successfully, NavBar visually changes to display username | PASS
+| Logged in users can logout through provided NavBar link | As a logged in user, logout using NavBar | Link redirects to logout page, logout successful, NavBar reverts to pre-login  | PASS
+| Returning users can login through provided NavBar link | As a returning user, log in through NavBar link | Link redirects to login page, login successful, Navbar updates to show username | PASS
+| Returning users can access login page through registration form | As a logged out user, access registration form and use provided link to login page | Link redirects to login page | PASS
+
+
+**CRUD TESTS**
+
+| **CREATE** | Add build form through build list page.
+
+| **READ** | Build list for all users.
+
+| **UPDATE** | Build submitters access edit form through build detail page.
+
+| **DELETE** | Build submitters access delete function through build detail page.
+
 
 ## DEPLOYMENT
 
@@ -679,9 +771,9 @@ Project was initially created in Gitpod before being migrated to VSCode.
 
 Git commands were were grouped into the following commit messages;
 
-- "feat" - feature work
-- "maint" - maintenance work
-- "docs" - documentation work
+- **"feat"** - feature work
+- **"maint"** - maintenance work
+- **"docs"** - documentation work
 
 All commands passed through the git commit -m command, and pushed to github with git push.
 

@@ -13,7 +13,7 @@
             <form class="input-group" action="{% url 'searchbuild' %}" method="POST">
                 {% csrf_token %}
                 <input type="text" name="searchbuilds" class="form-control" placeholder="Search builds..." aria-label="Search" aria-describedby="search-addon">
-                <button class="btn btn-outline-secondary" type="submit" id="search-addon">
+                <button class="btn btn-outline-secondary" type="submit" id="search-addon" aria-label="Search button">
                     <i class="fas fa-search"></i>
                 </button>
             </form>
@@ -24,11 +24,11 @@
         <div>
             <h4>Upload a build</h4>
             {% if user.is_authenticated %}
-                <a href="{% url 'bgbuildadd' %}">
+                <a href="{% url 'bgbuildadd' %}" aria-label="add build to catalogue">
                     <i class="fa-solid fa-circle-plus fa-2xl"></i>
                 </a>
             {% else %}
-            <a href="{% url 'account_login' %}">
+            <a href="{% url 'account_login' %}" aria-label="add build to catalogue">
                 <i class="fa-solid fa-circle-plus fa-2xl"></i>
             </a>
             {% endif %}
