@@ -6,7 +6,7 @@ build.mt is an online catalogue for the collection, sharing and review of charac
 
 To summarise, build.mt is character inspiration made simple.
 
-build.mt was designed initially with Larian’s 2023 release ‘Baldur’s Gate III’ in mind - but future realeases would include many of today's most popular and feature-rich RPGs, with From Software’s 2022 release ‘Elden Ring’ being the first to be added..
+build.mt was designed initially with Larian’s 2023 release ‘Baldur’s Gate III’ in mind - but future realeases would include many of today's most popular and feature-rich RPGs, with From Software’s 2022 release ‘Elden Ring’ being the first to be added.
 
 This is my fourth Code Institute project and was developed using HTML, CSS, JavaScript, Python, Django, and PostgreSQL. 
 
@@ -92,7 +92,7 @@ build.mt is designed to be an accessible and simple-to-use collection of charact
 
 ### Ideal User
 
-The ideal user of the site would be someone who is interested in starting to play role-playing games, and/or an experienced user who would be looking to experiment with new builds should they be wracked for ideas or wanting to try something new when playing their favourite games. Modern role-playing games are often incredibly complex and resources surrounding them can also be daunting to understand, so the ideal user would come to build.mt to have the process streamlined, and gain fun and interesting builds to try.
+The ideal user of the site would be someone who is interested in starting to play role-playing games, and/or an experienced user who would be looking to experiment with new builds should they be wracked for ideas or wanting to try something new when playing their favourite games. Modern role-playing games are often incredibly complex and resources surrounding them can also be daunting to understand, so the ideal user would come to build.mt to have the process streamlined, and gain fun and interesting builds to try. The ideal user would also embrace the humour of the community, and as such the site is designed to be a knowing and fun place to be.
 
 -----------------------------
 
@@ -179,6 +179,8 @@ Furthermore, each user story is categorised into it’s relevant EPIC, to provid
 - As a site administrator I can approve comments left on individual builds.
 - As a site administrator I can utilise full CRUD functionality on all posts on the database.
 
+-----------------------------
+
 ## Design
 
 ### Wireframes 
@@ -206,6 +208,8 @@ The main font used in the project is 'Libre Baskerville' - based on American Typ
 The main Entity Relationship Diagram (ERD) for the project was designed using the web service [DrawSQL](https://drawsql.app/). This diagram was used as the basis for the main Bgbuild database model for both individual instances of single builds and the comment model in relation to each individual build. Although some tweaks were made to the fields in place for the main model, this diagram was the single point of reference across the planning stage for the project.
 
 ![Build.mt ERD](assets/readme_ux/drawsql.png)
+
+-----------------------------
 
 ## FEATURES
 
@@ -279,7 +283,11 @@ Once accessed, the add build form is a straightforward display of the Bgaddbuild
 
 ![Build.mt add build form](assets/readme_screenshots/add-build-form.PNG)
 
-Within the fields, there is a image field - this is linked to a Cloudinary database configured in the site settings.
+The build slug field is intentionally hidden with a linked javascript script containing a slugify function - the content of the text page is automatically rendered in the hidden slug field without any uppercase letters or special characters (either removing them or replacing them with dashes). This is coded to take place on keyupstroke, so potential users will not see anything happening in the UX view.
+
+Within the inputs, there is a image field - this is linked to a Cloudinary database configured in the site settings. Users can upload a custom image, but the field is optional - if there is no image found the placeholder BG3 game image will be rendered in it's place.
+
+![Build.mt placeholder image](assets/readme_screenshots/placeholder-image.PNG)
 
 As the build form has a lot of potential variables - each class has at least 3 subclasses - the form is controlled by a javascript script which reveals relevant build information when certain eventlisteners are fulfilled, so if the user has chosen a Barbarian class, the Barbarian subclass field will be revealed, and then hidden when a new class is chosen.
 
@@ -363,6 +371,8 @@ Continuing the visual theme of the account pages, the site has custom styling fo
 
 ![Build.mt 404 error](assets/readme_screenshots/404.PNG)
 
+-----------------------------
+
 ## SECURITY
 
 ### Env.py
@@ -379,7 +389,13 @@ Within the Django class-based views the security based mixins - LoginRequiredMix
 
 Within the account forms and add build form there is input validation built in, disallowing users from submitting empty fields. 
 
+![Build.mt input validation](assets/readme_screenshots/input-validation.PNG)
+
 Furthermore, for the difficulty rating, the max number validator is in place to stop users submitting a value above 5.
+
+![Build.mt integer validation](assets/readme_screenshots/integer-validation.PNG)
+
+-----------------------------
 
 ## BUGS & ISSUES
 
@@ -548,6 +564,8 @@ Upon manual an auth user leaving a comment and manually reloading the page, the 
 
 None unknown as of time of submission.
 
+-----------------------------
+
 ## FUTURE FEATURES 
 
 By design, build.mt is envisioned as a framework wherein extra games can be plugged in to the system through quite simple processes. With this in mind, I had originally hoped to include From Software's 2022 release 'Elden Ring' in intial deployment as an additional build catalogue - however time constraints affected this plan. However this is still an option for ongoing development.
@@ -557,6 +575,8 @@ As well as the fixing of the reply section - further interaction with the commen
 Allowing users to sort the build list page by class or build role is also planned to be implemented in the future.
 
 Adding models for equipment and weapons to add further fields to the main model to further customise the build.
+
+-----------------------------
 
 ## TESTING
 
@@ -770,6 +790,7 @@ Settings.py throws up 4 x line length errors - these lines are pre-packaged from
 
 | **DELETE** | Build submitters access delete function through build detail page.
 
+-----------------------------
 
 ## DEPLOYMENT
 
@@ -833,6 +854,8 @@ To clone this repository;
 6. Type git clone, then post the URL.
 7. Press enter. 
 
+-----------------------------
+
 ## TECHNOLOGIES USED
 
 ### Main Software
@@ -888,6 +911,8 @@ Relevant installed modules below;
 
 - Adobe Illustrator - logo design.
 - [Cloudinary image converter](https://cloudinary.com/tools/png-to-webp) - condense images to .webp format.
+
+-----------------------------
 
 ## CREDIT & ACKNOWLEDGEMENTS
 
