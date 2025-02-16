@@ -1,12 +1,14 @@
 # Build.mt
 
+![Build.mt sword image](assets/readme_misc/main-logo.PNG)
+
 ## INTRODUCTION
 
-build.mt is an online catalogue for the collection, sharing and review of character builds in role-playing games (RPGs). Many modern RPGs have an overabundance of character creation options, with many diverging paths, abilities, spells, gear – it’s enough to confuse many casual fans or first time players trying RPGs for the first time. built.mt is designed to take the stress out of choosing how to play a character. Prospective players can create an account, share their characters and how they play, strengths and weaknesses, and most of all – how fun they are to play! 
+Build.mt is an online catalogue for the collection, sharing and review of character builds in role-playing games (RPGs). Many modern RPGs have an overabundance of character creation options, with many diverging paths, abilities, spells, gear – it’s enough to confuse many casual fans or players trying RPGs for the first time. built.mt is designed to take the stress out of choosing how to play a character. Prospective players can create an account, share their characters and how they play, strengths and weaknesses, and most of all – how fun they are to play! 
 
 To summarise, build.mt is character inspiration made simple.
 
-build.mt was designed initially with Larian’s 2023 release ‘Baldur’s Gate III’ in mind - but future realeases would include many of today's most popular and feature-rich RPGs, with From Software’s 2022 release ‘Elden Ring’ being the first to be added.
+build.mt was designed initially with Larian’s 2023 release **‘Baldur’s Gate III’** in mind - but future realeases would include many of today's most popular and feature-rich RPGs, with From Software’s 2022 release ‘Elden Ring’ being the first to be added.
 
 This is my fourth Code Institute project and was developed using HTML, CSS, JavaScript, Python, Django, and PostgreSQL. 
 
@@ -80,19 +82,19 @@ View the live website [here](https://build-mt-7c3508717c5e.herokuapp.com/).
 
 ### Strategy 
 
-build.mt is designed to be an accessible and simple-to-use collection of character builds. Visitors will be able to peruse the builds at leisure, whilst authenticated site members will be able to log in and add their own, as well as like or share their favourites.
+build.mt is designed to be an accessible and simple-to-use collection of character builds. Visitors will be able to peruse the builds at leisure, whilst authenticated site members will be able to log in and add their own, as well as upload and collect their favourites.
 
 ### Site Goals
 
 * To provide **all users** with access to a build repository, with an organised list of build articles featuring structured and easy to understand information.
 * To provide **all users** with the ability to sign up to the website and create an account.
 * To provide **authenticated users** full CRUD functionality to upload and remove their own build to the database.
-* To provide **authenticated users** the ability to like, share, comment and review other people’s build submissions.
-* To provide site **administrators** the ability to approve comments, remove builds, and control user access.
+* To provide **authenticated users** the ability to favourite and comment on other people’s build submissions.
+* To provide site **administrators** the ability to approve builds, remove builds and comments, and control user access.
 
 ### Ideal User
 
-The ideal user of the site would be someone who is interested in starting to play role-playing games, and/or an experienced user who would be looking to experiment with new builds should they be wracked for ideas or wanting to try something new when playing their favourite games. Modern role-playing games are often incredibly complex and resources surrounding them can also be daunting to understand, so the ideal user would come to build.mt to have the process streamlined, and gain fun and interesting builds to try. The ideal user would also embrace the humour of the community, and as such the site is designed to be a knowing and fun place to be.
+The ideal user of the site would be someone who is interested in starting to play role-playing games, and/or an experienced user who would be looking to experiment with new builds should they be wracked for ideas, or wanting to try something new when playing their favourite games. Modern role-playing games are often incredibly complex and the resources surrounding them can also be daunting to understand, so the ideal user would come to build.mt to have the process streamlined and gain fun and interesting builds to try. The ideal user would also embrace the humour of the community, and as such the site is designed to be an unserious and fun place to be.
 
 -----------------------------
 
@@ -100,13 +102,15 @@ The ideal user of the site would be someone who is interested in starting to pla
 
 ### Agile Working
 
-Before starting the coding on build.mt, I created a custom user story template and linked it to the project Kanban board, to allow me to create an iterative and fluid development and deployment schedule. The use of the board allowed me to isolate applications and functions of the code and work on them in iterative sections, whilst keeping track of the status of each particular function of the code.
+Before starting the coding on Build.mt, I created a custom user story template and linked it to the project Kanban board, to allow me to create an iterative and fluid development and deployment schedule. The use of the board allowed me to isolate applications and functions of the code and work on them in continual sections, whilst keeping track of the status of each particular function of the code.
 
 ![Build.mt kanban board](assets/readme_misc/kanban-board-build_mt.PNG)
 
 ### Milestones/EPICs
 
-7 Milestones were created at the beginning of the project, and from there the user stories were extracted. Each milestone was further categorised into feature sections, then further linked to the priority user stories subcategory on the project Kanban board.
+7 Milestones were created at the beginning of the project, and from there the user stories were extracted. Each milestone was further categorised into feature sections, then further linked to the priority user stories subcategory on the project Kanban board through labels.
+
+![Build.mt user story project labels](assets/readme_misc/project-labels.PNG)
 
 1. Initialise setup
 2. Build Catalogue 
@@ -118,7 +122,7 @@ Before starting the coding on build.mt, I created a custom user story template a
 
 ### User Stories
 
-Each user story was linked to the project template with 3 completion benchmarks (as base, number of acceptance criteria extends depending on user story) as a criteria to for adequate completion of the story;
+Each user story was linked to the project template with up to 3 completion benchmarks (as base, number of acceptance criteria extends depending on user story) as a criteria to for adequate completion of the story;
 
 Using **project**;
 
@@ -128,9 +132,9 @@ As a **visitor/user/admin** I can **ability** in order to **result**
 
 **CB1**
 
-**CB2**
+**CB2** (if applicable)
 
-**CB3**
+**CB3** (if applicable)
 
 The list of user stories can bee viewed on the ‘completed’ tab of the project kanban board, but also viewable below;
 
@@ -139,25 +143,24 @@ The list of user stories can bee viewed on the ‘completed’ tab of the projec
 - Deploy to Heroku
 - Create database admin superuser
 - Create base html & styles
-- Add static files and directories
 - Create BG3 build list
+- Add static files and directories
 - Create BG3 detailed build page
 - Search via keyword
 - Create & register user accounts
 - Create a build post
 - Moderate posts
 - Leave comments on builds
-- Moderate comments
 - Add build to favourites
+- Edit or delete uploaded builds
 - View account & favourite builds
-- Create ER detailed build page
 - Create home app directory 
 - Add 404 & 403 page
-- Detailed testing 
+- Initial README documentation
 - Detailed testing 
 - Complete README documentation
 
-Furthermore, each user story is categorised into it’s relevant EPIC, to provide as clear working pathway and thorough planning of each individual app on the website.
+Furthermore, each user story is categorised into it’s relevant milestone, to provide as clear working pathway and thorough planning of each individual app on the website.
 
 ### User Visitor Goals
 
@@ -193,19 +196,19 @@ Wireframes for all HTML templates were created using [Balsamiq Wireframes](https
 
 ### Color Scheme
 
-The color scheme was designed using [Coolers.co](https://coolors.co/). The primary colors used in this project are dark greys and gold, remeniscent both of the branding of Baldur's Gate itself as well as the color of treasure - a staple of any fantasy setting.
+The color scheme was generated using [Coolers.co](https://coolors.co/). The primary colors used in this project are dark grey and gold, remeniscent both of the branding of Baldur's Gate itself as well as the color of treasure - a staple of any fantasy setting.
 
 ![Build.mt color scheme](assets/readme_misc/color-scheme.PNG)
 
 ### Fonts
 
-The main font used in the project is 'Libre Baskerville' - based on American Type Founder's Baskerville from 1941 and chosen again for it's proximity to the font used in the BG3 branding but also because it gives a antiquitean feeling to the website whilst also looking clean and grandiose.
+The main font used in the project is 'Libre Baskerville' - based on American Type Founder's Baskerville from 1941 and chosen again for it's proximity to the font used in the BG3 branding, but also because it gives a antiquitean feeling to the website whilst also looking clean and grandiose.
 
 ![Libre Baskerville Font](assets/readme_misc/libre-baskerville.PNG)
 
 ### ERD - DrawSQL
 
-The main Entity Relationship Diagram (ERD) for the project was designed using the web service [DrawSQL](https://drawsql.app/). This diagram was used as the basis for the main Bgbuild database model for both individual instances of single builds and the comment model in relation to each individual build. Although some tweaks were made to the fields in place for the main model, this diagram was the single point of reference across the planning stage for the project.
+The main Entity Relationship Diagram (ERD) for the project was designed using the web service [DrawSQL](https://drawsql.app/). This diagram was used as the basis for the main Bgbuild database model for both individual instances of single builds and the comment model in relation to each individual build. Although some tweaks were made to the fields in place for the main model, this diagram was the single point of reference across the planning stage for the project. As each class comes with an individual subset of subclasses, these are broken out into a seperate table in the diagram for ease of understanding.
 
 ![Build.mt ERD](assets/readme_ux/drawsql.png)
 
@@ -215,19 +218,19 @@ The main Entity Relationship Diagram (ERD) for the project was designed using th
 
 ### NavBar
 
-The NavBar element is everpresent across all pages as part the of base html of the site and sets the visual tone of the website. On the left-hand side, the site name is shown with an implemented color scheme as well as a custom designed icon for some flair, and to provide an appealing indicator of the site's purpose - as well as providing a constant link back to the home page.
+The NavBar element is everpresent across all pages as part the of base html of the site, and sets the visual tone of the website. On the left-hand side, the site name is shown with an implemented color scheme as well as a custom designed icon for some flair, and to provide an appealing indicator of the site's purpose - as well as providing a constant link back to the home page.
 
 ![Build.mt NavBar](assets/readme_screenshots/navbar.PNG)
 
 ![Build.mt Icon](assets/readme_screenshots/brand-icon.PNG)
 
-The NavBar links on the right are organised in a reactive collapsable style, so as when the user is utilising the site on a smaller device the links fold into a hamburger menu, which will then dropdown the links when clicked.
+The NavBar links on the right are organised in a reactive collapsable style, so as when the user is utilising the site on a smaller device the links fold into a hamburger menu which will then dropdown the links when clicked.
 
 ![Build.mt hamburger menu](assets/readme_screenshots/navbar-hamburger.PNG)
 
 ![Build.mt hamburger menu expanded](assets/readme_screenshots/navbar-hamburger-expanded.PNG)
 
-When logged out, the user will have the option to go straight to the Build list and view the builds, or they can click login or register to access the relevant account functionality. When logged in, the account username is shown in place of the register link, and becomes a nested dropdown that stores links to the users' submitted builds and favourites.
+When logged out, the user will have the option to go straight to the build list and view the builds, or they can click login or register to access the relevant account functionality. When logged in, the account username is shown in place of the register link, and becomes a nested dropdown that stores links to the users' submitted builds and favourites.
 
 ![Build.mt NavBar links unauth](assets/readme_screenshots/navbar-links-unauth.PNG)
 
@@ -237,7 +240,7 @@ When logged out, the user will have the option to go straight to the Build list 
 
 ### Footer 
 
-Also part of the base html is the footer, which is styled inline with the NavBar for consistent branding. Inside the footer is a copyright notice, as well as an actionable link to the developer (my) Github page.
+Also part of the base html is the footer, which is styled in line with the NavBar for consistent branding. Inside the footer is a copyright notice, as well as an actionable link to the developer (my) Github page in a new tab.
 
 ![Build.mt footer](assets/readme_screenshots/footer.PNG)
 
@@ -249,10 +252,9 @@ The home page serves as the first access point to the website, being linked to a
 
 ### Build List
 
-The main build list is the main meat of the website. All submitted builds are displayed in bootstrap card format, listed by 4 to a row and paginated by 8, so most viewports will have an uncluttered view of the builds on display. Each build displays the number of comments and favourites attatched to it, as well as if the auth user has favourited. At the bottom of each build, there is a reactive button link to the build detail.
+The main build list is the meat of the website. All submitted builds are displayed in bootstrap card format, listed by 4 to a row and paginated by 8, so most viewports will have an uncluttered view of the builds on display. Each build displays the number of comments and favourites attatched to it, as well as if the auth user has favourited. At the bottom of each build, there is a reactive button link to the individual build detail.
 
 ![Build.mt build list](assets/readme_screenshots/build-list.PNG)
-
 
 Each build card has a header, an image related to the build, and a few lines of information outlining the key points to the build - namely build name, role, base class, and a humerous exerpt summarising the build.
 Also present in each build is a reactive class image - this variable template is linked to the main class of the database entry, so it will change depending on the base class used. 
@@ -261,7 +263,7 @@ Also present in each build is a reactive class image - this variable template is
 
 The user who uploaded the build is listed in the bottom of the build information.
 
-Inside the build list, the builds are listed from newest onwards. Any unnaproved builds are listed with italics and the explore button deactivated, showing clear and obvious build moderation.
+Inside the build list, the builds are listed from newest onwards. Any unnaproved builds are listed with all text in italics and the explore button deactivated, showing clear and obvious build moderation.
 
 ![Build.mt build list moderation example](assets/readme_screenshots/build-moderation.PNG)
 
@@ -283,13 +285,13 @@ Once accessed, the add build form is a straightforward display of the Bgaddbuild
 
 ![Build.mt add build form](assets/readme_screenshots/add-build-form.PNG)
 
-The build slug field is intentionally hidden with a linked javascript script containing a slugify function - the content of the text page is automatically rendered in the hidden slug field without any uppercase letters or special characters (either removing them or replacing them with dashes). This is coded to take place on keyupstroke, so potential users will not see anything happening in the UX view.
+The build slug field is intentionally hidden with a linked javascript script containing a slugify function - the content of the build title field is automatically replicated in the hidden slug field without any uppercase letters or special characters (either removing them or replacing them with dashes). This is coded to take place on keyupstroke, so potential users will not see anything happening in the UX view.
 
-Within the inputs, there is a image field - this is linked to a Cloudinary database configured in the site settings. Users can upload a custom image, but the field is optional - if there is no image found the placeholder BG3 game image will be rendered in it's place.
+Within the inputs, there is a image field - this is linked to a Cloudinary database configured in the site settings. Users can upload a custom image, but the field is optional - if there is no image found the placeholder BG3 game logo will be rendered in its place.
 
 ![Build.mt placeholder image](assets/readme_screenshots/placeholder-image.PNG)
 
-As the build form has a lot of potential variables - each class has at least 3 subclasses - the form is controlled by a javascript script which reveals relevant build information when certain eventlisteners are fulfilled, so if the user has chosen a Barbarian class, the Barbarian subclass field will be revealed, and then hidden when a new class is chosen.
+As the build form has a lot of potential variables - each class has at least 3 subclasses - the javascript reveals relevant build information when certain eventlisteners are fulfilled, so if the user has chosen a Barbarian class, the Barbarian subclass field will be revealed, and then hidden when a new class is chosen.
 
 ![Build.mt add build form before Javascript](assets/readme_screenshots/add-build-form-before.PNG)
 
@@ -309,7 +311,7 @@ The fields are, build name, role, base class, subclass, level split, key ability
 
 ### Edit & Delete Build
 
-Below the main build information but contained within the card body, there are two buttons which allow authenticated build post owners to either edit or delete their builds.
+Below the main build information but contained within the card body, there are two buttons which allow authenticated build post owners to either edit or delete their builds - this section is hidden to users who did not submit the build.
 
 ![Build.mt build detail edit delete buttons](assets/readme_screenshots/edit-delete-buttons.PNG)
 
@@ -339,7 +341,7 @@ Contained below the build detail is the comment form. Authenticated users are ab
 
 ### My Builds
 
-Authenticated users, once logged in, can access a list of their submitted build by clicking on their account name and the 'my builds' link in the dropdown list. This page display is a filtered queryset showing only builds that have been created by the user, displayed in the same manner as the main build list.
+Authenticated users, once logged in, can access a list of their submitted builds by clicking on their account name and the 'my builds' link in the dropdown list. This page display is a filtered queryset showing only builds that have been created by the user, displayed in the same manner as the main build list.
 
 ![Build.mt my builds section](assets/readme_screenshots/my-builds.PNG)
 
@@ -381,9 +383,9 @@ Sensitive information, such as API and secret keys, contained within the env.py 
 
 ### Defensive Programming Measures
 
-Utilised within the code are several authentication measures such as {% if user.is_authenticated %}, barring anauthenticated users from accessing areas roped off for site memebers.
+Utilised within the code are several authentication tags such as {% if user.is_authenticated %}, barring anauthenticated users from accessing areas roped off for site members.
 
-Within the Django class-based views the security based mixins - LoginRequiredMixin, UserPassesTestMixin, SuccessMessageMixin - are used for extra protection against unauth users gaining access to areas marked for users only.
+Within the Django class-based views the security based mixins - LoginRequiredMixin, UserPassesTestMixin, SuccessMessageMixin - are used for extra protection against unauth users gaining access to areas marked for users only. This also prevents users from gaining access to functions off-limits by direct URL input.
 
 ### Input Validation
 
@@ -402,7 +404,7 @@ Furthermore, for the difficulty rating, the max number validator is in place to 
 ### Known Bugs & Issues
 
 **Reply Form**
-As part of the build detail view, the initial plan was to include a secondary reply form rendered within the comment form to allow users to reply to single instances of comments and create mini-threads. I implemented the following BgReply model within bgbuild\models.py;
+As part of the build detail view, the initial plan was to include a secondary reply form rendered within the comment form section to allow users to reply to single instances of comments and create mini-threads. I implemented the following BgReply model within bgbuild\models.py;
 
     class Bgreply(models.Model):
         """
@@ -538,7 +540,7 @@ When applied, this method worked and provided the desired functionality, as seen
 
 ![Build.mt reply section](assets/readme_screenshots/replies-example.PNG)
 
-However, when validated through the W3 HTML checker during final checks, the method I have used to reuse the same form without a prefix or formset led to the reuse of several HTML Div ids provided by the crispy form input. This led to the failure of any commented page when put through the W3 validator due to the multiple duplication of the containing div id, and the id of the text body.
+However, when validated through the W3 HTML checker during final checks, the method I have used to reuse the same form without a prefix or formset led to the duplication of several HTML Div ids and text areal elements provided by the crispy form input. This led to the failure of any commented page when put through the W3 validator due to the multiple duplication of the containing div id, and the id of the text body.
 
 ![Build.mt reply errors](assets/readme_screenshots/reply-errors.PNG)
 
@@ -548,7 +550,7 @@ With all this in mind I removed the reply form from the comment section from the
 
 **Search Bar**
 
-The search bar function returns results only when the input is fully in lowercase. I believe this is due to the filter used only accepting exact matches to the dropdown tuple used. This issue will be worked on for future releases.
+The search bar function returns results only when the input is fully in lowercase. I believe this is due to the filter used only accepting exact matches to the dropdown tuple used. This issue will be corrected for future releases.
 
 ![Build.mt build list searchbar results](assets/readme_screenshots/search-results.PNG)
 
@@ -556,7 +558,7 @@ The search bar function returns results only when the input is fully in lowercas
 
 **Form Resubmission**
 
-Upon manual an auth user leaving a comment and manually reloading the page, the form resubmits and sends the comment a second time. This is unlikely to be encountered by an average user but will be fixed in future realeases by adjusting the comment view.
+Upon an auth user leaving a comment and manually reloading the page, the form resubmits and sends the comment a second time. This is unlikely to be encountered by an average user but will be fixed in future realeases by adjusting the comment view.
 
 ![Build.mt comment form resubmission](assets/readme_screenshots/form-resubmission.PNG)
 
@@ -574,7 +576,7 @@ As well as the fixing of the reply section - further interaction with the commen
 
 Allowing users to sort the build list page by class or build role is also planned to be implemented in the future.
 
-Adding models for equipment and weapons to add further fields to the main model to further customise the build.
+Adding equipment and weapons as further fields to the main model to further customise the build is also in development.
 
 -----------------------------
 
@@ -584,7 +586,7 @@ Adding models for equipment and weapons to add further fields to the main model 
 
 **HTML**
 
-All pages passed through [W3 HTML validator](https://validator.w3.org/) with no issues apart from the ones described below.
+All pages passed through [W3 HTML validator](https://validator.w3.org/) with no issues apart from the ones described below on the register page.
 
 INDEX
 
@@ -688,16 +690,16 @@ Settings.py throws up 4 x line length errors - these lines are pre-packaged from
 | User Story      | Acceptance Criteria | Expected Outcome  | Pass/Fail 
 | ----------- | ----------- | ----------- | -----------
 | [#3 Deploy Early](https://github.com/AlbaXIII/build.mt/issues/3) | Deploy early to Heroku | Site deployed | PASS
-| [#6 Create Build List](https://github.com/AlbaXIII/build.mt/issues/6) | Build list created with basic build overview & reactive class images | Build list displays rows with relevant information paginated into groups | PASS
+| [#6 Create Build List](https://github.com/AlbaXIII/build.mt/issues/6) | Build list created with basic build overview & reactive class images | Build list displays rows with relevant information, paginated | PASS
 | [#8 Create Detailed Build View](https://github.com/AlbaXIII/build.mt/issues/8) | Individual builds in list can be opened from list view to detail view | Detail view displays all relevant information clearly | PASS
-| [#9 Search Builds by Keyword](https://github.com/AlbaXIII/build.mt/issues/9) | Builds in buildlist can be searched by keyword at tope of page | Search returns filtered list with number of entries | PASS (see [known Bugs & Issues](#known-bugs--issues))
+| [#9 Search Builds by Keyword](https://github.com/AlbaXIII/build.mt/issues/9) | Builds in buildlist can be searched by keyword at top of page | Search returns filtered list with number of entries | PASS (see [known Bugs & Issues](#known-bugs--issues))
 | [#11 Register User Accounts](https://github.com/AlbaXIII/build.mt/issues/11) | User can register for account | allauth function allowing registration | PASS
 | [#12 Submit Build](https://github.com/AlbaXIII/build.mt/issues/12) | Auth users can access add build form with success message and account validation | On login add-build form accessed through build list | PASS
 | [#13 Moderate Builds](https://github.com/AlbaXIII/build.mt/issues/13) | Install Summernote, show builds awaiting approval | Builds submitted with draft status, clear visual indicators | PASS
 | [#14 Leave Comment on Build](https://github.com/AlbaXIII/build.mt/issues/14) | Users can submit comment, published immediately | Crispy form build into build detail view, message indicates success | PASS
 | [#15 Add Build to Favourites](https://github.com/AlbaXIII/build.mt/issues/15) | Authenticated users can see favourite button, add to favourites when browsing build detail view | Model field implemented for favourite -> user relationship, favourites added to seperate account page | PASS
 | [#16 Edit or Delete Uploaded Builds](https://github.com/AlbaXIII/build.mt/issues/16) | Build submitters can see edit/delete functionality on build detail view | updated or deleted builds reflected in build list and in database admin view | PASS
-| [#18 View Account and Favourited Builds](https://github.com/AlbaXIII/build.mt/issues/18) | Site member can access pages through NavBar with submitted builds and favourited builds | Account pages available through NavBar with filtered object lists | PASS
+| [#18 View Account and Favourited Builds](https://github.com/AlbaXIII/build.mt/issues/18) | Site member can access pages through NavBar with submitted builds and favourited builds shown | Account pages available through NavBar with filtered object lists | PASS
 | [#19 Create Home Page](https://github.com/AlbaXIII/build.mt/issues/19) | Create index as home page landing area for new site users | Site base URL takes user through to index.html | PASS
 | [#24 Upload Pictures With Build Submissions](https://github.com/AlbaXIII/build.mt/issues/24) | Allow users to upload their own images using Cloudinary and have reactive class icons on build list view | Cloudinary image field implemented and operational on add build form, base_class changes build list/detail class icon | PASS
 
@@ -715,7 +717,7 @@ Settings.py throws up 4 x line length errors - these lines are pre-packaged from
 **FOOTER**
 | **Test**    | **Action** | **Expected Outcome**  | **Pass/Fail** | **Comments** |
 | ----------- | ----------- | ----------- | ----------- | ----------- |
-| Footer displays correctly on all pages for both first time users and members | Visit all pages as authenticated user and unauthenticated | Footer displays correctly on all pages | PASS
+| Footer displays correctly on all pages for both first time users and members | Visit all pages as authenticated and unauthenticated user | Footer displays correctly on all pages | PASS
 | Github link functions correctly and opens developer profile page in new tab | Access link on all pages to test link to GitHub is operational and opens in new tab | Link opens new tab and lands on correct page on all pages | PASS
 
 
@@ -744,6 +746,7 @@ Settings.py throws up 4 x line length errors - these lines are pre-packaged from
 | Site members can upload builds usin add build form | Complete form fields as a logged in user and submit using add build form | Django message confirms successful build upload, build now visible in build list awaiting moderation from site administrators | PASS
 | Add build form reactive to base class and multiclass field choices | Accessing base class and multiclass field, select each class for relevant subclass field to display - repeat process with multiclass for additional class information | Form reacts to base class selection, multiclass selection | PASS
 | Cloudinary field can recieve user image uploads | Test image field upload with .png, .jpg and .webp files | Cloudinary field accepts all field types and displays accordingly | PASS 
+| Hidden build slug field can convert unsupported characters and upperkeystrokes | Test uploading build with uppercase and exclamation mark | uppercase letters are automatically changed to lowercase, special characters are replaced by spaces in slug link | PASS
 
 
 **BUILD DETAIL**
@@ -784,7 +787,7 @@ Settings.py throws up 4 x line length errors - these lines are pre-packaged from
 
 | **CREATE** | Add build form through build list page.
 
-| **READ** | Build list for all users.
+| **READ** | Build list, detail for all users.
 
 | **UPDATE** | Build submitters access edit form through build detail page.
 
@@ -874,7 +877,7 @@ Relevant installed modules below;
 
 - cloudinary==1.36.0 - allow users to store images in purpose-built offsite storage.
 - crispy-bootstrap5==0.7 - crispy forms stylings for add/edit build form.
-- dj-database-url==0.5.0 - 
+- dj-database-url==0.5.0 - utilize DATABASE_URL environment
 - dj3-cloudinary-storage==0.0.6 - storage link to Cloudinary.
 - Django==4.2.17 - main Django version.
 - django-allauth==0.57.2 - Allauth used for user authentication and registration.
@@ -909,7 +912,7 @@ Relevant installed modules below;
 
 ### Additional Software
 
-- Adobe Illustrator - logo design.
+- Adobe Illustrator - logo & icon design.
 - [Cloudinary image converter](https://cloudinary.com/tools/png-to-webp) - condense images to .webp format.
 
 -----------------------------
@@ -927,7 +930,7 @@ Relevant installed modules below;
 
 Main site framework inspired by 'I Think Therefore I Blog' - CI Walkthrough project.
 
-The [Baldur's Gate III reddit page](https://www.reddit.com/r/BG3Builds/) for many many build inspirations.
+The [Baldur's Gate III Builds reddit page](https://www.reddit.com/r/BG3Builds/) for many many build inspirations.
 
 As part of this project I collated a list of previous CI PP4s for inspiration, and will fully credit them here;
 
